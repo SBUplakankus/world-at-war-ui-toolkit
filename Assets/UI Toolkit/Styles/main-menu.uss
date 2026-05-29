@@ -1,0 +1,247 @@
+.video-bg {
+    flex-grow: 1;
+    background-color: rgb(6, 6, 6);
+    -unity-background-image-tint-color: rgba(167, 167, 167, 0.808);
+}
+
+.vignette-side {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/Art/Materials/LinearFadeOut3.svg?fileID=7388822144124034973&guid=4db3b07cd3c02af4787d736dec10a8bc&type=3#LinearFadeOut3");
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.784);
+    color: rgba(0, 0, 0, 0.404);
+    height: 100%;
+}
+
+.vignette-side--left {
+    width: 45%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.vignette-side--right {
+    width: 15%;
+    position: absolute;
+    right: 0;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-content: flex-end;
+    align-items: flex-end;
+    scale: -1 1;
+}
+
+.view-ctr {
+    flex-grow: 1;
+}
+
+.header-bar {
+    flex-grow: 1;
+    font-size: 60px;
+    flex-direction: row;
+    background-color: var(--color-bg-black);
+    height: 13%;
+    max-height: 15%;
+    padding: 0;
+    align-content: flex-end;
+    align-items: flex-end;
+    justify-content: flex-end;
+    -unity-text-align: middle-left;
+}
+
+.info-bar {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    height: 40%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-image: url("project://database/Assets/Art/Materials/LinearFadeOut2.svg?fileID=7388822144124034973&guid=a07dce31e179b4845b1c3686b9df1660&type=3#LinearFadeOut2");
+    background-color: var(--color-transparent);
+    -unity-background-image-tint-color: rgba(125, 143, 138, 0.184);
+    border-color: rgba(165, 165, 165, 0.42);
+    border-bottom-width: 2px;
+    border-left-color: rgba(125, 143, 138, 0.808);
+    border-right-color: rgba(125, 143, 138, 0.808);
+    border-top-color: rgba(125, 143, 138, 0.808);
+    border-bottom-color: rgba(125, 143, 138, 0.808);
+}
+
+.title-ctr {
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+.user-ctr {
+    flex-grow: 1;
+    flex-direction: row-reverse;
+}
+
+.header-title {
+    -unity-font-style: normal;
+    color: var(--color-text-primary);
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: var(--color-text-dark);
+    text-shadow: 3px 2px 1px rgb(0, 0, 0);
+    letter-spacing: 1px;
+    scale: 1 0.9;
+}
+
+.username-label {
+    -unity-font-style: normal;
+    color: var(--color-text-dim);
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    text-shadow: 3px 2px 1px rgb(0, 0, 0);
+    scale: 1 0.9;
+}
+
+.main-ctr {
+    flex-grow: 1;
+    height: 74%;
+    padding-left: 10%;
+    padding-right: 10%;
+    flex-direction: row;
+    justify-content: space-between;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.659);
+}
+
+.left-ctr {
+    flex-grow: 1;
+    width: 50%;
+    max-width: 33%;
+}
+
+.menu-list-ctr {
+    flex-grow: 1;
+    height: 30%;
+    justify-content: space-evenly;
+}
+
+.menu-divider {
+    flex-grow: 1;
+    height: 5%;
+    min-height: auto;
+    max-height: 5%;
+}
+
+.menu-divider--sm {
+    height: 3%;
+}
+
+.menu-btn {
+    color: var(--color-text-primary);
+    background-color: var(--color-transparent);
+    background-image: url("project://database/Assets/Art/Materials/LinearFadeOut3.svg?fileID=7388822144124034973&guid=4db3b07cd3c02af4787d736dec10a8bc&type=3#LinearFadeOut3");
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.373);
+    border-color: var(--color-transparent);
+    border-width: 0;
+    -unity-text-align: middle-left;
+    font-size: 35px;
+    margin: 0;
+    padding-top: 5px;
+    padding-right: 0;
+    padding-bottom: 5px;
+    padding-left: 0;
+    transition: 0.1s;
+    border-top-width: 1px;
+    text-shadow: 3px 2px 1px rgb(0, 0, 0);
+    letter-spacing: 1px;
+}
+
+.menu-btn:hover {
+    color: var(--color-text-accent);
+    border-color: rgba(180, 180, 180, 0.373);
+    border-top-width: 1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    -unity-background-image-tint-color: rgba(120, 120, 120, 0.373);
+    transition: 0.1s;
+}
+
+.motd-ctr {
+    flex-grow: 1;
+    height: auto;
+    padding: 0;
+    color: rgba(233, 233, 233, 0.8);
+    align-content: flex-end;
+    justify-content: center;
+}
+
+.motd-divider {
+    flex-grow: 1;
+    background-color: var(--color-transparent);
+    background-image: url("project://database/Assets/Art/Materials/LinearFadeOut3.svg?fileID=7388822144124034973&guid=4db3b07cd3c02af4787d736dec10a8bc&type=3#LinearFadeOut3");
+    -unity-background-image-tint-color: rgba(236, 236, 236, 0.741);
+    max-height: 1%;
+}
+
+.motd-header {
+    color: rgb(239, 239, 239);
+    background-color: var(--color-transparent);
+    background-image: url("project://database/Assets/Art/Materials/LinearFadeOut2.svg?fileID=7388822144124034973&guid=a07dce31e179b4845b1c3686b9df1660&type=3#LinearFadeOut2");
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.373);
+    font-size: 30px;
+    margin: 0;
+    padding-top: 15px;
+    padding-right: 0;
+    padding-bottom: 15px;
+    padding-left: 0;
+}
+
+.motd-content {
+    background-color: var(--color-transparent);
+    background-image: url("project://database/Assets/Art/Materials/LinearFadeOut2.svg?fileID=7388822144124034973&guid=a07dce31e179b4845b1c3686b9df1660&type=3#LinearFadeOut2");
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.373);
+    font-size: 25px;
+    margin: 0;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 0;
+    white-space: pre-wrap;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    -unity-paragraph-spacing: 2px;
+    -unity-text-align: upper-left;
+}
+
+.right-ctr {
+    width: 50%;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    align-content: flex-end;
+    justify-content: flex-end;
+    position: relative;
+    right: 0;
+    bottom: 0;
+}
+
+.logo-ctr {
+    flex-grow: 1;
+    height: 45%;
+    max-height: 45%;
+    width: 60%;
+    flex-direction: row-reverse;
+    -unity-text-align: lower-right;
+    position: relative;
+    bottom: auto;
+    right: auto;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.logo-image {
+    width: 490px;
+    -unity-background-image-tint-color: rgba(234, 234, 234, 0.812);
+    height: 350px;
+}
+
+.footer-bar {
+    flex-grow: 1;
+    background-color: var(--color-bg-black);
+    height: 13%;
+    max-height: 13%;
+}

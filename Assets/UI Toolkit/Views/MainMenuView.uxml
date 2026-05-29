@@ -1,0 +1,60 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="Divider" src="project://database/Assets/UI%20Toolkit/Templates/Divider.uxml?fileID=9197481963319205126&amp;guid=305a69e8cfe82454f83e8a39cfb354c3&amp;type=3#Divider"/>
+    <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/main-menu.uss?fileID=7433441132597879392&amp;guid=6f87220cec27789489560193c96f9b01&amp;type=3#main-menu"/>
+    <ui:VisualElement name="video-bg" class="fill-absolute video-bg" style="background-image: url(&quot;project://database/Assets/Art/Render%20Textures/Menu_BG.renderTexture?fileID=8400000&amp;guid=1665eca1802e1bd48b47572cb948498c&amp;type=2#Menu_BG&quot;); background-color: rgb(6, 6, 6); -unity-background-image-tint-color: rgba(125, 143, 138, 0.808); top: -1px; left: 2px;">
+        <ui:VisualElement name="left-vig" class="vignette-side vignette-side--left" style="width: 25%;"/>
+        <ui:VisualElement name="right-vig" class="vignette-side vignette-side--right"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="view-ctr" class="view-ctr">
+        <ui:VisualElement name="hdr-ctr" class="font-arsenal-bold header-bar">
+            <ui:VisualElement name="info-ctr" class="info-bar" style="background-image: url(&quot;project://database/Assets/Art/Materials/MiddleGradient.svg?fileID=7388822144124034973&amp;guid=9c5cb0a394dd91646935e945f005c0f2&amp;type=3#MiddleGradient&quot;); border-left-color: rgba(165, 165, 165, 0.098); border-right-color: rgba(165, 165, 165, 0.098); border-top-color: rgba(165, 165, 165, 0.098); border-bottom-color: rgba(165, 165, 165, 0.098);">
+                <ui:VisualElement name="title-ctr" class="title-ctr">
+                    <ui:Label text="MAIN MENU" double-click-selects-word="false" name="hdr-title" class="font-arsenal-bold text-shadow-dark header-title" style="color: rgba(255, 255, 255, 0.898);"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="user-ctr" class="user-ctr">
+                    <ui:Label text="Signed In: Uplakankus" double-click-selects-word="false" name="username" class="font-arsenal-bold text-shadow-dark username-label"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="main-ctr" class="font-dmsans-thin main-ctr">
+            <ui:VisualElement name="left-ctr" class="left-ctr">
+                <ui:VisualElement name="menu-list-ctr" class="menu-list-ctr">
+                    <ui:Instance template="Divider"/>
+                    <ui:Instance template="MenuButton" name="solo-btn">
+                        <AttributeOverrides element-name="btn" text="SOLO"/>
+                    </ui:Instance>
+                    <ui:Instance template="MenuButton" name="coop-btn">
+                        <AttributeOverrides element-name="btn" text="COOPERATIVE CAMPAIGN"/>
+                    </ui:Instance>
+                    <ui:Instance template="MenuButton" name="zombies-btn">
+                        <AttributeOverrides element-name="btn" text="NAZI ZOMBIES"/>
+                    </ui:Instance>
+                    <ui:Instance template="Divider"/>
+                    <ui:Instance template="MenuButton" name="multi-btn">
+                        <AttributeOverrides element-name="btn" text="MULTIPLAYER"/>
+                    </ui:Instance>
+                    <ui:Instance template="MenuButton" name="options-btn">
+                        <AttributeOverrides element-name="btn" text="OPTIONS"/>
+                    </ui:Instance>
+                    <ui:Instance template="Divider"/>
+                    <ui:Instance template="MenuButton" name="credits-btn">
+                        <AttributeOverrides element-name="btn" text="CREDITS"/>
+                    </ui:Instance>
+                </ui:VisualElement>
+                <ui:VisualElement name="motd-ctr" class="font-archivo-regular motd-ctr">
+                    <ui:VisualElement name="white-line" class="motd-divider"/>
+                    <ui:Label text="Message of the Day" name="motd-hdr" class="font-archivo-semibold text-shadow-dark motd-header"/>
+                    <ui:Label text="Visit Call of Duty bla bla bla .com or follow Treyarch on Twotter for the latest updates etc etc bing bong dooba dooba world at war.&#10;" name="motd-content" class="font-archivo-medium text-shadow-dark motd-content"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="right-ctr" class="right-ctr">
+                <ui:VisualElement name="logo-ctr" class="logo-ctr">
+                    <ui:Image class="logo-image" style="background-image: url(&quot;project://database/Assets/Art/Images/32914ad4-70a3-427d-9c7f-304d2d59172f.png?fileID=21300000&amp;guid=e9eb95d41ebb6bf43b7a7c7bd58729b3&amp;type=3#32914ad4-70a3-427d-9c7f-304d2d59172f&quot;); -unity-background-image-tint-color: rgba(234, 234, 234, 0.784);"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="ftr-ctr" class="footer-bar"/>
+    </ui:VisualElement>
+</ui:UXML>

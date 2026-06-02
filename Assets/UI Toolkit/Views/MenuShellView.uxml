@@ -1,0 +1,30 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="MainMenuView" src="project://database/Assets/UI%20Toolkit/Views/MainMenuView.uxml?fileID=9197481963319205126&amp;guid=2effd42ff2baa6e4090c498b849c466e&amp;type=3#MainMenuView"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/main-menu.uss?fileID=7433441132597879392&amp;guid=6f87220cec27789489560193c96f9b01&amp;type=3#main-menu"/>
+    <ui:VisualElement name="video-bg" class="fill-absolute video-bg" style="background-image: url(&quot;project://database/Assets/Art/Render%20Textures/Menu_BG.renderTexture?fileID=8400000&amp;guid=1665eca1802e1bd48b47572cb948498c&amp;type=2#Menu_BG&quot;); background-color: rgb(6, 6, 6); -unity-background-image-tint-color: rgba(125, 143, 138, 0.808); top: 0; left: 0;">
+        <ui:VisualElement name="left-vig" class="vignette-side vignette-side--left" style="width: 25%;"/>
+        <ui:VisualElement name="right-vig" class="vignette-side vignette-side--right"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="view-ctr" class="view-ctr">
+        <ui:VisualElement name="hdr-ctr" class="font-arsenal-bold header-bar">
+            <ui:VisualElement name="info-ctr" class="info-bar" style="background-image: url(&quot;project://database/Assets/Art/Materials/MiddleGradient.svg?fileID=7388822144124034973&amp;guid=9c5cb0a394dd91646935e945f005c0f2&amp;type=3#MiddleGradient&quot;); border-left-color: rgba(165, 165, 165, 0.098); border-right-color: rgba(165, 165, 165, 0.098); border-top-color: rgba(165, 165, 165, 0.098); border-bottom-color: rgba(165, 165, 165, 0.098);">
+                <ui:VisualElement name="title-ctr" class="title-ctr">
+                    <ui:Label text="MAIN MENU" double-click-selects-word="false" name="hdr-title" class="font-arsenal-bold text-shadow-dark header-title" style="color: rgba(255, 255, 255, 0.898);"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="user-ctr" class="user-ctr">
+                    <ui:Label text="Signed In: Uplakankus" double-click-selects-word="false" name="username" class="font-arsenal-bold text-shadow-dark username-label"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="main-ctr" class="font-dmsans-thin main-ctr">
+            <ui:Instance template="MainMenuView"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="ftr-ctr" class="footer-bar">
+            <ui:VisualElement name="ftr-content" class="ftr-content" style="flex-grow: 1; padding-top: 0;">
+                <ui:Button text="Back" name="back-btn" class="ftr-btn" style="padding-top: 10px; padding-bottom: 10px;"/>
+                <ui:Label text="V1.0.8" name="version" class="version-label"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,5 +1,4 @@
 ﻿using System;
-using UI.Services;
 using UnityEngine.UIElements;
 
 namespace UI.Views
@@ -7,13 +6,11 @@ namespace UI.Views
     public abstract class BaseView : IDisposable
     {
         public VisualElement Root { get; private set; }
-        protected UIService UIService { get; private set; }
         private bool _disposed;
 
-        protected BaseView(VisualTreeAsset template, UIService uiService )
+        protected BaseView(VisualTreeAsset template)
         {
             Root = template.CloneTree();
-            UIService = uiService;
         }
 
         public void Activate()

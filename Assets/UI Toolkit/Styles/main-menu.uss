@@ -141,10 +141,7 @@
     -unity-text-align: middle-left;
     font-size: 35px;
     margin: 0;
-    padding-top: 5px;
-    padding-right: 0;
-    padding-bottom: 5px;
-    padding-left: 0;
+    padding: 5px 0;
     transition: 0.1s;
     border-top-width: 1px;
     text-shadow: 3px 2px 1px rgb(0, 0, 0);
@@ -264,14 +261,8 @@
     color: rgba(255, 255, 255, 0.886);
     -unity-text-align: upper-left;
     font-size: 25px;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .ftr-btn:hover {
@@ -285,14 +276,8 @@
     color: rgba(233, 141, 30, 0.886);
     -unity-text-align: upper-left;
     font-size: 25px;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .version-label {

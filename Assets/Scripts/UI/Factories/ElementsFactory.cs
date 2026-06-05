@@ -6,9 +6,9 @@ namespace UI.Factories
 {
     public static class ElementsFactory
     {
-        public static MenuShellElements MenuShell(VisualElement root)
+        public static LayoutElements Layout(VisualElement root)
         {
-            return new MenuShellElements(
+            return new LayoutElements(
                 MenuName: root.Q<Label>(UIElements.MenuName),
                 Username: root.Q<Label>(UIElements.UsernameLabel),
                 GameVersion: root.Q<Label>(UIElements.VersionLabel),
@@ -19,12 +19,12 @@ namespace UI.Factories
         public static MainMenuElements MainMenu(VisualElement root)
         {
             return new MainMenuElements(
-                SoloButton: root.Q<Button>(UIElements.SoloBtn),
-                CoOpButton: root.Q<Button>(UIElements.CoopBtn),
-                ZombiesButton: root.Q<Button>(UIElements.ZombiesBtn),
-                MultiplayerButton: root.Q<Button>(UIElements.MultiBtn),
-                OptionsButton: root.Q<Button>(UIElements.OptionsBtn),
-                CreditsButton: root.Q<Button>(UIElements.CreditsBtn),
+                SoloButton: root.Q<TemplateContainer>(UIElements.SoloBtn).Q<Button>(),
+                CoOpButton: root.Q<TemplateContainer>(UIElements.CoopBtn).Q<Button>(),
+                ZombiesButton: root.Q<TemplateContainer>(UIElements.ZombiesBtn).Q<Button>(),
+                MultiplayerButton: root.Q<TemplateContainer>(UIElements.MultiBtn).Q<Button>(),
+                OptionsButton: root.Q<TemplateContainer>(UIElements.OptionsBtn).Q<Button>(),
+                CreditsButton: root.Q<TemplateContainer>(UIElements.CreditsBtn).Q<Button>(),
                 MessageLabel: root.Q<Label>(UIElements.MotdContent)
             );
         }

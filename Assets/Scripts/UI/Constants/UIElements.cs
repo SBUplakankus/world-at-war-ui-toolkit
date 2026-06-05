@@ -15,6 +15,7 @@ namespace UI.Constants
     
 
         // Menu button
+        public const string Btn = "btn";
         public const string SoloBtn = "solo-btn";
         public const string CoopBtn = "coop-btn";
         public const string ZombiesBtn = "zombies-btn";

@@ -30,7 +30,7 @@
 }
 
 .font-dmsans-thin {
-    -unity-font-definition: url("project://database/Assets/Fonts/DM_Sans/static/DMSans_24pt-Thin.ttf?fileID=12800000&guid=382f2abadeac46e41b0df119a890b70c&type=3#DMSans_24pt-Thin");
+    -unity-font-definition: url("project://database/Assets/Fonts/DM_Sans/static/DMSans-Thin.ttf?fileID=12800000&guid=31514fa0a2c82c74baa8d9ac6f93512f&type=3#DMSans-Thin");
 }
 
 .text-shadow-dark {

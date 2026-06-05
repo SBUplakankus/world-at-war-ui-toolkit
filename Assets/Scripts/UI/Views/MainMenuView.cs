@@ -1,9 +1,9 @@
-﻿using UI.Factories;
+﻿using UI.Constants;
+using UI.Factories;
+using UI.Interfaces;
 using UI.Records;
-using UI.Services;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Screen = UI.Enums.Screen;
 
 namespace UI.Views
 {
@@ -11,45 +11,47 @@ namespace UI.Views
     {
         private MainMenuElements _elements;
 
-        public MainMenuView(VisualTreeAsset template, UIService uiService) : base(template, uiService)
+        public string HeaderName => ScreenNames.MainMenu;
+
+        public MainMenuView(VisualTreeAsset template) : base(template)
         {
+            
         }
 
         private void HandleSoloClicked()
         {
             Debug.Log("SOLO clicked");
-            UIService.NavigateTo(Screen.Solo);
+            UIRouter.Instance.NavigateTo<SoloView>();
         }
 
         private void HandleCoOpClicked()
         {
             Debug.Log("COOP clicked");
-            UIService.NavigateTo(Screen.CoOp);
+            UIRouter.Instance.NavigateTo<CoOpView>();
         }
-        
 
         private void HandleMultiplayerClicked()
         {
             Debug.Log("Multiplayer clicked");
-            UIService.NavigateTo(Screen.Multiplayer);
+            UIRouter.Instance.NavigateTo<MultiplayerView>();
         }
 
         private void HandleZombiesClicked()
         {
             Debug.Log("Zombies clicked");
-            UIService.NavigateTo(Screen.Zombies);
+            UIRouter.Instance.NavigateTo<ZombiesView>();
         }
 
         private void HandleOptionsClicked()
         {
             Debug.Log("Options clicked");
-            UIService.NavigateTo(Screen.Options);
+            UIRouter.Instance.NavigateTo<OptionsView>();
         }
 
         private void HandleCreditsClicked()
         {
             Debug.Log("Credits clicked");
-            UIService.NavigateTo(Screen.Credits);
+            UIRouter.Instance.NavigateTo<CreditsView>();
         }
 
         private string FetchMessageOfTheDay()

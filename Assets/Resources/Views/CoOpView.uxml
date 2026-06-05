@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:VisualElement style="flex-grow: 1; padding: 40px;">
+        <ui:Label text="CO-OP CAMPAIGN" name="screen-label" style="font-size: 32px; color: white;" />
+    </ui:VisualElement>
+</ui:UXML>

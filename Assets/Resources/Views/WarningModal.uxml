@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:VisualElement style="flex-grow: 1; padding: 40px; background-color: rgba(0,0,0,0.8); align-items: center; justify-content: center;">
+        <ui:Label text="WARNING" name="modal-label" style="font-size: 28px; color: white; margin-bottom: 20px;" />
+        <ui:Button text="Close" name="close-btn" />
+    </ui:VisualElement>
+</ui:UXML>

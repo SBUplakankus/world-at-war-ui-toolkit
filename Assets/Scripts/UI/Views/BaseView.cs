@@ -11,6 +11,7 @@ namespace UI.Views
         protected BaseView(VisualTreeAsset template)
         {
             Root = template.CloneTree();
+            Root.style.flexGrow = 1;
         }
 
         public void Activate()

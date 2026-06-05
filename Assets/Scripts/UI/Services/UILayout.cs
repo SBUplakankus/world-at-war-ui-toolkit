@@ -34,10 +34,12 @@ namespace UI.Services
 
         private void ToggleModal(bool toggle)
         {
-            _modalElements.ModalViewContainer.visible = toggle;
-            _modalElements.ModalViewContainer.pickingMode = toggle 
+            _modalElements.ModalContainer.visible = toggle;
+            _modalElements.ModalContainer.pickingMode = toggle 
                 ? PickingMode.Position
                 : PickingMode.Ignore;
+            
+            Debug.Log(toggle);
         }
         
         private static void SetHeaderTitle(Label header, BaseView view)
@@ -66,6 +68,7 @@ namespace UI.Services
                 _screenLayer.Push(_mainMenu);
             
             ToggleBackButton(false);
+            ToggleModal(false);
             SetHeaderTitle(_screenElements.Header, _mainMenu);
             SetUsername();
             SetVersion();

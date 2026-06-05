@@ -14,7 +14,7 @@ namespace UI.Constants
         public const string ModalHeader = "modal-hdr-lbl";
         public const string UsernameLabel = "username";
         public const string VersionLabel = "version";
-    
+        public const string Notice = "notice-lbl";
 
         // Menu button
         public const string Btn = "btn";
@@ -25,6 +25,7 @@ namespace UI.Constants
         public const string OptionsBtn = "options-btn";
         public const string CreditsBtn = "credits-btn";
         public const string BackBtn = "back-btn";
+        public const string OkBtn = "ok-btn";
 
         // MOTD section
         public const string MotdHdr = "motd-hdr";

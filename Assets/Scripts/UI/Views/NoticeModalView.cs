@@ -1,0 +1,33 @@
+﻿using UI.Constants;
+using UI.Factories;
+using UI.Interfaces;
+using UI.Records;
+using UnityEngine.UIElements;
+
+namespace UI.Views
+{
+    public class NoticeModalView : BaseView, IScreen
+    {
+        private NoticeModalElements _elements;
+        
+        public NoticeModalView(VisualTreeAsset template) : base(template)
+        {
+        }
+
+        protected override void GetElements() => _elements = ElementsFactory.NoticeModal(Root);
+
+        private static void HandleOkClicked() => UIRouter.Instance.CloseModal();
+        
+        protected override void Bind()
+        {
+            _elements.Ok.clicked += HandleOkClicked;
+        }
+
+        protected override void UnBind()
+        {
+            _elements.Ok.clicked -= HandleOkClicked;
+        }
+
+        public string HeaderName => ScreenNames.Notice;
+    }
+}

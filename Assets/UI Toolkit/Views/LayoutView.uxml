@@ -16,14 +16,14 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="screen-view-ctr" class="font-dmsans-thin main-ctr" style="-unity-font-definition: initial;"/>
+        <ui:VisualElement name="screen-view-ctr" class="font-dmsans-thin main-ctr" style="-unity-font-definition: initial; width: 100%;"/>
         <ui:VisualElement name="ftr-ctr" class="footer-bar">
             <ui:VisualElement name="ftr-content" class="ftr-content" style="flex-grow: 1; padding-top: 0;">
                 <ui:Button text="Back" name="back-btn" class="ftr-btn" style="padding-top: 10px; padding-bottom: 10px;"/>
                 <ui:Label text="V1.0.8" name="version" class="version-label"/>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="modal-ctr" picking-mode="Ignore" class="modal-ctr" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; max-height: none; width: 100%; max-width: none; align-items: center; align-self: center; justify-content: center; align-content: center; display: none;">
+        <ui:VisualElement name="modal-ctr" picking-mode="Ignore" class="modal-ctr" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; max-height: none; width: 100%; max-width: none; align-items: center; align-self: center; justify-content: center; align-content: center; display: flex; visibility: hidden;">
             <ui:VisualElement name="modal-bg" class="fill-absolute" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.392);"/>
             <ui:VisualElement name="modal-body" style="flex-grow: 1; width: 100%; height: 45%; max-height: 45%; color: rgb(0, 0, 0); padding-left: 0%; background-color: rgb(28, 30, 31);">
                 <ui:VisualElement name="modal-hdr" style="flex-grow: 1; height: 15%; max-height: 15%; padding-left: 15%; border-bottom-width: 2px; border-left-color: rgba(165, 165, 165, 0.098); border-right-color: rgba(165, 165, 165, 0.098); border-top-color: rgba(165, 165, 165, 0.098); border-bottom-color: rgba(165, 165, 165, 0.098); align-self: auto; align-content: center; align-items: flex-start; justify-content: space-around;">
@@ -31,7 +31,7 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="modal-view-ctr" style="flex-grow: 1; height: 85%; width: 100%; padding-left: 15%;"/>
             </ui:VisualElement>
-            <ui:VisualElement name="modal-vig-ctr" class="fill-absolute" style="flex-grow: 1;">
+            <ui:VisualElement name="modal-vig-ctr" picking-mode="Ignore" class="fill-absolute" style="flex-grow: 1; top: 0; left: 0;">
                 <ui:VisualElement name="left-vig" class="vignette-side vignette-side--left" style="width: 15%; -unity-background-image-tint-color: rgb(0, 0, 0); background-image: url(&quot;project://database/Assets/Art/Materials/LinearFadeOut3.svg?fileID=7388822144124034973&amp;guid=4db3b07cd3c02af4787d736dec10a8bc&amp;type=3#LinearFadeOut3&quot;);"/>
                 <ui:VisualElement name="right-vig" class="vignette-side vignette-side--right" style="width: 30%; -unity-background-image-tint-color: rgb(0, 0, 0);"/>
             </ui:VisualElement>

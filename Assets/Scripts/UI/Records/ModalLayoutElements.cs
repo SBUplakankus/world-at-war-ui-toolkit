@@ -4,6 +4,7 @@ namespace UI.Records
 {
     public record ModalLayoutElements(
         Label Header,
-        VisualElement ModalViewContainer
+        VisualElement ModalViewContainer,
+        VisualElement ModalContainer
         );
 }

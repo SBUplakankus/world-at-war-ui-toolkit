@@ -18,43 +18,44 @@ namespace UI.Views
             
         }
 
-        private void HandleSoloClicked()
+        private static void HandleSoloClicked()
         {
             Debug.Log("SOLO clicked");
             UIRouter.Instance.NavigateTo<SoloView>();
+            UIRouter.Instance.OpenModal<NoticeModalView>();
         }
 
-        private void HandleCoOpClicked()
+        private static void HandleCoOpClicked()
         {
             Debug.Log("COOP clicked");
             UIRouter.Instance.NavigateTo<CoOpView>();
         }
 
-        private void HandleMultiplayerClicked()
+        private static void HandleMultiplayerClicked()
         {
             Debug.Log("Multiplayer clicked");
             UIRouter.Instance.NavigateTo<MultiplayerView>();
         }
 
-        private void HandleZombiesClicked()
+        private static void HandleZombiesClicked()
         {
             Debug.Log("Zombies clicked");
             UIRouter.Instance.NavigateTo<ZombiesView>();
         }
 
-        private void HandleOptionsClicked()
+        private static void HandleOptionsClicked()
         {
             Debug.Log("Options clicked");
             UIRouter.Instance.NavigateTo<OptionsView>();
         }
 
-        private void HandleCreditsClicked()
+        private static void HandleCreditsClicked()
         {
             Debug.Log("Credits clicked");
             UIRouter.Instance.NavigateTo<CreditsView>();
         }
 
-        private string FetchMessageOfTheDay()
+        private static string FetchMessageOfTheDay()
         {
             return "Message of the Day it is the Message of the Day. Follow @massivemeltmedia on BlueSky and Subscribe on YouTube.";
         }

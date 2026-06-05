@@ -21,7 +21,8 @@ namespace UI.Factories
         {
             return new ModalLayoutElements(
                 Header: root.Q<Label>(UIElements.ModalHeader),
-                ModalViewContainer: root.Q<VisualElement>(UIElements.ModalViewContainer)
+                ModalViewContainer: root.Q<VisualElement>(UIElements.ModalViewContainer),
+                ModalContainer: root.Q<VisualElement>(UIElements.ModalContainer)
             );
         }
 
@@ -35,6 +36,14 @@ namespace UI.Factories
                 OptionsButton: root.Q<TemplateContainer>(UIElements.OptionsBtn).Q<Button>(),
                 CreditsButton: root.Q<TemplateContainer>(UIElements.CreditsBtn).Q<Button>(),
                 MessageLabel: root.Q<Label>(UIElements.MotdContent)
+            );
+        }
+
+        public static NoticeModalElements NoticeModal(VisualElement root)
+        {
+            return new NoticeModalElements(
+                Notice: root.Q<Label>(UIElements.Notice),
+                Ok: root.Q<TemplateContainer>(UIElements.OkBtn).Q<Button>()
             );
         }
     }

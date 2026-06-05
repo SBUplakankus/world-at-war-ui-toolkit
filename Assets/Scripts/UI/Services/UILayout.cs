@@ -13,24 +13,36 @@ namespace UI.Services
     {
         private UILayer _screenLayer;
         private UILayer _modalLayer;
-        private LayoutElements _elements;
+        
+        private ScreenLayoutElements _screenElements;
+        private ModalLayoutElements _modalElements;
+        
         private BaseView _mainMenu;
 
         private void GetLayers()
         {
             var root = GetComponent<UIDocument>().rootVisualElement;
-
-            _screenLayer = new UILayer(root.Q(UIElements.MainContainer));
-            _modalLayer = new UILayer(root.Q(UIElements.ModalContainer), true);
             
-            _elements = ElementsFactory.Layout(root);
+            _screenElements = ElementsFactory.ScreenLayout(root);
+            _modalElements = ElementsFactory.ModalLayout(root);
+            
+            _screenLayer = new UILayer(_screenElements.ScreenViewContainer);
+            _modalLayer = new UILayer(_modalElements.ModalViewContainer);
         }
         
-        private void ToggleBackButton(bool toggle) => _elements.BackButton.visible = toggle;
-        
-        private void SetHeaderTitle(BaseView view)
+        private void ToggleBackButton(bool toggle) => _screenElements.BackButton.visible = toggle;
+
+        private void ToggleModal(bool toggle)
         {
-            _elements.MenuName.text = view is IScreen screen
+            _modalElements.ModalViewContainer.visible = toggle;
+            _modalElements.ModalViewContainer.pickingMode = toggle 
+                ? PickingMode.Position
+                : PickingMode.Ignore;
+        }
+        
+        private static void SetHeaderTitle(Label header, BaseView view)
+        {
+            header.text = view is IScreen screen
                 ? screen.HeaderName
                 : ScreenNames.MainMenu;
         }
@@ -38,13 +50,13 @@ namespace UI.Services
         private void SetUsername()
         {
             // TODO: Fetch Username Test Logic
-            _elements.Username.text = $"Signed In: {TestData.Username}";
+            _screenElements.Username.text = $"Signed In: {TestData.Username}";
         }
 
         private void SetVersion()
         {
             // TODO: Fetch Version if at all
-            _elements.GameVersion.text = TestData.Version;
+            _screenElements.GameVersion.text = TestData.Version;
         }
 
         private void SetMainMenu()
@@ -54,12 +66,12 @@ namespace UI.Services
                 _screenLayer.Push(_mainMenu);
             
             ToggleBackButton(false);
-            SetHeaderTitle(_mainMenu);
+            SetHeaderTitle(_screenElements.Header, _mainMenu);
             SetUsername();
             SetVersion();
         }
 
-        private void Bind() => _elements.BackButton.clicked += OnBackClicked;
+        private void Bind() => _screenElements.BackButton.clicked += OnBackClicked;
         
         private void Register() => UIRouter.Instance.Register(this);
 
@@ -69,9 +81,8 @@ namespace UI.Services
         {
             _screenLayer.Push(view);
             ToggleBackButton(true);
-            SetHeaderTitle(view);
-        } 
-        public void ShowModal(BaseView view) => _modalLayer.Push(view);
+            SetHeaderTitle(_screenElements.Header, view);
+        }
 
         public void BackScreen()
         {
@@ -80,10 +91,22 @@ namespace UI.Services
             if (!_screenLayer.IsEmpty) return;
             
             ToggleBackButton(false);
-            SetHeaderTitle(_mainMenu);
+            SetHeaderTitle(_screenElements.Header, _mainMenu);
         }
-        
-        public void CloseModal() => _modalLayer.Pop();
+
+
+        public void ShowModal(BaseView view)
+        {
+            _modalLayer.Push(view);
+            ToggleModal(true);
+            SetHeaderTitle(_modalElements.Header, view);
+        }
+
+        public void CloseModal()
+        {
+            _modalLayer.Pop();
+            ToggleModal(false);
+        }
         
         private void Awake()
         {
@@ -95,8 +118,8 @@ namespace UI.Services
 
         private void OnDestroy()
         {
-            if (_elements.BackButton != null)
-                _elements.BackButton.clicked -= OnBackClicked;
+            if (_screenElements.BackButton != null)
+                _screenElements.BackButton.clicked -= OnBackClicked;
         }
     }
 }

@@ -6,13 +6,22 @@ namespace UI.Factories
 {
     public static class ElementsFactory
     {
-        public static LayoutElements Layout(VisualElement root)
+        public static ScreenLayoutElements ScreenLayout(VisualElement root)
         {
-            return new LayoutElements(
-                MenuName: root.Q<Label>(UIElements.MenuName),
+            return new ScreenLayoutElements(
+                Header: root.Q<Label>(UIElements.MenuName),
                 Username: root.Q<Label>(UIElements.UsernameLabel),
                 GameVersion: root.Q<Label>(UIElements.VersionLabel),
-                BackButton: root.Q<Button>(UIElements.BackBtn)
+                BackButton: root.Q<Button>(UIElements.BackBtn),
+                ScreenViewContainer: root.Q<VisualElement>(UIElements.ScreenViewContainer)
+            );
+        }
+
+        public static ModalLayoutElements ModalLayout(VisualElement root)
+        {
+            return new ModalLayoutElements(
+                Header: root.Q<Label>(UIElements.ModalHeader),
+                ModalViewContainer: root.Q<VisualElement>(UIElements.ModalViewContainer)
             );
         }
 

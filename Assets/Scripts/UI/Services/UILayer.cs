@@ -10,14 +10,12 @@ namespace UI.Services
         private readonly VisualElement _container;
         private readonly Stack<BaseView> _history = new();
         private BaseView _current;
-        private readonly bool _isModal; 
         
         public bool IsEmpty => _history.Count == 0;
 
-        public UILayer(VisualElement container, bool isModal = false)
+        public UILayer(VisualElement container)
         {
             _container = container;
-            _isModal = isModal;
         }
 
         public void Push(BaseView view)
@@ -48,9 +46,6 @@ namespace UI.Services
             _container.Clear();
             _container.Add(_current.Root);
             
-            if(_isModal)
-                _container.pickingMode = PickingMode.Position;
-            
             _current.Activate();
         }
 
@@ -60,9 +55,6 @@ namespace UI.Services
             _current = null;
             _history.Clear();
             _container.Clear();
-            
-            if(_isModal)
-                _container.pickingMode = PickingMode.Ignore;
         }
     }
 }

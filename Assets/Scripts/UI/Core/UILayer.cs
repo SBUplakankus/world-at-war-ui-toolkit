@@ -3,7 +3,7 @@ using UI.Views;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace UI.Services
+namespace UI.Core
 {
     public class UILayer
     {

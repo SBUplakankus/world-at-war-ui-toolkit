@@ -46,5 +46,14 @@ namespace UI.Factories
                 Ok: root.Q<TemplateContainer>(UIElements.OkBtn).Q<Button>()
             );
         }
+
+        public static SoloScreenElements SoloScreen(VisualElement root)
+        {
+            return new SoloScreenElements(
+                ResumeButton: root.Q<TemplateContainer>(UIElements.ResumeBtn).Q<Button>(),
+                NewGameButton: root.Q<TemplateContainer>(UIElements.NewGameBtn).Q<Button>(),
+                MissionSelectButton: root.Q<TemplateContainer>(UIElements.MissionSelectBtn).Q<Button>()
+            );
+        }
     }
 }

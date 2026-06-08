@@ -1,14 +1,15 @@
 using System;
+using UI.Core;
 using UI.Views;
 using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class NewGameModal : BaseView
+    public class WarningModalView : BaseView
     {
         private Button _closeButton;
 
-        public NewGameModal(VisualTreeAsset template) : base(template) { }
+        public WarningModalView(VisualTreeAsset template) : base(template) { }
 
         protected override void GetElements()
         {

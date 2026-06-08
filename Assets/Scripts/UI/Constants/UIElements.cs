@@ -26,6 +26,9 @@ namespace UI.Constants
         public const string CreditsBtn = "credits-btn";
         public const string BackBtn = "back-btn";
         public const string OkBtn = "ok-btn";
+        public const string NewGameBtn = "new-btn";
+        public const string ResumeBtn = "resume-btn";
+        public const string MissionSelectBtn = "mission-btn";
 
         // MOTD section
         public const string MotdHdr = "motd-hdr";

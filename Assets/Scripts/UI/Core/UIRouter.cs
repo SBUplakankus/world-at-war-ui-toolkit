@@ -1,16 +1,16 @@
-using UI.Services;
+using UI.Factories;
 using UI.Views;
 
-namespace UI
+namespace UI.Core
 {
     public class UIRouter
     {
         private static UIRouter _instance;
         public static UIRouter Instance => _instance ??= new();
 
-        private UILayout _layout;
+        private MenuLayout _layout;
 
-        public void Register(UILayout layout)
+        public void Register(MenuLayout layout)
         {
             _layout = layout;
         }

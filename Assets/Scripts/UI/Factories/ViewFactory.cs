@@ -2,7 +2,7 @@ using UI.Views;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace UI.Services
+namespace UI.Factories
 {
     public static class ViewFactory
     {

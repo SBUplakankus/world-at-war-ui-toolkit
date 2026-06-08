@@ -6,10 +6,10 @@ using UI.Views;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace UI.Services
+namespace UI.Core
 {
     [RequireComponent(typeof(UIDocument))]
-    public class UILayout : MonoBehaviour
+    public class MenuLayout : MonoBehaviour
     {
         private UILayer _screenLayer;
         private UILayer _modalLayer;

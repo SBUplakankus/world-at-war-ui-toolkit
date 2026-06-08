@@ -1,14 +1,15 @@
 using System;
+using UI.Core;
 using UI.Views;
 using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class WarningModal : BaseView
+    public class DifficultyModalView : BaseView
     {
         private Button _closeButton;
 
-        public WarningModal(VisualTreeAsset template) : base(template) { }
+        public DifficultyModalView(VisualTreeAsset template) : base(template) { }
 
         protected override void GetElements()
         {

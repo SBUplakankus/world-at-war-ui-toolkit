@@ -2,7 +2,7 @@
 
 namespace UI.Records
 {
-    public record ModalLayoutElements(
+    public sealed record ModalLayoutElements(
         Label Header,
         VisualElement ModalViewContainer,
         VisualElement ModalContainer

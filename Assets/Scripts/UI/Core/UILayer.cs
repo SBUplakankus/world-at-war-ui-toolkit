@@ -5,6 +5,10 @@ using UnityEngine.UIElements;
 
 namespace UI.Core
 {
+    /// <summary>
+    /// Contains the UI Layer Elements with a Container for injecting views, a history, and the currently
+    /// displayed view.
+    /// </summary>
     public class UILayer
     {
         private readonly VisualElement _container;

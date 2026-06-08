@@ -2,7 +2,7 @@
 
 namespace UI.Records
 {
-    public record NoticeModalElements(
+    public sealed record NoticeModalElements(
         Label Notice,
         Button Ok
         );

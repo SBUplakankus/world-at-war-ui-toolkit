@@ -1,5 +1,8 @@
 namespace UI.Constants
 {
+    /// <summary>
+    /// Constants class containing all the names of individual UXML Elements to be queried by the Elements Factory
+    /// </summary>
     public static class UIElements
     {
         // View containers

@@ -3,6 +3,9 @@ using UI.Views;
 
 namespace UI.Core
 {
+    /// <summary>
+    /// Singleton Class that orchestrates menu navigation and modal display
+    /// </summary>
     public class UIRouter
     {
         private static UIRouter _instance;

@@ -1,3 +1,4 @@
+using Data;
 using UI.Constants;
 using UI.Factories;
 using UI.Interfaces;
@@ -8,6 +9,10 @@ using UnityEngine.UIElements;
 
 namespace UI.Core
 {
+    /// <summary>
+    /// Unity Based Manager script for the Main Menu Layout that has the Screen and Modal views
+    /// injected into its Screen and Modal layers.
+    /// </summary>
     [RequireComponent(typeof(UIDocument))]
     public class MenuLayout : MonoBehaviour
     {
@@ -52,7 +57,7 @@ namespace UI.Core
         private void SetUsername()
         {
             // TODO: Fetch Username Test Logic
-            _screenElements.Username.text = $"Signed In: {TestData.Username}";
+            _screenElements.Username.text = $"Signed In: {SaveDataManager.CurrentSave.username}";
         }
 
         private void SetVersion()
@@ -97,14 +102,14 @@ namespace UI.Core
             SetHeaderTitle(_screenElements.Header, _mainMenu);
         }
 
-
+        
         public void ShowModal(BaseView view)
         {
             _modalLayer.Push(view);
             ToggleModal(true);
             SetHeaderTitle(_modalElements.Header, view);
         }
-
+        
         public void CloseModal()
         {
             _modalLayer.Pop();

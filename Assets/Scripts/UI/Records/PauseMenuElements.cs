@@ -1,4 +1,4 @@
 ﻿namespace UI.Records
 {
-    public record PauseMenuElements();
+    public sealed record PauseMenuElements();
 }

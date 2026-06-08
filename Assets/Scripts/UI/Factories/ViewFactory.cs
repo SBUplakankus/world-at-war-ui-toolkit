@@ -4,6 +4,10 @@ using UnityEngine.UIElements;
 
 namespace UI.Factories
 {
+    /// <summary>
+    /// Generic Factory to Create the UXML Files attached to the View Classes.
+    /// Requires UXML files to have the exact same name as the C# class.
+    /// </summary>
     public static class ViewFactory
     {
         public static TView Create<TView>() where TView : BaseView

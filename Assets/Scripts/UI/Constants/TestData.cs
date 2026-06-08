@@ -1,5 +1,8 @@
 ﻿namespace UI.Constants
 {
+    /// <summary>
+    /// Constants class containing test data 
+    /// </summary>
     public static class TestData
     {
         public const string Username = "Uplakankus";

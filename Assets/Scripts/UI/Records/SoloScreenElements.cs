@@ -2,7 +2,7 @@
 
 namespace UI.Records
 {
-    public record SoloScreenElements(
+    public sealed record SoloScreenElements(
         Button ResumeButton,
         Button NewGameButton,
         Button MissionSelectButton

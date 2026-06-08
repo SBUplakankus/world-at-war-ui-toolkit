@@ -4,6 +4,9 @@ using UnityEngine.UIElements;
 
 namespace UI.Factories
 {
+    /// <summary>
+    /// Queries the Given Visual Element for the View Elements
+    /// </summary>
     public static class ElementsFactory
     {
         public static ScreenLayoutElements ScreenLayout(VisualElement root)

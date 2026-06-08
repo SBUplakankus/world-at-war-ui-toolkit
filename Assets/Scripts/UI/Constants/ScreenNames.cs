@@ -1,5 +1,8 @@
 ﻿namespace UI.Constants
 {
+    /// <summary>
+    /// Constants class containing to header names for screen and modal views
+    /// </summary>
     public static class ScreenNames
     {
         // Screens

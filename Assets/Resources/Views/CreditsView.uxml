@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
+    <ui:VisualElement name="credits-view" class="view-root">
+        <ui:VisualElement name="left-ctr" class="left-ctr">
+            <ui:ScrollView name="credits-scroll" class="credits-scroll">
+                <ui:Label text="CREDITS&#10;&#10;Development&#10;John Developer&#10;Jane Designer&#10;&#10;Special Thanks&#10;To everyone who made this possible.&#10;&#10;Copyright 2025&#10;All Rights Reserved" name="credits-lbl" class="font-archivo-regular credits-label"/>
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement name="right-ctr" class="right-ctr">
+            <ui:VisualElement class="logo-ctr">
+                <ui:Image class="logo-image"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

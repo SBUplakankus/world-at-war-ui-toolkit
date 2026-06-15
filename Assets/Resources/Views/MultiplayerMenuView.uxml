@@ -1,0 +1,40 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Template name="Divider" src="project://database/Assets/UI%20Toolkit/Templates/Divider.uxml?fileID=9197481963319205126&amp;guid=305a69e8cfe82454f83e8a39cfb354c3&amp;type=3#Divider"/>
+    <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
+    <ui:VisualElement name="multiplayer-view" class="view-root">
+        <ui:VisualElement name="left-ctr" class="left-ctr">
+            <ui:VisualElement class="menu-list-ctr">
+                <ui:Instance template="Divider"/>
+                <ui:Instance template="MenuButton" name="player-online-btn">
+                    <AttributeOverrides element-name="btn" text="PLAY ONLINE"/>
+                </ui:Instance>
+                <ui:Instance template="MenuButton" name="mp-splitscreen-btn">
+                    <AttributeOverrides element-name="btn" text="SPLIT SCREEN"/>
+                </ui:Instance>
+                <ui:Instance template="MenuButton" name="lanparty-btn">
+                    <AttributeOverrides element-name="btn" text="LAN PARTY"/>
+                </ui:Instance>
+                <ui:Instance template="Divider"/>
+                <ui:Instance template="MenuButton" name="mp-options-btn">
+                    <AttributeOverrides element-name="btn" text="OPTIONS"/>
+                </ui:Instance>
+                <ui:Instance template="MenuButton" name="mp-mainmenu-btn">
+                    <AttributeOverrides element-name="btn" text="MAIN MENU"/>
+                </ui:Instance>
+                <ui:Instance template="Divider"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="motd-ctr">
+                <ui:VisualElement class="motd-divider"/>
+                <ui:Label text="Message of the Day" name="motd-hdr" class="font-archivo-semibold text-shadow-dark motd-header"/>
+                <ui:Label text="Visit Call of Duty bla bla bla .com for the latest updates.&#10;" name="motd-content" class="font-archivo-medium text-shadow-dark motd-content"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="right-ctr" class="right-ctr">
+            <ui:VisualElement class="logo-ctr">
+                <ui:Image class="logo-image"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,5 +1,8 @@
-﻿using UI.Interfaces;
+﻿using UI.Constants;
+using UI.Factories;
+using UI.Interfaces;
 using UI.Records;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace UI.Views
@@ -7,26 +10,61 @@ namespace UI.Views
     public class GameVolumeView : BaseView, IScreen
     {
         private GameVolumeElements _elements;
-        
-        public GameVolumeView(VisualTreeAsset template) : base(template)
+
+        public GameVolumeView(VisualTreeAsset template) : base(template) { }
+
+        protected override void GetElements() => _elements = ElementsFactory.GameVolume(Root);
+
+        private static void HandleVoiceClicked()
         {
+            Debug.Log("Voice clicked");
         }
 
-        protected override void GetElements()
+        private static void HandleMusicClicked()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Music clicked");
+        }
+
+        private static void HandleSfxClicked()
+        {
+            Debug.Log("SFX clicked");
+        }
+
+        private static void HandleCinematicsClicked()
+        {
+            Debug.Log("Cinematics clicked");
+        }
+
+        private static void HandleMasterClicked()
+        {
+            Debug.Log("Master clicked");
+        }
+
+        private static void HandleVoipClicked()
+        {
+            Debug.Log("VoIP clicked");
         }
 
         protected override void Bind()
         {
-            throw new System.NotImplementedException();
+            _elements.VoiceButton.clicked += HandleVoiceClicked;
+            _elements.MusicButton.clicked += HandleMusicClicked;
+            _elements.SfxButton.clicked += HandleSfxClicked;
+            _elements.CinematicsButton.clicked += HandleCinematicsClicked;
+            _elements.MasterButton.clicked += HandleMasterClicked;
+            _elements.VoipButton.clicked += HandleVoipClicked;
         }
 
         protected override void UnBind()
         {
-            throw new System.NotImplementedException();
+            _elements.VoiceButton.clicked -= HandleVoiceClicked;
+            _elements.MusicButton.clicked -= HandleMusicClicked;
+            _elements.SfxButton.clicked -= HandleSfxClicked;
+            _elements.CinematicsButton.clicked -= HandleCinematicsClicked;
+            _elements.MasterButton.clicked -= HandleMasterClicked;
+            _elements.VoipButton.clicked -= HandleVoipClicked;
         }
 
-        public string HeaderName { get; }
+        public string HeaderName => ScreenNames.GameVolume;
     }
 }

@@ -1,0 +1,59 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
+    <ui:VisualElement name="mission-select-view" class="view-root">
+        <ui:VisualElement name="mission-list-ctr" class="mission-list-ctr">
+            <ui:Instance template="MenuButton" name="semperfi-btn">
+                <AttributeOverrides element-name="btn" text="SEMPER FI"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="little-resistance-btn">
+                <AttributeOverrides element-name="btn" text="LITTLE RESISTANCE"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="hard-landing-btn">
+                <AttributeOverrides element-name="btn" text="HARD LANDING"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="vendetta-btn">
+                <AttributeOverrides element-name="btn" text="VENDETTA"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="their-land-their-blood-btn">
+                <AttributeOverrides element-name="btn" text="THEIR LAND, THEIR BLOOD"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="burn-em-out-btn">
+                <AttributeOverrides element-name="btn" text="BURN 'EM OUT"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="relentless-btn">
+                <AttributeOverrides element-name="btn" text="RELENTLESS"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="blood-and-iron-btn">
+                <AttributeOverrides element-name="btn" text="BLOOD &amp; IRON"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="ring-of-steel-btn">
+                <AttributeOverrides element-name="btn" text="RING OF STEEL"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="eviction-btn">
+                <AttributeOverrides element-name="btn" text="EVICTION"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="black-cats-btn">
+                <AttributeOverrides element-name="btn" text="BLACK CATS"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="blowtorch-and-corkscrew-btn">
+                <AttributeOverrides element-name="btn" text="BLOWTORCH &amp; CORNSCREW"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="breaking-point-btn">
+                <AttributeOverrides element-name="btn" text="BREAKING POINT"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="heart-of-the-reich-btn">
+                <AttributeOverrides element-name="btn" text="HEART OF THE REICH"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="downfall-btn">
+                <AttributeOverrides element-name="btn" text="DOWNFALL"/>
+            </ui:Instance>
+        </ui:VisualElement>
+        <ui:VisualElement name="mission-detail-ctr" class="mission-detail-ctr">
+            <ui:Image name="mission-thumbnail" class="mission-thumbnail"/>
+            <ui:Label text="Mission Name" name="mission-header" class="font-arsenal-bold mission-header"/>
+            <ui:Label text="Mission Description" name="mission-description" class="font-archivo-regular text-shadow-dark mission-description"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

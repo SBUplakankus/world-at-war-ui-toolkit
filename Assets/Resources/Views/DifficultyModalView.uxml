@@ -18,8 +18,8 @@
             </ui:Instance>
         </ui:VisualElement>
         <ui:VisualElement name="info-ctr" class="difficulty-info-ctr">
-            <ui:Image name="icon" class="difficulty-icon" source="project://database/Resources/unity_builtin_extra?fileID=10906&amp;guid=0000000000000000f000000000000000&amp;type=0#Background"/>
-            <ui:Label text="Label" name="info" class="font-archivo-regular username-label"/>
+            <ui:Image name="difficulty-icon" class="difficulty-icon" source="project://database/Resources/unity_builtin_extra?fileID=10906&amp;guid=0000000000000000f000000000000000&amp;type=0#Background"/>
+            <ui:Label text="Label" name="difficulty-description" class="font-archivo-regular username-label"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

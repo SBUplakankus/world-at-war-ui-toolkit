@@ -1,0 +1,32 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
+    <ui:VisualElement name="volume-view" class="view-root">
+        <ui:VisualElement name="settings-ctr" class="settings-ctr">
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="voice-btn" class="font-archivo-medium setting-btn" text="Voice"/>
+                <ui:Slider name="voice-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="music-btn" class="font-archivo-medium setting-btn" text="Music"/>
+                <ui:Slider name="music-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="sfx-btn" class="font-archivo-medium setting-btn" text="SFX"/>
+                <ui:Slider name="sfx-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="cinematics-btn" class="font-archivo-medium setting-btn" text="Cinematics"/>
+                <ui:Slider name="cinematics-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="master-btn" class="font-archivo-medium setting-btn" text="Master"/>
+                <ui:Slider name="master-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="voip-btn" class="font-archivo-medium setting-btn" text="VoIP"/>
+                <ui:Slider name="voip-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
+    <ui:VisualElement name="coop-view" class="view-root">
+        <ui:VisualElement name="left-ctr" class="left-ctr">
+            <ui:VisualElement class="menu-list-ctr single-list">
+                <ui:Instance template="MenuButton" name="online-btn">
+                    <AttributeOverrides element-name="btn" text="ONLINE"/>
+                </ui:Instance>
+                <ui:Instance template="MenuButton" name="splitscreen-btn">
+                    <AttributeOverrides element-name="btn" text="SPLIT SCREEN"/>
+                </ui:Instance>
+                <ui:Instance template="MenuButton" name="lan-btn">
+                    <AttributeOverrides element-name="btn" text="LAN"/>
+                </ui:Instance>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="right-ctr" class="right-ctr">
+            <ui:VisualElement class="logo-ctr">
+                <ui:Image class="logo-image"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

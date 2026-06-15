@@ -1,0 +1,35 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
+    <ui:VisualElement name="options-view" class="view-root">
+        <ui:VisualElement name="settings-ctr" class="settings-ctr">
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="look-inversion-btn" class="font-archivo-medium setting-btn" text="Look Inversion"/>
+                <ui:Label name="look-inversion-lbl" class="font-archivo-regular setting-value" text="Off"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="stick-layout-btn" class="font-archivo-medium setting-btn" text="Stick Layout"/>
+                <ui:Label name="stick-layout-lbl" class="font-archivo-regular setting-value" text="Default"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="button-layout-btn" class="font-archivo-medium setting-btn" text="Button Layout"/>
+                <ui:Label name="button-layout-lbl" class="font-archivo-regular setting-value" text="Default"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="sensitivity-btn" class="font-archivo-medium setting-btn" text="Sensitivity"/>
+                <ui:Label name="sensitivity-lbl" class="font-archivo-regular setting-value" text="3"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="target-assist-btn" class="font-archivo-medium setting-btn" text="Target Assist"/>
+                <ui:Label name="target-assist-lbl" class="font-archivo-regular setting-value" text="On"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="player-name-btn" class="font-archivo-medium setting-btn" text="Player Name"/>
+                <ui:Label name="player-name-lbl" class="font-archivo-regular setting-value" text="Player"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="setting-row">
+                <ui:Button name="game-volume-btn" class="font-archivo-medium setting-btn" text="Game Volume"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

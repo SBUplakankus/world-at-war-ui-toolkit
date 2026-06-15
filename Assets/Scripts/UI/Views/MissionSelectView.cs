@@ -4,10 +4,11 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class ResumeGameModalView : BaseView, IScreen
+    public class MissionSelectView : BaseView, IScreen
     {
-        private ResumeGameModalElements _elements;
-        public ResumeGameModalView(VisualTreeAsset template) : base(template)
+        private MissionSelectElements _elements;
+        
+        public MissionSelectView(VisualTreeAsset template) : base(template)
         {
         }
 

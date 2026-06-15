@@ -1,39 +1,40 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
-    <Style src="project://database/Assets/UI%20Toolkit/Styles/main-menu.uss?fileID=7433441132597879392&amp;guid=6f87220cec27789489560193c96f9b01&amp;type=3#main-menu"/>
-    <ui:VisualElement name="video-bg" class="fill-absolute video-bg" style="background-image: url(&quot;project://database/Assets/Art/Render%20Textures/Menu_BG.renderTexture?fileID=8400000&amp;guid=1665eca1802e1bd48b47572cb948498c&amp;type=2#Menu_BG&quot;); background-color: rgb(6, 6, 6); -unity-background-image-tint-color: rgba(125, 143, 138, 0.808); top: 0; left: 0;">
-        <ui:VisualElement name="left-vig" class="vignette-side vignette-side--left" style="width: 25%;"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/modals.uss?fileID=7433441132597879392&amp;guid=13ed200b9245c324893cab4d56685f0b&amp;type=3#modals"/>
+    <ui:VisualElement name="video-bg" class="fill-absolute video-bg">
+        <ui:VisualElement name="left-vig" class="vignette-side vignette-side--left"/>
         <ui:VisualElement name="right-vig" class="vignette-side vignette-side--right"/>
     </ui:VisualElement>
     <ui:VisualElement name="root-ctr" class="view-ctr">
         <ui:VisualElement name="hdr-ctr" class="font-arsenal-bold header-bar">
-            <ui:VisualElement name="info-ctr" class="info-bar" style="background-image: url(&quot;project://database/Assets/Art/Materials/MiddleGradient.svg?fileID=7388822144124034973&amp;guid=9c5cb0a394dd91646935e945f005c0f2&amp;type=3#MiddleGradient&quot;); border-left-color: rgba(165, 165, 165, 0.098); border-right-color: rgba(165, 165, 165, 0.098); border-top-color: rgba(165, 165, 165, 0.098); border-bottom-color: rgba(165, 165, 165, 0.098);">
+            <ui:VisualElement name="info-ctr" class="info-bar">
                 <ui:VisualElement name="title-ctr" class="title-ctr">
-                    <ui:Label text="MAIN MENU" double-click-selects-word="false" name="hdr-title" class="font-arsenal-bold text-shadow-dark header-title" style="color: rgba(255, 255, 255, 0.898);"/>
+                    <ui:Label text="MAIN MENU" double-click-selects-word="false" name="hdr-title" class="font-arsenal-bold text-shadow-dark header-title"/>
                 </ui:VisualElement>
                 <ui:VisualElement name="user-ctr" class="user-ctr">
                     <ui:Label text="Signed In: Uplakankus" double-click-selects-word="false" name="username" class="font-arsenal-bold text-shadow-dark username-label"/>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="screen-view-ctr" class="font-dmsans-thin main-ctr" style="-unity-font-definition: initial; width: 100%;"/>
+        <ui:VisualElement name="screen-view-ctr" class="font-dmsans-thin main-ctr screen-view-ctr"/>
         <ui:VisualElement name="ftr-ctr" class="footer-bar">
-            <ui:VisualElement name="ftr-content" class="ftr-content" style="flex-grow: 1; padding-top: 0;">
-                <ui:Button text="Back" name="back-btn" class="ftr-btn" style="padding-top: 10px; padding-bottom: 10px;"/>
+            <ui:VisualElement name="ftr-content" class="ftr-content">
+                <ui:Button text="Back" name="back-btn" class="ftr-btn"/>
                 <ui:Label text="V1.0.8" name="version" class="version-label"/>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="modal-ctr" picking-mode="Ignore" class="modal-ctr" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; max-height: none; width: 100%; max-width: none; align-items: center; align-self: center; justify-content: center; align-content: center; display: flex; visibility: hidden;">
-            <ui:VisualElement name="modal-bg" class="fill-absolute" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.392);"/>
-            <ui:VisualElement name="modal-body" style="flex-grow: 1; width: 100%; height: 45%; max-height: 45%; color: rgb(0, 0, 0); padding-left: 0%; background-color: rgb(28, 30, 31);">
-                <ui:VisualElement name="modal-hdr" style="flex-grow: 1; height: 15%; max-height: 15%; padding-left: 15%; border-bottom-width: 2px; border-left-color: rgba(165, 165, 165, 0.098); border-right-color: rgba(165, 165, 165, 0.098); border-top-color: rgba(165, 165, 165, 0.098); border-bottom-color: rgba(165, 165, 165, 0.098); align-self: auto; align-content: center; align-items: flex-start; justify-content: space-around;">
+        <ui:VisualElement name="modal-ctr" picking-mode="Ignore" class="modal-ctr">
+            <ui:VisualElement name="modal-bg" class="fill-absolute modal-bg"/>
+            <ui:VisualElement name="modal-body" class="modal-body">
+                <ui:VisualElement name="modal-hdr" class="modal-hdr">
                     <ui:Label text="NEW GAME" name="modal-hdr-lbl" class="header-title font-arsenal-bold text-shadow-dark"/>
                 </ui:VisualElement>
-                <ui:VisualElement name="modal-view-ctr" style="flex-grow: 1; height: 85%; width: 100%; padding-left: 15%;"/>
+                <ui:VisualElement name="modal-view-ctr" class="modal-view-ctr"/>
             </ui:VisualElement>
-            <ui:VisualElement name="modal-vig-ctr" picking-mode="Ignore" class="fill-absolute" style="flex-grow: 1; top: 0; left: 0;">
-                <ui:VisualElement name="left-vig" class="vignette-side vignette-side--left" style="width: 15%; -unity-background-image-tint-color: rgb(0, 0, 0); background-image: url(&quot;project://database/Assets/Art/Materials/LinearFadeOut3.svg?fileID=7388822144124034973&amp;guid=4db3b07cd3c02af4787d736dec10a8bc&amp;type=3#LinearFadeOut3&quot;);"/>
-                <ui:VisualElement name="right-vig" class="vignette-side vignette-side--right" style="width: 30%; -unity-background-image-tint-color: rgb(0, 0, 0);"/>
+            <ui:VisualElement name="modal-vig-ctr" picking-mode="Ignore" class="fill-absolute modal-vig-ctr">
+                <ui:VisualElement name="left-vig" class="vignette-side vignette-side--left"/>
+                <ui:VisualElement name="right-vig" class="vignette-side vignette-side--right"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

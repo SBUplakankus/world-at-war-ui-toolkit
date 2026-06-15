@@ -2,15 +2,15 @@
     <ui:Template name="Divider" src="project://database/Assets/UI%20Toolkit/Templates/Divider.uxml?fileID=9197481963319205126&amp;guid=305a69e8cfe82454f83e8a39cfb354c3&amp;type=3#Divider"/>
     <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
     <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
-    <Style src="project://database/Assets/UI%20Toolkit/Styles/main-menu.uss?fileID=7433441132597879392&amp;guid=6f87220cec27789489560193c96f9b01&amp;type=3#main-menu"/>
-    <ui:VisualElement name="solo-view" style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
+    <ui:VisualElement name="solo-view" class="view-root">
         <ui:VisualElement name="left-ctr" class="left-ctr">
-            <ui:VisualElement name="menu-list-ctr" class="menu-list-ctr single-list" style="max-height: 30%;">
+            <ui:VisualElement name="menu-list-ctr" class="menu-list-ctr single-list">
                 <ui:Instance template="Divider"/>
-                <ui:Instance template="MenuButton" name="resume-btn" style="display: flex;">
+                <ui:Instance template="MenuButton" name="resume-btn">
                     <AttributeOverrides element-name="btn" text="RESUME GAME"/>
                 </ui:Instance>
-                <ui:Instance template="MenuButton" name="new-btn" style="display: flex;">
+                <ui:Instance template="MenuButton" name="new-btn">
                     <AttributeOverrides element-name="btn" text="NEW GAME"/>
                 </ui:Instance>
                 <ui:Instance template="MenuButton" name="mission-btn">
@@ -20,7 +20,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="right-ctr" class="right-ctr">
             <ui:VisualElement name="logo-ctr" class="logo-ctr">
-                <ui:Image class="logo-image" style="background-image: url(&quot;project://database/Assets/Art/Images/Logo.png?fileID=2800000&amp;guid=1c7069f04ff8c9a4582365fa9f04af03&amp;type=3#Logo&quot;); -unity-background-image-tint-color: rgba(234, 234, 234, 0.784); width: 500px;"/>
+                <ui:Image class="logo-image"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

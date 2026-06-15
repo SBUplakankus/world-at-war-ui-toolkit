@@ -24,5 +24,5 @@ much a work in progress right now but it's my most recent code work.
 
 Includes: MainMenu, Solo, CoOp, Zombies, Multiplayer, Options,
 Credits screens + Notice, Difficulty, NewGame, Warning modals.
-Save data serialized as JSON to persistent data path. HUD/pause
-layout scaffolding in place for in-game work.
+Save data serialized as JSON to persistent data path. 
+HUD/pause layout scaffolding in place for in-game work.

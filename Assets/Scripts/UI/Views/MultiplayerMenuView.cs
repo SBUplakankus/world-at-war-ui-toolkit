@@ -1,13 +1,16 @@
 using UI.Constants;
 using UI.Interfaces;
+using UI.Records;
 using UI.Views;
 using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class MultiplayerView : BaseView, IScreen
+    public class MultiplayerMenuView : BaseView, IScreen
     {
-        public MultiplayerView(VisualTreeAsset template) : base(template) { }
+        private MultiplayerMenuElements _elements;
+        
+        public MultiplayerMenuView(VisualTreeAsset template) : base(template) { }
 
         protected override void GetElements() { }
         protected override void Bind() { }

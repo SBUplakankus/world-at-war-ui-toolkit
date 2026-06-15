@@ -35,7 +35,7 @@ namespace UI.Views
         private static void HandleMultiplayerClicked()
         {
             Debug.Log("Multiplayer clicked");
-            UIRouter.Instance.NavigateTo<MultiplayerView>();
+            UIRouter.Instance.NavigateTo<MultiplayerMenuView>();
         }
 
         private static void HandleZombiesClicked()
@@ -47,7 +47,7 @@ namespace UI.Views
         private static void HandleOptionsClicked()
         {
             Debug.Log("Options clicked");
-            UIRouter.Instance.NavigateTo<OptionsView>();
+            UIRouter.Instance.NavigateTo<GameOptionsView>();
         }
 
         private static void HandleCreditsClicked()

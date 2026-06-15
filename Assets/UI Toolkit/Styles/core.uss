@@ -3,8 +3,20 @@
     --color-text-dim: rgba(241, 241, 241, 0.443);
     --color-text-dark: rgb(27, 27, 27);
     --color-text-accent: rgba(233, 141, 30, 0.784);
+    --color-text-heading: rgba(255, 255, 255, 0.898);
+    --color-text-bright: rgba(255, 255, 255, 0.886);
+    --color-text-version: rgba(255, 255, 255, 0.247);
+    --color-text-slider: rgb(77, 77, 77);
     --color-bg-black: rgb(0, 0, 0);
+    --color-bg-video: rgb(6, 6, 6);
+    --color-bg-dark: rgb(28, 30, 31);
     --color-transparent: rgba(0, 0, 0, 0);
+    --color-overlay-dark: rgba(0, 0, 0, 0.784);
+    --color-overlay-medium: rgba(0, 0, 0, 0.373);
+    --color-overlay-light: rgba(0, 0, 0, 0.392);
+    --color-tint-greenish: rgba(125, 143, 138, 0.808);
+    --color-tint-greenish-dim: rgba(125, 143, 138, 0.184);
+    --color-border-light: rgba(165, 165, 165, 0.098);
 }
 
 .fill-absolute {

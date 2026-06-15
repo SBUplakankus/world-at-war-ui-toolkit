@@ -2,8 +2,8 @@
     <ui:Template name="Divider" src="project://database/Assets/UI%20Toolkit/Templates/Divider.uxml?fileID=9197481963319205126&amp;guid=305a69e8cfe82454f83e8a39cfb354c3&amp;type=3#Divider"/>
     <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
     <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
-    <Style src="project://database/Assets/UI%20Toolkit/Styles/main-menu.uss?fileID=7433441132597879392&amp;guid=6f87220cec27789489560193c96f9b01&amp;type=3#main-menu"/>
-    <ui:VisualElement name="main-menu-view" style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
+    <ui:VisualElement name="main-menu-view" class="view-root">
         <ui:VisualElement name="left-ctr" class="left-ctr">
             <ui:VisualElement name="menu-list-ctr" class="menu-list-ctr">
                 <ui:Instance template="Divider"/>
@@ -28,15 +28,15 @@
                     <AttributeOverrides element-name="btn" text="CREDITS"/>
                 </ui:Instance>
             </ui:VisualElement>
-            <ui:VisualElement name="motd-ctr" class="font-archivo-regular motd-ctr" style="color: rgba(233, 233, 233, 0.514);">
-                <ui:VisualElement name="white-line" class="motd-divider" style="color: rgba(233, 233, 233, 0.518);"/>
-                <ui:Label text="Message of the Day" name="motd-hdr" class="font-archivo-semibold text-shadow-dark motd-header" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/Archivo/static/Archivo-Regular.ttf?fileID=12800000&amp;guid=5b2662ca440aaf7439976170c771c4dd&amp;type=3#Archivo-Regular&quot;);"/>
+            <ui:VisualElement name="motd-ctr" class="font-archivo-regular motd-ctr">
+                <ui:VisualElement name="white-line" class="motd-divider"/>
+                <ui:Label text="Message of the Day" name="motd-hdr" class="font-archivo-semibold text-shadow-dark motd-header"/>
                 <ui:Label text="Visit Call of Duty bla bla bla .com or follow Treyarch on Twotter for the latest updates etc etc bing bong dooba dooba world at war.&#10;" name="motd-content" class="font-archivo-medium text-shadow-dark motd-content"/>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="right-ctr" class="right-ctr">
             <ui:VisualElement name="logo-ctr" class="logo-ctr">
-                <ui:Image class="logo-image" style="background-image: url(&quot;project://database/Assets/Art/Images/Logo.png?fileID=2800000&amp;guid=1c7069f04ff8c9a4582365fa9f04af03&amp;type=3#Logo&quot;); -unity-background-image-tint-color: rgba(234, 234, 234, 0.784); width: 500px;"/>
+                <ui:Image class="logo-image"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

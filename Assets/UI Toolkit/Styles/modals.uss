@@ -1,0 +1,137 @@
+.modal-ctr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    max-height: none;
+    width: 100%;
+    max-width: none;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    visibility: hidden;
+}
+
+.modal-bg {
+    flex-grow: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-overlay-light);
+}
+
+.modal-body {
+    flex-grow: 1;
+    width: 100%;
+    height: 45%;
+    max-height: 45%;
+    background-color: var(--color-bg-dark);
+    color: var(--color-bg-black);
+}
+
+.modal-hdr {
+    flex-grow: 1;
+    height: 15%;
+    max-height: 15%;
+    padding-left: 15%;
+    border-color: var(--color-border-light);
+    border-bottom-width: 2px;
+    align-self: auto;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.modal-view-ctr {
+    flex-grow: 1;
+    height: 85%;
+    width: 100%;
+    padding-left: 15%;
+}
+
+.modal-vig-ctr {
+    flex-grow: 1;
+    top: 0;
+    left: 0;
+}
+
+.modal-vig-ctr > .vignette-side--left {
+    width: 15%;
+    -unity-background-image-tint-color: var(--color-bg-black);
+}
+
+.modal-vig-ctr > .vignette-side--right {
+    width: 30%;
+    -unity-background-image-tint-color: var(--color-bg-black);
+}
+
+.difficulty-modal {
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+.difficulty-btn-ctr {
+    flex-grow: 1;
+    width: 40%;
+    padding: 5% 0 5% 5%;
+    justify-content: space-around;
+}
+
+.difficulty-btn-ctr .menu-btn {
+    padding: 0;
+}
+
+.difficulty-info-ctr {
+    flex-grow: 1;
+    width: 55%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+}
+
+.difficulty-icon {
+    width: 55%;
+    height: 42%;
+}
+
+.modal-root {
+    flex-grow: 1;
+}
+
+.modal-notice-text-ctr {
+    flex-grow: 1;
+    width: 50%;
+    flex-wrap: wrap;
+}
+
+.modal-notice-lbl {
+    font-size: 33px;
+    color: var(--color-text-primary);
+    padding: 2% 0 0 0;
+    margin: 0;
+    flex-wrap: wrap;
+    height: 100%;
+    white-space: normal;
+    -unity-font-definition: url("project://database/Assets/Fonts/Arsenal/Arsenal-Bold.ttf?fileID=12800000&guid=9c872447a0b9af84f973cb50eaa86eec&type=3#Arsenal-Bold");
+}
+
+.modal-continue-btn-ctr {
+    flex-grow: 1;
+    width: 25%;
+    padding-left: 5%;
+    justify-content: space-evenly;
+}
+
+.modal-continue-btn-ctr--center {
+    justify-content: center;
+}
+
+.modal-continue-btn-ctr .menu-btn {
+    padding: 0;
+}

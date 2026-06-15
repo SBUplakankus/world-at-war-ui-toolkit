@@ -1,11 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
-    <ui:VisualElement name="notice-ctr" style="flex-grow: 1;">
-        <ui:VisualElement name="notice-text-ctr" style="flex-grow: 1; width: 50%; flex-wrap: wrap;">
-            <ui:Label text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" name="notice-lbl" class="text-shadow-dark" style="font-size: 33px; color: rgba(255, 255, 255, 0.784); padding-top: 2%; -unity-font-definition: url(&quot;project://database/Assets/Fonts/Arsenal/Arsenal-Bold.ttf?fileID=12800000&amp;guid=9c872447a0b9af84f973cb50eaa86eec&amp;type=3#Arsenal-Bold&quot;); padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; flex-wrap: wrap; height: 100%; white-space: normal;"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/modals.uss?fileID=7433441132597879392&amp;guid=13ed200b9245c324893cab4d56685f0b&amp;type=3#modals"/>
+    <ui:VisualElement name="notice-ctr" class="modal-root">
+        <ui:VisualElement name="notice-text-ctr" class="modal-notice-text-ctr">
+            <ui:Label text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" name="notice-lbl" class="text-shadow-dark modal-notice-lbl"/>
         </ui:VisualElement>
-        <ui:VisualElement name="continue-btn-ctr" style="flex-grow: 1; padding-left: 5%; width: 25%; justify-content: center;">
-            <ui:Instance template="MenuButton" name="ok-btn" style="padding-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0;">
+        <ui:VisualElement name="continue-btn-ctr" class="modal-continue-btn-ctr modal-continue-btn-ctr--center">
+            <ui:Instance template="MenuButton" name="ok-btn">
                 <AttributeOverrides element-name="btn" text="Ok"/>
             </ui:Instance>
         </ui:VisualElement>

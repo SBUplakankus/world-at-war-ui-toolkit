@@ -1,6 +1,25 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements">
-    <ui:VisualElement style="flex-grow: 1; padding: 40px; background-color: rgba(0,0,0,0.8); align-items: center; justify-content: center;">
-        <ui:Label text="DIFFICULTY" name="modal-label" style="font-size: 28px; color: white; margin-bottom: 20px;" />
-        <ui:Button text="Close" name="close-btn" />
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/modals.uss?fileID=7433441132597879392&amp;guid=13ed200b9245c324893cab4d56685f0b&amp;type=3#modals"/>
+    <ui:VisualElement name="notice-ctr" class="difficulty-modal">
+        <ui:VisualElement name="difficulty-btn-ctr" class="difficulty-btn-ctr">
+            <ui:Instance template="MenuButton" name="recruit-btn">
+                <AttributeOverrides element-name="btn" text="Recruit"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="regular-btn">
+                <AttributeOverrides element-name="btn" text="Regular"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="hardened-btn">
+                <AttributeOverrides element-name="btn" text="Hardened"/>
+            </ui:Instance>
+            <ui:Instance template="MenuButton" name="veteran-btn">
+                <AttributeOverrides element-name="btn" text="Veteran"/>
+            </ui:Instance>
+        </ui:VisualElement>
+        <ui:VisualElement name="info-ctr" class="difficulty-info-ctr">
+            <ui:Image name="icon" class="difficulty-icon" source="project://database/Resources/unity_builtin_extra?fileID=10906&amp;guid=0000000000000000f000000000000000&amp;type=0#Background"/>
+            <ui:Label text="Label" name="info" class="font-archivo-regular username-label"/>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

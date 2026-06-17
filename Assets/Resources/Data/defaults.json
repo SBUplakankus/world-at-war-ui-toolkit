@@ -1,0 +1,14 @@
+{
+  "invertLook": "Off",
+  "stickLayout": "Default",
+  "buttonLayout": "Default",
+  "sensitivity": "3",
+  "targetAssist": "On",
+  "playerName": "Player",
+  "masterVolume": 0.75,
+  "musicVolume": 0.75,
+  "sfxVolume": 0.75,
+  "voiceVolume": 0.75,
+  "cinematicsVolume": 0.75,
+  "voipVolume": 0.75
+}

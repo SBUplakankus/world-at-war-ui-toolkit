@@ -1,0 +1,44 @@
+{
+  "messagesOfTheDay": [
+    "All campaign missions are now available for deployment. Good luck out there, soldier.",
+    "Addressed stability issues and improved menu navigation. Save system now operational across all modes.",
+    "Team Deathmatch and Domination now available in core matchmaking rotation. Get your squad together.",
+    "Thank you to our community for 10 million players worldwide. See you on the front lines.",
+    "Weapon balance adjustments and performance improvements deployed across all modes.",
+    "Double XP weekend is active now through Monday. Rank up faster in all game modes.",
+    "Party connection stability has been upgraded. Matchmaking improvements are now live on all servers.",
+    "Check the barracks for your service record and recent accolades. New missions are waiting.",
+    "Resolved a rare crash when navigating the multiplayer lobby. Servers are back online.",
+    "All servers are operational. Squad up and dominate the leaderboards."
+  ],
+  "missions": [
+    { "name": "SemperFi", "title": "Semper Fi", "description": "The Marines assault the beaches of Betio Island. Heavy resistance expected on all sectors." },
+    { "name": "LittleResistance", "title": "Little Resistance", "description": "Advance through the jungles of Peleliu and secure the enemy stronghold." },
+    { "name": "HardLanding", "title": "Hard Landing", "description": "Secure the airfield on Peleliu under heavy mortar fire. Extraction is not an option." },
+    { "name": "Vendetta", "title": "Vendetta", "description": "Fight alongside Reznov in the ruins of Stalingrad. One shot. One kill." },
+    { "name": "TheirLandTheirBlood", "title": "Their Land, Their Blood", "description": "Push through the Russian countryside and drive the enemy back." },
+    { "name": "BurnEmOut", "title": "Burn 'Em Out", "description": "Use flamethrowers to clear fortified positions in the jungle." },
+    { "name": "Relentless", "title": "Relentless", "description": "Fight through the industrial district of Stalingrad. No surrender." },
+    { "name": "BloodAndIron", "title": "Blood & Iron", "description": "Command a tank through enemy lines and break the siege." },
+    { "name": "RingOfSteel", "title": "Ring of Steel", "description": "Defend the outskirts of Berlin against overwhelming forces." },
+    { "name": "Eviction", "title": "Eviction", "description": "Clear buildings in Berlin block by block. Room by room." },
+    { "name": "BlackCats", "title": "Black Cats", "description": "Fly a PBY Catalina on a rescue mission through enemy waters." },
+    { "name": "BlowtorchAndCorkscrew", "title": "Blowtorch & Corkscrew", "description": "Assault Okinawa's beaches and clear the cave networks." },
+    { "name": "BreakingPoint", "title": "Breaking Point", "description": "Fight through the caves of Okinawa. The enemy is cornered." },
+    { "name": "HeartOfTheReich", "title": "Heart of the Reich", "description": "Storm the Reichstag. This is the final push." },
+    { "name": "Downfall", "title": "Downfall", "description": "The final assault on Berlin. End it." }
+  ],
+  "difficulties": [
+    { "name": "Recruit", "description": "We've got you covered. Enemies are less aggressive and deal reduced damage." },
+    { "name": "Regular", "description": "A balanced challenge. Enemies are tactical and deadly." },
+    { "name": "Hardened", "description": "Enemies are aggressive and accurate. Only the strong survive." },
+    { "name": "Veteran", "description": "The ultimate test. Enemies are relentless and lethal." }
+  ],
+  "options": {
+    "inversion": ["Off", "On"],
+    "stickLayout": ["Default", "Southpaw", "Legacy", "Legacy Southpaw"],
+    "buttonLayout": ["Default", "Southpaw", "Legacy", "Legacy Southpaw"],
+    "sensitivity": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    "targetAssist": ["Off", "On"]
+  }
+}

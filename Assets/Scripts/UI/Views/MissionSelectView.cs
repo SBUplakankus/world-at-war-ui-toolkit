@@ -23,6 +23,8 @@ namespace UI.Views
 
         private void DisplayMission(Missions mission)
         {
+            if (!IsMissionEnabled(mission)) return;
+
             _elements.Header.text = UIResources.MissionTitles[mission];
             _elements.Description.text = UIResources.MissionDescriptions[mission];
         }
@@ -31,6 +33,26 @@ namespace UI.Views
         {
             Debug.Log("Loading mission " + mission);
         }
+
+        private bool IsMissionEnabled(Missions mission) => mission switch
+        {
+            Missions.SemperFi => _elements.SemperFi.enabledSelf,
+            Missions.LittleResistance => _elements.LittleResistance.enabledSelf,
+            Missions.HardLanding => _elements.HardLanding.enabledSelf,
+            Missions.Vendetta => _elements.Vendetta.enabledSelf,
+            Missions.TheirLandTheirBlood => _elements.TheirLandTheirBlood.enabledSelf,
+            Missions.BurnEmOut => _elements.BurnEmOut.enabledSelf,
+            Missions.Relentless => _elements.Relentless.enabledSelf,
+            Missions.BloodAndIron => _elements.BloodAndIron.enabledSelf,
+            Missions.RingOfSteel => _elements.RingOfSteel.enabledSelf,
+            Missions.Eviction => _elements.Eviction.enabledSelf,
+            Missions.BlackCats => _elements.BlackCats.enabledSelf,
+            Missions.BlowtorchAndCorkscrew => _elements.BlowtorchAndCorkscrew.enabledSelf,
+            Missions.BreakingPoint => _elements.BreakingPoint.enabledSelf,
+            Missions.HeartOfTheReich => _elements.HeartOfTheReich.enabledSelf,
+            Missions.Downfall => _elements.Downfall.enabledSelf,
+            _ => false
+        };
 
         private void OnSemperFiHover(PointerEnterEvent _) => DisplayMission(Missions.SemperFi);
         private void OnLittleResistanceHover(PointerEnterEvent _) => DisplayMission(Missions.LittleResistance);

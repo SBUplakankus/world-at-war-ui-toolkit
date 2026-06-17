@@ -36,11 +36,30 @@ namespace Data
 
         private static PlayerSaveData LoadFromDisk()
         {
-            if (!File.Exists(SavePath))
-                return new PlayerSaveData();
+            if (File.Exists(SavePath))
+            {
+                var json = File.ReadAllText(SavePath);
+                return JsonUtility.FromJson<PlayerSaveData>(json);
+            }
 
-            var json = File.ReadAllText(SavePath);
-            return JsonUtility.FromJson<PlayerSaveData>(json);
+            return CreateDefaultSave();
+        }
+
+        private static PlayerSaveData CreateDefaultSave()
+        {
+            var asset = Resources.Load<TextAsset>("Data/defaults");
+            if (asset != null)
+            {
+                var settings = JsonUtility.FromJson<PlayerSettingsData>(asset.text);
+                Resources.UnloadAsset(asset);
+                return new PlayerSaveData
+                {
+                    username = "Player",
+                    settings = settings
+                };
+            }
+
+            return new PlayerSaveData();
         }
 
         public static bool SaveFileExists => File.Exists(SavePath);

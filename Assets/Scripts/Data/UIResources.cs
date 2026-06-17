@@ -7,78 +7,136 @@ namespace Data
 {
     public static class UIResources
     {
+        private static ContentData _content;
+        private static bool _loaded;
+
+        private static void EnsureLoaded()
+        {
+            if (_loaded) return;
+            _loaded = true;
+
+            var asset = Resources.Load<TextAsset>("Data/content");
+            if (asset != null)
+            {
+                _content = JsonUtility.FromJson<ContentData>(asset.text);
+                Resources.UnloadAsset(asset);
+            }
+        }
+
         public static readonly Dictionary<Difficulty, VectorImage> DifficultyIcons = new()
         {
-            [Difficulty.Recruit] = Resources.Load< VectorImage>("Icons/Recruit"),
-            [Difficulty.Regular] = Resources.Load< VectorImage>("Icons/Regular"),
-            [Difficulty.Hardened] = Resources.Load< VectorImage>("Icons/Hardened"),
-            [Difficulty.Veteran] = Resources.Load< VectorImage>("Icons/Veteran")
+            [Difficulty.Recruit] = Resources.Load<VectorImage>("Icons/Recruit"),
+            [Difficulty.Regular] = Resources.Load<VectorImage>("Icons/Regular"),
+            [Difficulty.Hardened] = Resources.Load<VectorImage>("Icons/Hardened"),
+            [Difficulty.Veteran] = Resources.Load<VectorImage>("Icons/Veteran")
         };
 
-        public static readonly Dictionary<Missions, string> MissionTitles = new()
+        public static Dictionary<Missions, string> MissionTitles
         {
-            [Missions.SemperFi] = "SEMPER FI",
-            [Missions.LittleResistance] = "LITTLE RESISTANCE",
-            [Missions.HardLanding] = "HARD LANDING",
-            [Missions.Vendetta] = "VENDETTA",
-            [Missions.TheirLandTheirBlood] = "THEIR LAND, THEIR BLOOD",
-            [Missions.BurnEmOut] = "BURN 'EM OUT",
-            [Missions.Relentless] = "RELENTLESS",
-            [Missions.BloodAndIron] = "BLOOD & IRON",
-            [Missions.RingOfSteel] = "RING OF STEEL",
-            [Missions.Eviction] = "EVICTION",
-            [Missions.BlackCats] = "BLACK CATS",
-            [Missions.BlowtorchAndCorkscrew] = "BLOWTORCH & CORKSCREW",
-            [Missions.BreakingPoint] = "BREAKING POINT",
-            [Missions.HeartOfTheReich] = "HEART OF THE REICH",
-            [Missions.Downfall] = "DOWNFALL"
-        };
+            get
+            {
+                EnsureLoaded();
+                if (_titles == null)
+                {
+                    _titles = new Dictionary<Missions, string>();
+                    if (_content?.missions != null)
+                        foreach (var m in _content.missions)
+                            if (System.Enum.TryParse<Missions>(m.name, out var key))
+                                _titles[key] = m.title;
+                }
+                return _titles;
+            }
+        }
+        private static Dictionary<Missions, string> _titles;
 
-        public static readonly Dictionary<Missions, string> MissionDescriptions = new()
+        public static Dictionary<Missions, string> MissionDescriptions
         {
-            [Missions.SemperFi] = "The Marines assault the beaches of Betio Island. Heavy resistance expected on all sectors.",
-            [Missions.LittleResistance] = "Advance through the jungles of Peleliu and secure the enemy stronghold.",
-            [Missions.HardLanding] = "Secure the airfield on Peleliu under heavy mortar fire. Extraction is not an option.",
-            [Missions.Vendetta] = "Fight alongside Reznov in the ruins of Stalingrad. One shot. One kill.",
-            [Missions.TheirLandTheirBlood] = "Push through the Russian countryside and drive the enemy back.",
-            [Missions.BurnEmOut] = "Use flamethrowers to clear fortified positions in the jungle.",
-            [Missions.Relentless] = "Fight through the industrial district of Stalingrad. No surrender.",
-            [Missions.BloodAndIron] = "Command a tank through enemy lines and break the siege.",
-            [Missions.RingOfSteel] = "Defend the outskirts of Berlin against overwhelming forces.",
-            [Missions.Eviction] = "Clear buildings in Berlin block by block. Room by room.",
-            [Missions.BlackCats] = "Fly a PBY Catalina on a rescue mission through enemy waters.",
-            [Missions.BlowtorchAndCorkscrew] = "Assault Okinawa's beaches and clear the cave networks.",
-            [Missions.BreakingPoint] = "Fight through the caves of Okinawa. The enemy is cornered.",
-            [Missions.HeartOfTheReich] = "Storm the Reichstag. This is the final push.",
-            [Missions.Downfall] = "The final assault on Berlin. End it."
-        };
+            get
+            {
+                EnsureLoaded();
+                if (_descriptions == null)
+                {
+                    _descriptions = new Dictionary<Missions, string>();
+                    if (_content?.missions != null)
+                        foreach (var m in _content.missions)
+                            if (System.Enum.TryParse<Missions>(m.name, out var key))
+                                _descriptions[key] = m.description;
+                }
+                return _descriptions;
+            }
+        }
+        private static Dictionary<Missions, string> _descriptions;
 
-        public static readonly Dictionary<Difficulty, string> DifficultyDescriptions = new()
+        public static Dictionary<Difficulty, string> DifficultyDescriptions
         {
-            [Difficulty.Recruit] = "We've got you covered. Enemies are less aggressive and deal reduced damage.",
-            [Difficulty.Regular] = "A balanced challenge. Enemies are tactical and deadly.",
-            [Difficulty.Hardened] = "Enemies are aggressive and accurate. Only the strong survive.",
-            [Difficulty.Veteran] = "The ultimate test. Enemies are relentless and lethal."
-        };
+            get
+            {
+                EnsureLoaded();
+                if (_difficultyDescriptions == null)
+                {
+                    _difficultyDescriptions = new Dictionary<Difficulty, string>();
+                    if (_content?.difficulties != null)
+                        foreach (var d in _content.difficulties)
+                            if (System.Enum.TryParse<Difficulty>(d.name, out var key))
+                                _difficultyDescriptions[key] = d.description;
+                }
+                return _difficultyDescriptions;
+            }
+        }
+        private static Dictionary<Difficulty, string> _difficultyDescriptions;
 
-        public static readonly string[] MessagesOfTheDay =
+        public static string[] MessagesOfTheDay
         {
-            "All campaign missions are now available for deployment. Good luck out there, soldier.",
-            "Addressed stability issues and improved menu navigation. Save system now operational across all modes.",
-            "Team Deathmatch and Domination now available in core matchmaking rotation. Get your squad together.",
-            "Thank you to our community for 10 million players worldwide. See you on the front lines.",
-            "Weapon balance adjustments and performance improvements deployed across all modes.",
-            "Double XP weekend is active now through Monday. Rank up faster in all game modes.",
-            "Party connection stability has been upgraded. Matchmaking improvements are now live on all servers.",
-            "Check the barracks for your service record and recent accolades. New missions are waiting.",
-            "Resolved a rare crash when navigating the multiplayer lobby. Servers are back online.",
-            "All servers are operational. Squad up and dominate the leaderboards."
-        };
+            get
+            {
+                EnsureLoaded();
+                return _content?.messagesOfTheDay ?? System.Array.Empty<string>();
+            }
+        }
 
-        public static readonly string[] OptionInversion = { "Off", "On" };
-        public static readonly string[] OptionStickLayout = { "Default", "Southpaw", "Legacy", "Legacy Southpaw" };
-        public static readonly string[] OptionButtonLayout = { "Default", "Southpaw", "Legacy", "Legacy Southpaw" };
-        public static readonly string[] OptionSensitivity = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-        public static readonly string[] OptionTargetAssist = { "Off", "On" };
+        public static string[] OptionInversion
+        {
+            get
+            {
+                EnsureLoaded();
+                return _content?.options?.inversion ?? System.Array.Empty<string>();
+            }
+        }
+
+        public static string[] OptionStickLayout
+        {
+            get
+            {
+                EnsureLoaded();
+                return _content?.options?.stickLayout ?? System.Array.Empty<string>();
+            }
+        }
+
+        public static string[] OptionButtonLayout
+        {
+            get
+            {
+                EnsureLoaded();
+                return _content?.options?.buttonLayout ?? System.Array.Empty<string>();
+            }
+        }
+
+        public static string[] OptionSensitivity
+        {
+            get
+            {
+                EnsureLoaded();
+                return _content?.options?.sensitivity ?? System.Array.Empty<string>();
+            }
+        }
+
+        public static string[] OptionTargetAssist
+        {
+            get
+            {
+                EnsureLoaded();
+                return _content?.options?.targetAssist ?? System.Array.Empty<string>();
+            }
+        }
     }
 }

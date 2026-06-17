@@ -41,6 +41,7 @@ namespace UI.Core
 
             _header.BindBackButton(OnBackClicked);
             UIRouter.Instance.Register(this);
+
             _ready = true;
         }
 

@@ -1,3 +1,4 @@
+using Data;
 using UI.Constants;
 using UI.Core;
 using UI.Factories;
@@ -19,7 +20,12 @@ namespace UI.Views
 
         protected override void GetElements() => _elements = ElementsFactory.NoticeModal(Root);
 
-        private static void HandleOkClicked() => UIRouter.Instance.CloseModal();
+        private static void HandleOkClicked()
+        {
+            var save = SaveDataManager.CurrentSave;
+            SaveDataManager.Save(save);
+            UIRouter.Instance.CloseModal();
+        }
 
         private void BindButtonClicks()
         {

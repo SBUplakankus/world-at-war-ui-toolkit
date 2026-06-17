@@ -22,6 +22,10 @@ namespace UI.Views
 
         private static void DifficultySelected(Difficulty difficulty)
         {
+            var save = SaveDataManager.CurrentSave;
+            save.campaignStarted = true;
+            save.missionsCompleted = 0;
+            SaveDataManager.Save(save);
             Debug.Log("Difficulty set to: " + difficulty);
             UIRouter.Instance.CloseModal();
         }

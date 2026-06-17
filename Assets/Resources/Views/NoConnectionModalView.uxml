@@ -6,7 +6,7 @@
         <ui:VisualElement name="left-ctr" style="flex-grow: 1; width: 40%;">
             <ui:VisualElement name="notice-text-ctr" class="notice-icon-row" style="width: auto;">
                 <ui:Label text="No internet connection detected. Check your network settings and try again." name="notice-lbl" class="text-shadow-dark modal-notice-lbl"/>
-                <ui:Image name="difficulty-icon" class="difficulty-icon"/>
+                <ui:Image name="no-connection-icon" class="difficulty-icon"/>
             </ui:VisualElement>
             <ui:VisualElement name="continue-btn-ctr" class="modal-continue-btn-ctr modal-continue-btn-ctr--center" style="width: 45%;">
                 <ui:Instance template="MenuButton" name="ok-btn">

@@ -8,7 +8,7 @@
     </ui:VisualElement>
     <ui:VisualElement name="root-ctr" class="view-ctr">
         <ui:VisualElement name="hdr-ctr" class="font-arsenal-bold header-bar">
-            <ui:VisualElement name="info-ctr" class="info-bar">
+            <ui:VisualElement name="info-ctr" class="info-bar" style="padding-left: 10.5%;">
                 <ui:VisualElement name="title-ctr" class="title-ctr">
                     <ui:Label text="MAIN MENU" double-click-selects-word="false" name="hdr-title" class="font-arsenal-bold text-shadow-dark header-title"/>
                 </ui:VisualElement>

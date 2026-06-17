@@ -3,8 +3,8 @@
 namespace UI.Records
 {
     public sealed record CoOpScreenElements(
-        Button Online,
-        Button SplitScreen,
-        Button Lan
+        Button OnlineButton,
+        Button SplitScreenButton,
+        Button LanButton
         );
 }

@@ -43,15 +43,9 @@ namespace UI.Constants
         public const string LanBtn = "lan-btn";
 
         // Multiplayer screen
-        public const string PlayerOnlineBtn = "player-online-btn";
-        public const string MpSplitScreenBtn = "mp-splitscreen-btn";
         public const string LanPartyBtn = "lanparty-btn";
-        public const string MpOptionsBtn = "mp-options-btn";
-        public const string MpMainMenuBtn = "mp-mainmenu-btn";
 
         // Zombies screen
-        public const string ZombiesResumeBtn = "zombies-resume-btn";
-        public const string ZombiesNewGameBtn = "zombies-newgame-btn";
 
         // Credits screen
         public const string CreditsLabel = "credits-lbl";

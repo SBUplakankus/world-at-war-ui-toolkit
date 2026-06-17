@@ -1,3 +1,4 @@
+using Data;
 using UI.Constants;
 using UI.Core;
 using UI.Factories;
@@ -16,7 +17,7 @@ namespace UI.Views
 
         protected override void GetElements() => _elements = ElementsFactory.MultiplayerMenu(Root);
 
-        private static void HandlePlayerOnlineClicked()
+        private static void HandleOnlineClicked()
         {
             Debug.Log("Player Online clicked");
         }
@@ -37,28 +38,22 @@ namespace UI.Views
             UIRouter.Instance.NavigateTo<GameOptionsView>();
         }
 
-        private static void HandleMainMenuClicked()
-        {
-            Debug.Log("Back to Main Menu clicked");
-            UIRouter.Instance.NavigateTo<MainMenuView>();
-        }
-
         protected override void Bind()
         {
-            _elements.PlayerOnline.clicked += HandlePlayerOnlineClicked;
-            _elements.SplitScreen.clicked += HandleSplitScreenClicked;
-            _elements.LanParty.clicked += HandleLanPartyClicked;
-            _elements.Options.clicked += HandleOptionsClicked;
-            _elements.MainMenu.clicked += HandleMainMenuClicked;
+            _elements.MessageOfTheDay.text = MotdManager.RandomMessage.body;
+
+            _elements.OnlineButton.clicked += HandleOnlineClicked;
+            _elements.SplitScreenButton.clicked += HandleSplitScreenClicked;
+            _elements.LanPartyButton.clicked += HandleLanPartyClicked;
+            _elements.OptionsButton.clicked += HandleOptionsClicked;
         }
 
         protected override void UnBind()
         {
-            _elements.PlayerOnline.clicked -= HandlePlayerOnlineClicked;
-            _elements.SplitScreen.clicked -= HandleSplitScreenClicked;
-            _elements.LanParty.clicked -= HandleLanPartyClicked;
-            _elements.Options.clicked -= HandleOptionsClicked;
-            _elements.MainMenu.clicked -= HandleMainMenuClicked;
+            _elements.OnlineButton.clicked -= HandleOnlineClicked;
+            _elements.SplitScreenButton.clicked -= HandleSplitScreenClicked;
+            _elements.LanPartyButton.clicked -= HandleLanPartyClicked;
+            _elements.OptionsButton.clicked -= HandleOptionsClicked;
         }
 
         public string HeaderName => ScreenNames.Multiplayer;

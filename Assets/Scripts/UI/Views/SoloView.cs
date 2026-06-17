@@ -52,8 +52,7 @@ namespace UI.Views
 
         private void HandleMissionSelectClicked()
         {
-            // TODO: Display Mission Select Screen
-            Debug.Log("Mission Select Clicked");
+            UIRouter.Instance.NavigateTo<MissionSelectView>();
         }
         
         protected override void GetElements() => _elements = ElementsFactory.SoloScreen(Root);

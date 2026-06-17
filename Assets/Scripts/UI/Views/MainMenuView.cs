@@ -1,4 +1,5 @@
-﻿using UI.Constants;
+﻿using Data;
+using UI.Constants;
 using UI.Core;
 using UI.Factories;
 using UI.Interfaces;
@@ -58,7 +59,7 @@ namespace UI.Views
 
         private static string FetchMessageOfTheDay()
         {
-            return "Message of the Day it is the Message of the Day. Follow @massivemeltmedia on BlueSky and Subscribe on YouTube.";
+            return MotdManager.RandomMessage.body;
         }
 
         protected override void GetElements() => _elements = ElementsFactory.MainMenu(Root);

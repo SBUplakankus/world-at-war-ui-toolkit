@@ -5,10 +5,10 @@
     <ui:VisualElement name="zombies-view" class="view-root">
         <ui:VisualElement name="left-ctr" class="left-ctr">
             <ui:VisualElement class="menu-list-ctr single-list">
-                <ui:Instance template="MenuButton" name="zombies-resume-btn">
+                <ui:Instance template="MenuButton" name="resume-btn">
                     <AttributeOverrides element-name="btn" text="RESUME GAME"/>
                 </ui:Instance>
-                <ui:Instance template="MenuButton" name="zombies-newgame-btn">
+                <ui:Instance template="MenuButton" name="new-btn">
                     <AttributeOverrides element-name="btn" text="NEW GAME"/>
                 </ui:Instance>
             </ui:VisualElement>

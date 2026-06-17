@@ -1,31 +1,45 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
+    <ui:Template name="MenuSlider" src="project://database/Assets/UI%20Toolkit/Templates/MenuSlider.uxml?fileID=9197481963319205126&amp;guid=2808df8c75d186942aadaa3aea403975&amp;type=3#MenuSlider"/>
     <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
     <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
     <ui:VisualElement name="volume-view" class="view-root">
         <ui:VisualElement name="settings-ctr" class="settings-ctr">
-            <ui:VisualElement class="setting-row">
-                <ui:Button name="voice-btn" class="font-archivo-medium setting-btn" text="Voice"/>
-                <ui:Slider name="voice-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            <ui:VisualElement name="voice-ctr" class="setting-row options-row">
+                <ui:Instance template="MenuButton" name="voice-btn" class="options-btn">
+                    <AttributeOverrides element-name="btn" text="Voice"/>
+                </ui:Instance>
+                <ui:Instance template="MenuSlider" name="voice-slider" class="options-slider"/>
             </ui:VisualElement>
-            <ui:VisualElement class="setting-row">
-                <ui:Button name="music-btn" class="font-archivo-medium setting-btn" text="Music"/>
-                <ui:Slider name="music-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            <ui:VisualElement name="music-ctr" class="setting-row options-row">
+                <ui:Instance template="MenuButton" name="music-btn" class="options-btn">
+                    <AttributeOverrides element-name="btn" text="Music"/>
+                </ui:Instance>
+                <ui:Instance template="MenuSlider" name="music-slider" class="options-slider"/>
             </ui:VisualElement>
-            <ui:VisualElement class="setting-row">
-                <ui:Button name="sfx-btn" class="font-archivo-medium setting-btn" text="SFX"/>
-                <ui:Slider name="sfx-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            <ui:VisualElement name="sfx-ctr" class="setting-row options-row">
+                <ui:Instance template="MenuButton" name="sfx-btn" class="options-btn">
+                    <AttributeOverrides element-name="btn" text="SFX"/>
+                </ui:Instance>
+                <ui:Instance template="MenuSlider" name="sfx-slider" class="options-slider"/>
             </ui:VisualElement>
-            <ui:VisualElement class="setting-row">
-                <ui:Button name="cinematics-btn" class="font-archivo-medium setting-btn" text="Cinematics"/>
-                <ui:Slider name="cinematics-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            <ui:VisualElement name="cinematics-ctr" class="setting-row options-row">
+                <ui:Instance template="MenuButton" name="cinematics-btn" class="options-btn">
+                    <AttributeOverrides element-name="btn" text="Cinematics"/>
+                </ui:Instance>
+                <ui:Instance template="MenuSlider" name="cinematics-slider" class="options-slider"/>
             </ui:VisualElement>
-            <ui:VisualElement class="setting-row">
-                <ui:Button name="master-btn" class="font-archivo-medium setting-btn" text="Master"/>
-                <ui:Slider name="master-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            <ui:VisualElement name="master-ctr" class="setting-row options-row">
+                <ui:Instance template="MenuButton" name="master-btn" class="options-btn">
+                    <AttributeOverrides element-name="btn" text="Master"/>
+                </ui:Instance>
+                <ui:Instance template="MenuSlider" name="master-slider" class="options-slider"/>
             </ui:VisualElement>
-            <ui:VisualElement class="setting-row">
-                <ui:Button name="voip-btn" class="font-archivo-medium setting-btn" text="VoIP"/>
-                <ui:Slider name="voip-slider" class="settings-slider" value="75" low-value="0" high-value="100"/>
+            <ui:VisualElement name="voip-ctr" class="setting-row options-row">
+                <ui:Instance template="MenuButton" name="voip-btn" class="options-btn">
+                    <AttributeOverrides element-name="btn" text="VoIP"/>
+                </ui:Instance>
+                <ui:Instance template="MenuSlider" name="voip-slider" class="options-slider"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

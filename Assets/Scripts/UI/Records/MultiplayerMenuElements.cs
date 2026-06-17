@@ -3,11 +3,10 @@
 namespace UI.Records
 {
     public sealed record MultiplayerMenuElements(
-        Button PlayerOnline,
-        Button SplitScreen,
-        Button LanParty,
-        Button Options,
-        Button MainMenu,
+        Button OnlineButton,
+        Button SplitScreenButton,
+        Button LanPartyButton,
+        Button OptionsButton,
         Label MessageOfTheDay
         );
 }

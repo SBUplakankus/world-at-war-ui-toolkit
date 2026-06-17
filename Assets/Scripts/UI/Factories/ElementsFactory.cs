@@ -62,20 +62,19 @@ namespace UI.Factories
         public static CoOpScreenElements CoOpScreen(VisualElement root)
         {
             return new CoOpScreenElements(
-                Online: root.Q<TemplateContainer>(UIElements.OnlineBtn).Q<Button>(),
-                SplitScreen: root.Q<TemplateContainer>(UIElements.SplitScreenBtn).Q<Button>(),
-                Lan: root.Q<TemplateContainer>(UIElements.LanBtn).Q<Button>()
+                OnlineButton: root.Q<TemplateContainer>(UIElements.OnlineBtn).Q<Button>(),
+                SplitScreenButton: root.Q<TemplateContainer>(UIElements.SplitScreenBtn).Q<Button>(),
+                LanButton: root.Q<TemplateContainer>(UIElements.LanBtn).Q<Button>()
             );
         }
 
         public static MultiplayerMenuElements MultiplayerMenu(VisualElement root)
         {
             return new MultiplayerMenuElements(
-                PlayerOnline: root.Q<TemplateContainer>(UIElements.PlayerOnlineBtn).Q<Button>(),
-                SplitScreen: root.Q<TemplateContainer>(UIElements.MpSplitScreenBtn).Q<Button>(),
-                LanParty: root.Q<TemplateContainer>(UIElements.LanPartyBtn).Q<Button>(),
-                Options: root.Q<TemplateContainer>(UIElements.MpOptionsBtn).Q<Button>(),
-                MainMenu: root.Q<TemplateContainer>(UIElements.MpMainMenuBtn).Q<Button>(),
+                OnlineButton: root.Q<TemplateContainer>(UIElements.OnlineBtn).Q<Button>(),
+                SplitScreenButton: root.Q<TemplateContainer>(UIElements.SplitScreenBtn).Q<Button>(),
+                LanPartyButton: root.Q<TemplateContainer>(UIElements.LanPartyBtn).Q<Button>(),
+                OptionsButton: root.Q<TemplateContainer>(UIElements.OptionsBtn).Q<Button>(),
                 MessageOfTheDay: root.Q<Label>(UIElements.MotdContent)
             );
         }
@@ -83,15 +82,15 @@ namespace UI.Factories
         public static ZombiesScreenElements ZombiesScreen(VisualElement root)
         {
             return new ZombiesScreenElements(
-                ResumeButton: root.Q<TemplateContainer>(UIElements.ZombiesResumeBtn).Q<Button>(),
-                NewGameButton: root.Q<TemplateContainer>(UIElements.ZombiesNewGameBtn).Q<Button>()
+                ResumeButton: root.Q<TemplateContainer>(UIElements.ResumeBtn).Q<Button>(),
+                NewGameButton: root.Q<TemplateContainer>(UIElements.NewGameBtn).Q<Button>()
             );
         }
 
         public static CreditsScreenElements CreditsScreen(VisualElement root)
         {
             return new CreditsScreenElements(
-                Label: root.Q<Label>(UIElements.CreditsLabel)
+                CreditsLabel: root.Q<Label>(UIElements.CreditsLabel)
             );
         }
 
@@ -122,37 +121,37 @@ namespace UI.Factories
         public static GameOptionsElements GameOptions(VisualElement root)
         {
             return new GameOptionsElements(
-                LookInversionButton: root.Q<Button>(UIElements.LookInversionBtn),
+                LookInversionButton: root.Q<TemplateContainer>(UIElements.LookInversionBtn).Q<Button>(),
                 LookInversionLabel: root.Q<Label>(UIElements.LookInversionLbl),
-                StickLayoutButton: root.Q<Button>(UIElements.StickLayoutBtn),
+                StickLayoutButton: root.Q<TemplateContainer>(UIElements.StickLayoutBtn).Q<Button>(),
                 StickLayoutLabel: root.Q<Label>(UIElements.StickLayoutLbl),
-                ButtonLayoutButton: root.Q<Button>(UIElements.ButtonLayoutBtn),
+                ButtonLayoutButton: root.Q<TemplateContainer>(UIElements.ButtonLayoutBtn).Q<Button>(),
                 ButtonLayoutLabel: root.Q<Label>(UIElements.ButtonLayoutLbl),
-                SensitivityButton: root.Q<Button>(UIElements.SensitivityBtn),
+                SensitivityButton: root.Q<TemplateContainer>(UIElements.SensitivityBtn).Q<Button>(),
                 SensitivityLabel: root.Q<Label>(UIElements.SensitivityLbl),
-                TargetAssistButton: root.Q<Button>(UIElements.TargetAssistBtn),
+                TargetAssistButton: root.Q<TemplateContainer>(UIElements.TargetAssistBtn).Q<Button>(),
                 TargetAssistLabel: root.Q<Label>(UIElements.TargetAssistLbl),
-                PlayerNameButton: root.Q<Button>(UIElements.PlayerNameBtn),
+                PlayerNameButton: root.Q<TemplateContainer>(UIElements.PlayerNameBtn).Q<Button>(),
                 PlayerNameLabel: root.Q<Label>(UIElements.PlayerNameLbl),
-                GameVolumeButton: root.Q<Button>(UIElements.GameVolumeBtn)
+                GameVolumeButton: root.Q<TemplateContainer>(UIElements.GameVolumeBtn).Q<Button>()
             );
         }
 
         public static GameVolumeElements GameVolume(VisualElement root)
         {
             return new GameVolumeElements(
-                VoiceButton: root.Q<Button>(UIElements.VoiceBtn),
-                VoiceSlider: root.Q<Slider>(UIElements.VoiceSlider),
-                MusicButton: root.Q<Button>(UIElements.MusicBtn),
-                MusicSlider: root.Q<Slider>(UIElements.MusicSlider),
-                SfxButton: root.Q<Button>(UIElements.SfxBtn),
-                SfxSlider: root.Q<Slider>(UIElements.SfxSlider),
-                CinematicsButton: root.Q<Button>(UIElements.CinematicsBtn),
-                CinematicsSlider: root.Q<Slider>(UIElements.CinematicsSlider),
-                MasterButton: root.Q<Button>(UIElements.MasterBtn),
-                MasterSlider: root.Q<Slider>(UIElements.MasterSlider),
-                VoipButton: root.Q<Button>(UIElements.VoipBtn),
-                VoipSlider: root.Q<Slider>(UIElements.VoipSlider)
+                VoiceButton: root.Q<TemplateContainer>(UIElements.VoiceBtn).Q<Button>(),
+                VoiceSlider: root.Q<TemplateContainer>(UIElements.VoiceSlider).Q<Slider>(),
+                MusicButton: root.Q<TemplateContainer>(UIElements.MusicBtn).Q<Button>(),
+                MusicSlider: root.Q<TemplateContainer>(UIElements.MusicSlider).Q<Slider>(),
+                SfxButton: root.Q<TemplateContainer>(UIElements.SfxBtn).Q<Button>(),
+                SfxSlider: root.Q<TemplateContainer>(UIElements.SfxSlider).Q<Slider>(),
+                CinematicsButton: root.Q<TemplateContainer>(UIElements.CinematicsBtn).Q<Button>(),
+                CinematicsSlider: root.Q<TemplateContainer>(UIElements.CinematicsSlider).Q<Slider>(),
+                MasterButton: root.Q<TemplateContainer>(UIElements.MasterBtn).Q<Button>(),
+                MasterSlider: root.Q<TemplateContainer>(UIElements.MasterSlider).Q<Slider>(),
+                VoipButton: root.Q<TemplateContainer>(UIElements.VoipBtn).Q<Button>(),
+                VoipSlider: root.Q<TemplateContainer>(UIElements.VoipSlider).Q<Slider>()
             );
         }
 

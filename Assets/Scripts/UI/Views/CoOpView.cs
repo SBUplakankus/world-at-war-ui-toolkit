@@ -32,16 +32,16 @@ namespace UI.Views
 
         protected override void Bind()
         {
-            _elements.Online.clicked += HandleOnlineClicked;
-            _elements.SplitScreen.clicked += HandleSplitScreenClicked;
-            _elements.Lan.clicked += HandleLanClicked;
+            _elements.OnlineButton.clicked += HandleOnlineClicked;
+            _elements.SplitScreenButton.clicked += HandleSplitScreenClicked;
+            _elements.LanButton.clicked += HandleLanClicked;
         }
 
         protected override void UnBind()
         {
-            _elements.Online.clicked -= HandleOnlineClicked;
-            _elements.SplitScreen.clicked -= HandleSplitScreenClicked;
-            _elements.Lan.clicked -= HandleLanClicked;
+            _elements.OnlineButton.clicked -= HandleOnlineClicked;
+            _elements.SplitScreenButton.clicked -= HandleSplitScreenClicked;
+            _elements.LanButton.clicked -= HandleLanClicked;
         }
 
         public string HeaderName => ScreenNames.CoOp;

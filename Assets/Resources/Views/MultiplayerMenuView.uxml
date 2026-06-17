@@ -7,21 +7,17 @@
         <ui:VisualElement name="left-ctr" class="left-ctr">
             <ui:VisualElement class="menu-list-ctr">
                 <ui:Instance template="Divider"/>
-                <ui:Instance template="MenuButton" name="player-online-btn">
+                <ui:Instance template="MenuButton" name="online-btn">
                     <AttributeOverrides element-name="btn" text="PLAY ONLINE"/>
                 </ui:Instance>
-                <ui:Instance template="MenuButton" name="mp-splitscreen-btn">
+                <ui:Instance template="MenuButton" name="splitscreen-btn">
                     <AttributeOverrides element-name="btn" text="SPLIT SCREEN"/>
                 </ui:Instance>
                 <ui:Instance template="MenuButton" name="lanparty-btn">
                     <AttributeOverrides element-name="btn" text="LAN PARTY"/>
                 </ui:Instance>
-                <ui:Instance template="Divider"/>
-                <ui:Instance template="MenuButton" name="mp-options-btn">
+                <ui:Instance template="MenuButton" name="options-btn">
                     <AttributeOverrides element-name="btn" text="OPTIONS"/>
-                </ui:Instance>
-                <ui:Instance template="MenuButton" name="mp-mainmenu-btn">
-                    <AttributeOverrides element-name="btn" text="MAIN MENU"/>
                 </ui:Instance>
                 <ui:Instance template="Divider"/>
             </ui:VisualElement>

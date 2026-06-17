@@ -6,6 +6,7 @@ namespace Utilities
     /// <summary>
     /// Test Bootstrap for initializing a save in the JSON Save System
     /// </summary>
+#if UNITY_EDITOR
     public class TestBootstrap : MonoBehaviour
     {
         private readonly PlayerSaveData _testSave = new()
@@ -20,4 +21,5 @@ namespace Utilities
             SaveDataManager.Save(_testSave);
         }
     }
+#endif
 }

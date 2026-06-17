@@ -16,8 +16,6 @@ namespace UI.Views
 
         public ZombiesView(VisualTreeAsset template) : base(template) { }
 
-        protected override void GetElements() => _elements = ElementsFactory.ZombiesScreen(Root);
-
         private static void HandleResumeClicked()
         {
             UIRouter.Instance.OpenModal<NoConnectionModalView>();
@@ -29,16 +27,28 @@ namespace UI.Views
             UIRouter.Instance.OpenModal<NoConnectionModalView>();
         }
 
-        protected override void Bind()
+        private void BindButtonClicks()
         {
             _elements.ResumeButton.clicked += HandleResumeClicked;
             _elements.NewGameButton.clicked += HandleNewGameClicked;
         }
 
-        protected override void UnBind()
+        private void UnBindButtonClicks()
         {
             _elements.ResumeButton.clicked -= HandleResumeClicked;
             _elements.NewGameButton.clicked -= HandleNewGameClicked;
+        }
+
+        protected override void GetElements() => _elements = ElementsFactory.ZombiesScreen(Root);
+
+        protected override void Bind()
+        {
+            BindButtonClicks();
+        }
+
+        protected override void UnBind()
+        {
+            UnBindButtonClicks();
         }
     }
 }

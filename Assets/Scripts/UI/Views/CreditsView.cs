@@ -13,8 +13,6 @@ namespace UI.Views
         public CreditsView(VisualTreeAsset template) : base(template) { }
 
         protected override void GetElements() => _elements = ElementsFactory.CreditsScreen(Root);
-        protected override void Bind() { }
-        protected override void UnBind() { }
 
         public string HeaderName => ScreenNames.Credits;
     }

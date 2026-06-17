@@ -4,7 +4,6 @@ using UI.Core;
 using UI.Factories;
 using UI.Interfaces;
 using UI.Records;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace UI.Views
@@ -20,65 +19,47 @@ namespace UI.Views
 
         protected override void GetElements() => _elements = ElementsFactory.GameOptions(Root);
 
-        private void SyncLabels()
-        {
-            var s = _save.settings;
-            _elements.LookInversionLabel.text = s.invertLook;
-            _elements.StickLayoutLabel.text = s.stickLayout;
-            _elements.ButtonLayoutLabel.text = s.buttonLayout;
-            _elements.SensitivityLabel.text = s.sensitivity;
-            _elements.TargetAssistLabel.text = s.targetAssist;
-            _elements.PlayerNameLabel.text = s.playerName;
-        }
-
-        private void CycleSetting(ref string field, string[] options)
+        private void CycleSetting(ref string field, string[] options, TextElement label)
         {
             var index = System.Array.IndexOf(options, field);
             field = options[(index + 1) % options.Length];
+            label.text = field;
             SaveDataManager.Save(_save);
-            SyncLabels();
         }
 
         private void HandleLookInversionClicked()
-        {
-            CycleSetting(ref _save.settings.invertLook, UIResources.OptionInversion);
-        }
+            => CycleSetting(ref _save.settings.invertLook, UIResources.OptionInversion, _elements.LookInversionLabel);
 
         private void HandleStickLayoutClicked()
-        {
-            CycleSetting(ref _save.settings.stickLayout, UIResources.OptionStickLayout);
-        }
+            => CycleSetting(ref _save.settings.stickLayout, UIResources.OptionStickLayout, _elements.StickLayoutLabel);
 
         private void HandleButtonLayoutClicked()
-        {
-            CycleSetting(ref _save.settings.buttonLayout, UIResources.OptionButtonLayout);
-        }
+            => CycleSetting(ref _save.settings.buttonLayout, UIResources.OptionButtonLayout, _elements.ButtonLayoutLabel);
 
         private void HandleSensitivityClicked()
-        {
-            CycleSetting(ref _save.settings.sensitivity, UIResources.OptionSensitivity);
-        }
+            => CycleSetting(ref _save.settings.sensitivity, UIResources.OptionSensitivity, _elements.SensitivityLabel);
 
         private void HandleTargetAssistClicked()
-        {
-            CycleSetting(ref _save.settings.targetAssist, UIResources.OptionTargetAssist);
-        }
+            => CycleSetting(ref _save.settings.targetAssist, UIResources.OptionTargetAssist, _elements.TargetAssistLabel);
 
-        private static void HandlePlayerNameClicked()
-        {
-            Debug.Log("Player Name clicked");
-        }
+        private static void HandlePlayerNameClicked() { }
 
         private static void HandleGameVolumeClicked()
-        {
-            UIRouter.Instance.NavigateTo<GameVolumeView>();
-        }
+            => UIRouter.Instance.NavigateTo<GameVolumeView>();
 
-        protected override void Bind()
+        private void SyncLabels()
         {
             _save = SaveDataManager.CurrentSave;
-            SyncLabels();
+            _elements.LookInversionLabel.text = _save.settings.invertLook;
+            _elements.StickLayoutLabel.text = _save.settings.stickLayout;
+            _elements.ButtonLayoutLabel.text = _save.settings.buttonLayout;
+            _elements.SensitivityLabel.text = _save.settings.sensitivity;
+            _elements.TargetAssistLabel.text = _save.settings.targetAssist;
+            _elements.PlayerNameLabel.text = _save.settings.playerName;
+        }
 
+        private void BindButtonClicks()
+        {
             _elements.LookInversionButton.clicked += HandleLookInversionClicked;
             _elements.StickLayoutButton.clicked += HandleStickLayoutClicked;
             _elements.ButtonLayoutButton.clicked += HandleButtonLayoutClicked;
@@ -88,7 +69,7 @@ namespace UI.Views
             _elements.GameVolumeButton.clicked += HandleGameVolumeClicked;
         }
 
-        protected override void UnBind()
+        private void UnBindButtonClicks()
         {
             _elements.LookInversionButton.clicked -= HandleLookInversionClicked;
             _elements.StickLayoutButton.clicked -= HandleStickLayoutClicked;
@@ -97,6 +78,17 @@ namespace UI.Views
             _elements.TargetAssistButton.clicked -= HandleTargetAssistClicked;
             _elements.PlayerNameButton.clicked -= HandlePlayerNameClicked;
             _elements.GameVolumeButton.clicked -= HandleGameVolumeClicked;
+        }
+
+        protected override void Bind()
+        {
+            SyncLabels();
+            BindButtonClicks();
+        }
+
+        protected override void UnBind()
+        {
+            UnBindButtonClicks();
         }
     }
 }

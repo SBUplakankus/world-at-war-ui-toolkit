@@ -9,186 +9,189 @@ namespace UI.Factories
     /// </summary>
     public static class ElementsFactory
     {
+        private static Button QButton(VisualElement root, string name) => root.Q<TemplateContainer>(name)?.Q<Button>();
+        private static Slider QSlider(VisualElement root, string name) => root.Q<TemplateContainer>(name)?.Q<Slider>();
+
         public static ScreenLayoutElements ScreenLayout(VisualElement root)
         {
             return new ScreenLayoutElements(
-                Header: root.Q<Label>(UIElements.MenuName),
-                Username: root.Q<Label>(UIElements.UsernameLabel),
-                GameVersion: root.Q<Label>(UIElements.VersionLabel),
-                BackButton: root.Q<Button>(UIElements.BackBtn),
-                ScreenViewContainer: root.Q<VisualElement>(UIElements.ScreenViewContainer)
+                Header: root.Q<Label>(Elements.MenuName),
+                Username: root.Q<Label>(Elements.UsernameLabel),
+                GameVersion: root.Q<Label>(Elements.VersionLabel),
+                BackButton: root.Q<Button>(Elements.BackBtn),
+                ScreenViewContainer: root.Q<VisualElement>(Elements.ScreenViewContainer)
             );
         }
 
         public static ModalLayoutElements ModalLayout(VisualElement root)
         {
             return new ModalLayoutElements(
-                Header: root.Q<Label>(UIElements.ModalHeader),
-                ModalViewContainer: root.Q<VisualElement>(UIElements.ModalViewContainer),
-                ModalContainer: root.Q<VisualElement>(UIElements.ModalContainer)
+                Header: root.Q<Label>(Elements.ModalHeader),
+                ModalViewContainer: root.Q<VisualElement>(Elements.ModalViewContainer),
+                ModalContainer: root.Q<VisualElement>(Elements.ModalContainer)
             );
         }
 
         public static MainMenuElements MainMenu(VisualElement root)
         {
             return new MainMenuElements(
-                SoloButton: root.Q<TemplateContainer>(UIElements.SoloBtn).Q<Button>(),
-                CoOpButton: root.Q<TemplateContainer>(UIElements.CoopBtn).Q<Button>(),
-                ZombiesButton: root.Q<TemplateContainer>(UIElements.ZombiesBtn).Q<Button>(),
-                MultiplayerButton: root.Q<TemplateContainer>(UIElements.MultiBtn).Q<Button>(),
-                OptionsButton: root.Q<TemplateContainer>(UIElements.OptionsBtn).Q<Button>(),
-                CreditsButton: root.Q<TemplateContainer>(UIElements.CreditsBtn).Q<Button>(),
-                MessageLabel: root.Q<Label>(UIElements.MotdContent)
+                SoloButton: QButton(root, Elements.SoloBtn),
+                CoOpButton: QButton(root, Elements.CoopBtn),
+                ZombiesButton: QButton(root, Elements.ZombiesBtn),
+                MultiplayerButton: QButton(root, Elements.MultiBtn),
+                OptionsButton: QButton(root, Elements.OptionsBtn),
+                CreditsButton: QButton(root, Elements.CreditsBtn),
+                MessageLabel: root.Q<Label>(Elements.MotdContent)
             );
         }
 
         public static NoticeModalElements NoticeModal(VisualElement root)
         {
             return new NoticeModalElements(
-                Notice: root.Q<Label>(UIElements.Notice),
-                Ok: root.Q<TemplateContainer>(UIElements.OkBtn).Q<Button>()
+                Notice: root.Q<Label>(Elements.Notice),
+                Ok: QButton(root, Elements.OkBtn)
             );
         }
 
         public static SoloScreenElements SoloScreen(VisualElement root)
         {
             return new SoloScreenElements(
-                ResumeButton: root.Q<TemplateContainer>(UIElements.ResumeBtn).Q<Button>(),
-                NewGameButton: root.Q<TemplateContainer>(UIElements.NewGameBtn).Q<Button>(),
-                MissionSelectButton: root.Q<TemplateContainer>(UIElements.MissionSelectBtn).Q<Button>()
+                ResumeButton: QButton(root, Elements.ResumeBtn),
+                NewGameButton: QButton(root, Elements.NewGameBtn),
+                MissionSelectButton: QButton(root, Elements.MissionSelectBtn)
             );
         }
 
         public static CoOpScreenElements CoOpScreen(VisualElement root)
         {
             return new CoOpScreenElements(
-                OnlineButton: root.Q<TemplateContainer>(UIElements.OnlineBtn).Q<Button>(),
-                SplitScreenButton: root.Q<TemplateContainer>(UIElements.SplitScreenBtn).Q<Button>(),
-                LanButton: root.Q<TemplateContainer>(UIElements.LanBtn).Q<Button>()
+                OnlineButton: QButton(root, Elements.OnlineBtn),
+                SplitScreenButton: QButton(root, Elements.SplitScreenBtn),
+                LanButton: QButton(root, Elements.LanBtn)
             );
         }
 
         public static MultiplayerMenuElements MultiplayerMenu(VisualElement root)
         {
             return new MultiplayerMenuElements(
-                OnlineButton: root.Q<TemplateContainer>(UIElements.OnlineBtn).Q<Button>(),
-                SplitScreenButton: root.Q<TemplateContainer>(UIElements.SplitScreenBtn).Q<Button>(),
-                LanPartyButton: root.Q<TemplateContainer>(UIElements.LanPartyBtn).Q<Button>(),
-                OptionsButton: root.Q<TemplateContainer>(UIElements.OptionsBtn).Q<Button>(),
-                MessageOfTheDay: root.Q<Label>(UIElements.MotdContent)
+                OnlineButton: QButton(root, Elements.OnlineBtn),
+                SplitScreenButton: QButton(root, Elements.SplitScreenBtn),
+                LanPartyButton: QButton(root, Elements.LanPartyBtn),
+                OptionsButton: QButton(root, Elements.OptionsBtn),
+                MessageOfTheDay: root.Q<Label>(Elements.MotdContent)
             );
         }
 
         public static ZombiesScreenElements ZombiesScreen(VisualElement root)
         {
             return new ZombiesScreenElements(
-                ResumeButton: root.Q<TemplateContainer>(UIElements.ResumeBtn).Q<Button>(),
-                NewGameButton: root.Q<TemplateContainer>(UIElements.NewGameBtn).Q<Button>()
+                ResumeButton: QButton(root, Elements.ResumeBtn),
+                NewGameButton: QButton(root, Elements.NewGameBtn)
             );
         }
 
         public static CreditsScreenElements CreditsScreen(VisualElement root)
         {
             return new CreditsScreenElements(
-                CreditsLabel: root.Q<Label>(UIElements.CreditsLabel)
+                CreditsLabel: root.Q<Label>(Elements.CreditsLabel)
             );
         }
 
         public static MissionSelectElements MissionSelect(VisualElement root)
         {
             return new MissionSelectElements(
-                Thumbnail: root.Q<Image>(UIElements.MissionThumbnail),
-                Header: root.Q<Label>(UIElements.MissionHdr),
-                Description: root.Q<Label>(UIElements.MissionDescription),
-                SemperFi: root.Q<TemplateContainer>(UIElements.MissionSemperFiBtn).Q<Button>(),
-                LittleResistance: root.Q<TemplateContainer>(UIElements.MissionLittleResistanceBtn).Q<Button>(),
-                HardLanding: root.Q<TemplateContainer>(UIElements.MissionHardLandingBtn).Q<Button>(),
-                Vendetta: root.Q<TemplateContainer>(UIElements.MissionVendettaBtn).Q<Button>(),
-                TheirLandTheirBlood: root.Q<TemplateContainer>(UIElements.MissionTheirLandTheirBloodBtn).Q<Button>(),
-                BurnEmOut: root.Q<TemplateContainer>(UIElements.MissionBurnEmOutBtn).Q<Button>(),
-                Relentless: root.Q<TemplateContainer>(UIElements.MissionRelentlessBtn).Q<Button>(),
-                BloodAndIron: root.Q<TemplateContainer>(UIElements.MissionBloodAndIronBtn).Q<Button>(),
-                RingOfSteel: root.Q<TemplateContainer>(UIElements.MissionRingOfSteelBtn).Q<Button>(),
-                Eviction: root.Q<TemplateContainer>(UIElements.MissionEvictionBtn).Q<Button>(),
-                BlackCats: root.Q<TemplateContainer>(UIElements.MissionBlackCatsBtn).Q<Button>(),
-                BlowtorchAndCorkscrew: root.Q<TemplateContainer>(UIElements.MissionBlowtorchAndCorkscrewBtn).Q<Button>(),
-                BreakingPoint: root.Q<TemplateContainer>(UIElements.MissionBreakingPointBtn).Q<Button>(),
-                HeartOfTheReich: root.Q<TemplateContainer>(UIElements.MissionHeartOfTheReichBtn).Q<Button>(),
-                Downfall: root.Q<TemplateContainer>(UIElements.MissionDownfallBtn).Q<Button>()
+                Thumbnail: root.Q<Image>(Elements.MissionThumbnail),
+                Header: root.Q<Label>(Elements.MissionHdr),
+                Description: root.Q<Label>(Elements.MissionDescription),
+                SemperFi: QButton(root, Elements.MissionSemperFiBtn),
+                LittleResistance: QButton(root, Elements.MissionLittleResistanceBtn),
+                HardLanding: QButton(root, Elements.MissionHardLandingBtn),
+                Vendetta: QButton(root, Elements.MissionVendettaBtn),
+                TheirLandTheirBlood: QButton(root, Elements.MissionTheirLandTheirBloodBtn),
+                BurnEmOut: QButton(root, Elements.MissionBurnEmOutBtn),
+                Relentless: QButton(root, Elements.MissionRelentlessBtn),
+                BloodAndIron: QButton(root, Elements.MissionBloodAndIronBtn),
+                RingOfSteel: QButton(root, Elements.MissionRingOfSteelBtn),
+                Eviction: QButton(root, Elements.MissionEvictionBtn),
+                BlackCats: QButton(root, Elements.MissionBlackCatsBtn),
+                BlowtorchAndCorkscrew: QButton(root, Elements.MissionBlowtorchAndCorkscrewBtn),
+                BreakingPoint: QButton(root, Elements.MissionBreakingPointBtn),
+                HeartOfTheReich: QButton(root, Elements.MissionHeartOfTheReichBtn),
+                Downfall: QButton(root, Elements.MissionDownfallBtn)
             );
         }
 
         public static GameOptionsElements GameOptions(VisualElement root)
         {
             return new GameOptionsElements(
-                LookInversionButton: root.Q<TemplateContainer>(UIElements.LookInversionBtn).Q<Button>(),
-                LookInversionLabel: root.Q<Label>(UIElements.LookInversionLbl),
-                StickLayoutButton: root.Q<TemplateContainer>(UIElements.StickLayoutBtn).Q<Button>(),
-                StickLayoutLabel: root.Q<Label>(UIElements.StickLayoutLbl),
-                ButtonLayoutButton: root.Q<TemplateContainer>(UIElements.ButtonLayoutBtn).Q<Button>(),
-                ButtonLayoutLabel: root.Q<Label>(UIElements.ButtonLayoutLbl),
-                SensitivityButton: root.Q<TemplateContainer>(UIElements.SensitivityBtn).Q<Button>(),
-                SensitivityLabel: root.Q<Label>(UIElements.SensitivityLbl),
-                TargetAssistButton: root.Q<TemplateContainer>(UIElements.TargetAssistBtn).Q<Button>(),
-                TargetAssistLabel: root.Q<Label>(UIElements.TargetAssistLbl),
-                PlayerNameButton: root.Q<TemplateContainer>(UIElements.PlayerNameBtn).Q<Button>(),
-                PlayerNameLabel: root.Q<Label>(UIElements.PlayerNameLbl),
-                GameVolumeButton: root.Q<TemplateContainer>(UIElements.GameVolumeBtn).Q<Button>()
+                LookInversionButton: QButton(root, Elements.LookInversionBtn),
+                LookInversionLabel: root.Q<Label>(Elements.LookInversionLbl),
+                StickLayoutButton: QButton(root, Elements.StickLayoutBtn),
+                StickLayoutLabel: root.Q<Label>(Elements.StickLayoutLbl),
+                ButtonLayoutButton: QButton(root, Elements.ButtonLayoutBtn),
+                ButtonLayoutLabel: root.Q<Label>(Elements.ButtonLayoutLbl),
+                SensitivityButton: QButton(root, Elements.SensitivityBtn),
+                SensitivityLabel: root.Q<Label>(Elements.SensitivityLbl),
+                TargetAssistButton: QButton(root, Elements.TargetAssistBtn),
+                TargetAssistLabel: root.Q<Label>(Elements.TargetAssistLbl),
+                PlayerNameButton: QButton(root, Elements.PlayerNameBtn),
+                PlayerNameLabel: root.Q<Label>(Elements.PlayerNameLbl),
+                GameVolumeButton: QButton(root, Elements.GameVolumeBtn)
             );
         }
 
         public static GameVolumeElements GameVolume(VisualElement root)
         {
             return new GameVolumeElements(
-                VoiceButton: root.Q<TemplateContainer>(UIElements.VoiceBtn).Q<Button>(),
-                VoiceSlider: root.Q<TemplateContainer>(UIElements.VoiceSlider).Q<Slider>(),
-                MusicButton: root.Q<TemplateContainer>(UIElements.MusicBtn).Q<Button>(),
-                MusicSlider: root.Q<TemplateContainer>(UIElements.MusicSlider).Q<Slider>(),
-                SfxButton: root.Q<TemplateContainer>(UIElements.SfxBtn).Q<Button>(),
-                SfxSlider: root.Q<TemplateContainer>(UIElements.SfxSlider).Q<Slider>(),
-                CinematicsButton: root.Q<TemplateContainer>(UIElements.CinematicsBtn).Q<Button>(),
-                CinematicsSlider: root.Q<TemplateContainer>(UIElements.CinematicsSlider).Q<Slider>(),
-                MasterButton: root.Q<TemplateContainer>(UIElements.MasterBtn).Q<Button>(),
-                MasterSlider: root.Q<TemplateContainer>(UIElements.MasterSlider).Q<Slider>(),
-                VoipButton: root.Q<TemplateContainer>(UIElements.VoipBtn).Q<Button>(),
-                VoipSlider: root.Q<TemplateContainer>(UIElements.VoipSlider).Q<Slider>()
+                VoiceButton: QButton(root, Elements.VoiceBtn),
+                VoiceSlider: QSlider(root, Elements.VoiceSlider),
+                MusicButton: QButton(root, Elements.MusicBtn),
+                MusicSlider: QSlider(root, Elements.MusicSlider),
+                SfxButton: QButton(root, Elements.SfxBtn),
+                SfxSlider: QSlider(root, Elements.SfxSlider),
+                CinematicsButton: QButton(root, Elements.CinematicsBtn),
+                CinematicsSlider: QSlider(root, Elements.CinematicsSlider),
+                MasterButton: QButton(root, Elements.MasterBtn),
+                MasterSlider: QSlider(root, Elements.MasterSlider),
+                VoipButton: QButton(root, Elements.VoipBtn),
+                VoipSlider: QSlider(root, Elements.VoipSlider)
             );
         }
 
         public static NewGameModalElements NewGameModal(VisualElement root)
         {
             return new NewGameModalElements(
-                Yes: root.Q<TemplateContainer>(UIElements.YesBtn).Q<Button>(),
-                No: root.Q<TemplateContainer>(UIElements.NoBtn).Q<Button>()
+                Yes: QButton(root, Elements.YesBtn),
+                No: QButton(root, Elements.NoBtn)
             );
         }
 
         public static ResumeGameModalElements ResumeGameModal(VisualElement root)
         {
             return new ResumeGameModalElements(
-                Yes: root.Q<TemplateContainer>(UIElements.YesBtn).Q<Button>(),
-                No: root.Q<TemplateContainer>(UIElements.NoBtn).Q<Button>()
+                Yes: QButton(root, Elements.YesBtn),
+                No: QButton(root, Elements.NoBtn)
             );
         }
 
         public static DifficultyModalElements DifficultyModal(VisualElement root)
         {
             return new DifficultyModalElements(
-                Recruit: root.Q<TemplateContainer>(UIElements.RecruitBtn).Q<Button>(),
-                Regular: root.Q<TemplateContainer>(UIElements.RegularBtn).Q<Button>(),
-                Hardened: root.Q<TemplateContainer>(UIElements.HardenedBtn).Q<Button>(),
-                Veteran: root.Q<TemplateContainer>(UIElements.VeteranBtn).Q<Button>(),
-                Icon: root.Q<Image>(UIElements.DifficultyIcon),
-                Description: root.Q<Label>(UIElements.DifficultyDescription)
+                Recruit: QButton(root, Elements.RecruitBtn),
+                Regular: QButton(root, Elements.RegularBtn),
+                Hardened: QButton(root, Elements.HardenedBtn),
+                Veteran: QButton(root, Elements.VeteranBtn),
+                Icon: root.Q<Image>(Elements.DifficultyIcon),
+                Description: root.Q<Label>(Elements.DifficultyDescription)
             );
         }
 
         public static NoConnectionModalElements NoConnectionModal(VisualElement root)
         {
             return new NoConnectionModalElements(
-                Notice: root.Q<Label>(UIElements.Notice),
-                Icon: root.Q<Image>(UIElements.DifficultyIcon),
-                Ok: root.Q<TemplateContainer>(UIElements.OkBtn).Q<Button>()
+                Notice: root.Q<Label>(Elements.Notice),
+                Icon: root.Q<Image>(Elements.NoConnectionIcon),
+                Ok: QButton(root, Elements.OkBtn)
             );
         }
     }

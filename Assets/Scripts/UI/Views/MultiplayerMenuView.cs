@@ -17,8 +17,6 @@ namespace UI.Views
 
         public MultiplayerMenuView(VisualTreeAsset template) : base(template) { }
 
-        protected override void GetElements() => _elements = ElementsFactory.MultiplayerMenu(Root);
-
         private static void HandleOnlineClicked()
         {
             UIRouter.Instance.OpenModal<NoConnectionModalView>();
@@ -40,22 +38,38 @@ namespace UI.Views
             UIRouter.Instance.NavigateTo<GameOptionsView>();
         }
 
-        protected override void Bind()
+        private void SetMessageOfTheDay()
         {
             _elements.MessageOfTheDay.text = UIResources.MessagesOfTheDay.Random();
+        }
 
+        private void BindButtonClicks()
+        {
             _elements.OnlineButton.clicked += HandleOnlineClicked;
             _elements.SplitScreenButton.clicked += HandleSplitScreenClicked;
             _elements.LanPartyButton.clicked += HandleLanPartyClicked;
             _elements.OptionsButton.clicked += HandleOptionsClicked;
         }
 
-        protected override void UnBind()
+        private void UnBindButtonClicks()
         {
             _elements.OnlineButton.clicked -= HandleOnlineClicked;
             _elements.SplitScreenButton.clicked -= HandleSplitScreenClicked;
             _elements.LanPartyButton.clicked -= HandleLanPartyClicked;
             _elements.OptionsButton.clicked -= HandleOptionsClicked;
+        }
+
+        protected override void GetElements() => _elements = ElementsFactory.MultiplayerMenu(Root);
+
+        protected override void Bind()
+        {
+            SetMessageOfTheDay();
+            BindButtonClicks();
+        }
+
+        protected override void UnBind()
+        {
+            UnBindButtonClicks();
         }
     }
 }

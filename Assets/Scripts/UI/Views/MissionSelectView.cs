@@ -19,85 +19,17 @@ namespace UI.Views
 
         protected override void GetElements() => _elements = ElementsFactory.MissionSelect(Root);
 
+        private static int CompletedMissions => SaveDataManager.CurrentSave.missionsCompleted;
+
         private void DisplayMission(Missions mission)
         {
             _elements.Header.text = UIResources.MissionTitles[mission];
             _elements.Description.text = UIResources.MissionDescriptions[mission];
         }
 
-        private void HandleSemperFiClicked()
+        private static void LoadMission(Missions mission)
         {
-            Debug.Log("Semper Fi selected");
-        }
-
-        private void HandleLittleResistanceClicked()
-        {
-            Debug.Log("Little Resistance selected");
-        }
-
-        private void HandleHardLandingClicked()
-        {
-            Debug.Log("Hard Landing selected");
-        }
-
-        private void HandleVendettaClicked()
-        {
-            Debug.Log("Vendetta selected");
-        }
-
-        private void HandleTheirLandTheirBloodClicked()
-        {
-            Debug.Log("Their Land Their Blood selected");
-        }
-
-        private void HandleBurnEmOutClicked()
-        {
-            Debug.Log("Burn Em Out selected");
-        }
-
-        private void HandleRelentlessClicked()
-        {
-            Debug.Log("Relentless selected");
-        }
-
-        private void HandleBloodAndIronClicked()
-        {
-            Debug.Log("Blood and Iron selected");
-        }
-
-        private void HandleRingOfSteelClicked()
-        {
-            Debug.Log("Ring of Steel selected");
-        }
-
-        private void HandleEvictionClicked()
-        {
-            Debug.Log("Eviction selected");
-        }
-
-        private void HandleBlackCatsClicked()
-        {
-            Debug.Log("Black Cats selected");
-        }
-
-        private void HandleBlowtorchAndCorkscrewClicked()
-        {
-            Debug.Log("Blowtorch and Corkscrew selected");
-        }
-
-        private void HandleBreakingPointClicked()
-        {
-            Debug.Log("Breaking Point selected");
-        }
-
-        private void HandleHeartOfTheReichClicked()
-        {
-            Debug.Log("Heart of the Reich selected");
-        }
-
-        private void HandleDownfallClicked()
-        {
-            Debug.Log("Downfall selected");
+            Debug.Log("Loading mission " + mission);
         }
 
         private void OnSemperFiHover(PointerEnterEvent _) => DisplayMission(Missions.SemperFi);
@@ -116,42 +48,25 @@ namespace UI.Views
         private void OnHeartOfTheReichHover(PointerEnterEvent _) => DisplayMission(Missions.HeartOfTheReich);
         private void OnDownfallHover(PointerEnterEvent _) => DisplayMission(Missions.Downfall);
 
-        protected override void Bind()
+        private void HandleSemperFiClicked() => LoadMission(Missions.SemperFi);
+        private void HandleLittleResistanceClicked() => LoadMission(Missions.LittleResistance);
+        private void HandleHardLandingClicked() => LoadMission(Missions.HardLanding);
+        private void HandleVendettaClicked() => LoadMission(Missions.Vendetta);
+        private void HandleTheirLandTheirBloodClicked() => LoadMission(Missions.TheirLandTheirBlood);
+        private void HandleBurnEmOutClicked() => LoadMission(Missions.BurnEmOut);
+        private void HandleRelentlessClicked() => LoadMission(Missions.Relentless);
+        private void HandleBloodAndIronClicked() => LoadMission(Missions.BloodAndIron);
+        private void HandleRingOfSteelClicked() => LoadMission(Missions.RingOfSteel);
+        private void HandleEvictionClicked() => LoadMission(Missions.Eviction);
+        private void HandleBlackCatsClicked() => LoadMission(Missions.BlackCats);
+        private void HandleBlowtorchAndCorkscrewClicked() => LoadMission(Missions.BlowtorchAndCorkscrew);
+        private void HandleBreakingPointClicked() => LoadMission(Missions.BreakingPoint);
+        private void HandleHeartOfTheReichClicked() => LoadMission(Missions.HeartOfTheReich);
+        private void HandleDownfallClicked() => LoadMission(Missions.Downfall);
+
+        private void SetMissionAvailability()
         {
-            var completed = SaveDataManager.CurrentSave.missionsCompleted;
-
-            _elements.SemperFi.RegisterCallback<PointerEnterEvent>(OnSemperFiHover);
-            _elements.LittleResistance.RegisterCallback<PointerEnterEvent>(OnLittleResistanceHover);
-            _elements.HardLanding.RegisterCallback<PointerEnterEvent>(OnHardLandingHover);
-            _elements.Vendetta.RegisterCallback<PointerEnterEvent>(OnVendettaHover);
-            _elements.TheirLandTheirBlood.RegisterCallback<PointerEnterEvent>(OnTheirLandTheirBloodHover);
-            _elements.BurnEmOut.RegisterCallback<PointerEnterEvent>(OnBurnEmOutHover);
-            _elements.Relentless.RegisterCallback<PointerEnterEvent>(OnRelentlessHover);
-            _elements.BloodAndIron.RegisterCallback<PointerEnterEvent>(OnBloodAndIronHover);
-            _elements.RingOfSteel.RegisterCallback<PointerEnterEvent>(OnRingOfSteelHover);
-            _elements.Eviction.RegisterCallback<PointerEnterEvent>(OnEvictionHover);
-            _elements.BlackCats.RegisterCallback<PointerEnterEvent>(OnBlackCatsHover);
-            _elements.BlowtorchAndCorkscrew.RegisterCallback<PointerEnterEvent>(OnBlowtorchAndCorkscrewHover);
-            _elements.BreakingPoint.RegisterCallback<PointerEnterEvent>(OnBreakingPointHover);
-            _elements.HeartOfTheReich.RegisterCallback<PointerEnterEvent>(OnHeartOfTheReichHover);
-            _elements.Downfall.RegisterCallback<PointerEnterEvent>(OnDownfallHover);
-
-            _elements.SemperFi.clicked += HandleSemperFiClicked;
-            _elements.LittleResistance.clicked += HandleLittleResistanceClicked;
-            _elements.HardLanding.clicked += HandleHardLandingClicked;
-            _elements.Vendetta.clicked += HandleVendettaClicked;
-            _elements.TheirLandTheirBlood.clicked += HandleTheirLandTheirBloodClicked;
-            _elements.BurnEmOut.clicked += HandleBurnEmOutClicked;
-            _elements.Relentless.clicked += HandleRelentlessClicked;
-            _elements.BloodAndIron.clicked += HandleBloodAndIronClicked;
-            _elements.RingOfSteel.clicked += HandleRingOfSteelClicked;
-            _elements.Eviction.clicked += HandleEvictionClicked;
-            _elements.BlackCats.clicked += HandleBlackCatsClicked;
-            _elements.BlowtorchAndCorkscrew.clicked += HandleBlowtorchAndCorkscrewClicked;
-            _elements.BreakingPoint.clicked += HandleBreakingPointClicked;
-            _elements.HeartOfTheReich.clicked += HandleHeartOfTheReichClicked;
-            _elements.Downfall.clicked += HandleDownfallClicked;
-
+            var completed = CompletedMissions;
             _elements.SemperFi.SetEnabled(true);
             _elements.LittleResistance.SetEnabled(1 < completed);
             _elements.HardLanding.SetEnabled(2 < completed);
@@ -167,12 +82,47 @@ namespace UI.Views
             _elements.BreakingPoint.SetEnabled(12 < completed);
             _elements.HeartOfTheReich.SetEnabled(13 < completed);
             _elements.Downfall.SetEnabled(14 < completed);
-
-            _elements.Header.text = UIResources.MissionTitles[Missions.SemperFi];
-            _elements.Description.text = UIResources.MissionDescriptions[Missions.SemperFi];
         }
 
-        protected override void UnBind()
+        private void BindButtonHovers()
+        {
+            _elements.SemperFi.RegisterCallback<PointerEnterEvent>(OnSemperFiHover);
+            _elements.LittleResistance.RegisterCallback<PointerEnterEvent>(OnLittleResistanceHover);
+            _elements.HardLanding.RegisterCallback<PointerEnterEvent>(OnHardLandingHover);
+            _elements.Vendetta.RegisterCallback<PointerEnterEvent>(OnVendettaHover);
+            _elements.TheirLandTheirBlood.RegisterCallback<PointerEnterEvent>(OnTheirLandTheirBloodHover);
+            _elements.BurnEmOut.RegisterCallback<PointerEnterEvent>(OnBurnEmOutHover);
+            _elements.Relentless.RegisterCallback<PointerEnterEvent>(OnRelentlessHover);
+            _elements.BloodAndIron.RegisterCallback<PointerEnterEvent>(OnBloodAndIronHover);
+            _elements.RingOfSteel.RegisterCallback<PointerEnterEvent>(OnRingOfSteelHover);
+            _elements.Eviction.RegisterCallback<PointerEnterEvent>(OnEvictionHover);
+            _elements.BlackCats.RegisterCallback<PointerEnterEvent>(OnBlackCatsHover);
+            _elements.BlowtorchAndCorkscrew.RegisterCallback<PointerEnterEvent>(OnBlowtorchAndCorkscrewHover);
+            _elements.BreakingPoint.RegisterCallback<PointerEnterEvent>(OnBreakingPointHover);
+            _elements.HeartOfTheReich.RegisterCallback<PointerEnterEvent>(OnHeartOfTheReichHover);
+            _elements.Downfall.RegisterCallback<PointerEnterEvent>(OnDownfallHover);
+        }
+
+        private void BindButtonClicks()
+        {
+            _elements.SemperFi.clicked += HandleSemperFiClicked;
+            _elements.LittleResistance.clicked += HandleLittleResistanceClicked;
+            _elements.HardLanding.clicked += HandleHardLandingClicked;
+            _elements.Vendetta.clicked += HandleVendettaClicked;
+            _elements.TheirLandTheirBlood.clicked += HandleTheirLandTheirBloodClicked;
+            _elements.BurnEmOut.clicked += HandleBurnEmOutClicked;
+            _elements.Relentless.clicked += HandleRelentlessClicked;
+            _elements.BloodAndIron.clicked += HandleBloodAndIronClicked;
+            _elements.RingOfSteel.clicked += HandleRingOfSteelClicked;
+            _elements.Eviction.clicked += HandleEvictionClicked;
+            _elements.BlackCats.clicked += HandleBlackCatsClicked;
+            _elements.BlowtorchAndCorkscrew.clicked += HandleBlowtorchAndCorkscrewClicked;
+            _elements.BreakingPoint.clicked += HandleBreakingPointClicked;
+            _elements.HeartOfTheReich.clicked += HandleHeartOfTheReichClicked;
+            _elements.Downfall.clicked += HandleDownfallClicked;
+        }
+
+        private void UnBindButtonHovers()
         {
             _elements.SemperFi.UnregisterCallback<PointerEnterEvent>(OnSemperFiHover);
             _elements.LittleResistance.UnregisterCallback<PointerEnterEvent>(OnLittleResistanceHover);
@@ -189,7 +139,10 @@ namespace UI.Views
             _elements.BreakingPoint.UnregisterCallback<PointerEnterEvent>(OnBreakingPointHover);
             _elements.HeartOfTheReich.UnregisterCallback<PointerEnterEvent>(OnHeartOfTheReichHover);
             _elements.Downfall.UnregisterCallback<PointerEnterEvent>(OnDownfallHover);
+        }
 
+        private void UnBindButtonClicks()
+        {
             _elements.SemperFi.clicked -= HandleSemperFiClicked;
             _elements.LittleResistance.clicked -= HandleLittleResistanceClicked;
             _elements.HardLanding.clicked -= HandleHardLandingClicked;
@@ -205,6 +158,20 @@ namespace UI.Views
             _elements.BreakingPoint.clicked -= HandleBreakingPointClicked;
             _elements.HeartOfTheReich.clicked -= HandleHeartOfTheReichClicked;
             _elements.Downfall.clicked -= HandleDownfallClicked;
+        }
+
+        protected override void Bind()
+        {
+            BindButtonHovers();
+            BindButtonClicks();
+            SetMissionAvailability();
+            DisplayMission(Missions.SemperFi);
+        }
+
+        protected override void UnBind()
+        {
+            UnBindButtonHovers();
+            UnBindButtonClicks();
         }
     }
 }

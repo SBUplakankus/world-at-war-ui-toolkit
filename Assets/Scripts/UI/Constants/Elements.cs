@@ -3,7 +3,7 @@ namespace UI.Constants
     /// <summary>
     /// Constants class containing all the names of individual UXML Elements to be queried by the Elements Factory
     /// </summary>
-    public static class UIElements
+    public static class Elements
     {
         // View containers
         public const string ScreenViewContainer = "screen-view-ctr";
@@ -110,5 +110,8 @@ namespace UI.Constants
         public const string VeteranBtn = "veteran-btn";
         public const string DifficultyIcon = "difficulty-icon";
         public const string DifficultyDescription = "difficulty-description";
+
+        // No Connection Modal
+        public const string NoConnectionIcon = "no-connection-icon";
     }
 }

@@ -30,16 +30,26 @@ namespace UI.Views
             UIRouter.Instance.CloseModal();
         }
 
-        protected override void Bind()
+        private void BindButtonClicks()
         {
             _elements.Yes.clicked += HandleYesClicked;
             _elements.No.clicked += HandleNoClicked;
         }
 
-        protected override void UnBind()
+        private void UnBindButtonClicks()
         {
             _elements.Yes.clicked -= HandleYesClicked;
             _elements.No.clicked -= HandleNoClicked;
+        }
+
+        protected override void Bind()
+        {
+            BindButtonClicks();
+        }
+
+        protected override void UnBind()
+        {
+            UnBindButtonClicks();
         }
     }
 }

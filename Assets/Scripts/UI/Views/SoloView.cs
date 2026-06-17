@@ -16,11 +16,28 @@ namespace UI.Views
         public string HeaderName => ScreenNames.Solo;
         
         public SoloView(VisualTreeAsset template) : base(template) { }
+        
+        protected override void GetElements() => _elements = ElementsFactory.SoloScreen(Root);
 
         private static bool SaveExists()
         {
-            // TODO: Proper Save Check Logic
-            return TestData.SaveExists;
+            return Data.SaveDataManager.SaveFileExists;
+        }
+
+        private static void HandleNewGameClicked()
+        {
+            UIRouter.Instance.OpenModal<ContentWarningModalView>();
+        }
+
+        private static void HandleResumeGameClicked()
+        {
+            // TODO: Loading Last Save Scene Logic
+            UIRouter.Instance.OpenModal<ResumeGameModalView>();
+        }
+
+        private static void HandleMissionSelectClicked()
+        {
+            UIRouter.Instance.NavigateTo<MissionSelectView>();
         }
 
         private void DisplayButtonOptions()
@@ -39,37 +56,29 @@ namespace UI.Views
             }
         }
 
-        private static void HandleNewGameClicked()
-        {
-            UIRouter.Instance.OpenModal<ContentWarningModalView>();
-        }
-
-        private static void HandleResumeGameClicked()
-        {
-            // TODO: Loading Last Save Scene Logic
-            UIRouter.Instance.OpenModal<ResumeGameModalView>();
-        }
-
-        private static void HandleMissionSelectClicked()
-        {
-            UIRouter.Instance.NavigateTo<MissionSelectView>();
-        }
-        
-        protected override void GetElements() => _elements = ElementsFactory.SoloScreen(Root);
-
-        protected override void Bind()
+        private void BindButtonClicks()
         {
             _elements.NewGameButton.clicked += HandleNewGameClicked;
             _elements.ResumeButton.clicked += HandleResumeGameClicked;
             _elements.MissionSelectButton.clicked += HandleMissionSelectClicked;
+        }
+
+        private void UnBindButtonClicks()
+        {
+            _elements.NewGameButton.clicked -= HandleNewGameClicked;
+            _elements.ResumeButton.clicked -= HandleResumeGameClicked;
+            _elements.MissionSelectButton.clicked -= HandleMissionSelectClicked;
+        }
+
+        protected override void Bind()
+        {
+            BindButtonClicks();
             DisplayButtonOptions();
         }
         
         protected override void UnBind() 
         {
-            _elements.NewGameButton.clicked -= HandleNewGameClicked;
-            _elements.ResumeButton.clicked -= HandleResumeGameClicked;
-            _elements.MissionSelectButton.clicked -= HandleMissionSelectClicked;
+            UnBindButtonClicks();
         }
         
     }

@@ -1,17 +1,18 @@
 using System.Collections.Generic;
 using UI.Enums;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Data
 {
     public static class UIResources
     {
-        public static readonly Dictionary<Difficulty, Texture2D> DifficultyIcons = new()
+        public static readonly Dictionary<Difficulty, VectorImage> DifficultyIcons = new()
         {
-            [Difficulty.Recruit] = Resources.Load<Texture2D>("Icons/Recruit"),
-            [Difficulty.Regular] = Resources.Load<Texture2D>("Icons/Regular"),
-            [Difficulty.Hardened] = Resources.Load<Texture2D>("Icons/Hardened"),
-            [Difficulty.Veteran] = Resources.Load<Texture2D>("Icons/Veteran")
+            [Difficulty.Recruit] = Resources.Load< VectorImage>("Icons/Recruit"),
+            [Difficulty.Regular] = Resources.Load< VectorImage>("Icons/Regular"),
+            [Difficulty.Hardened] = Resources.Load< VectorImage>("Icons/Hardened"),
+            [Difficulty.Veteran] = Resources.Load< VectorImage>("Icons/Veteran")
         };
 
         public static readonly Dictionary<Missions, string> MissionTitles = new()

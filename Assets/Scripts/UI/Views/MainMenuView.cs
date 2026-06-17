@@ -15,9 +15,26 @@ namespace UI.Views
 
         public string HeaderName => ScreenNames.MainMenu;
 
-        public MainMenuView(VisualTreeAsset template) : base(template)
+        public MainMenuView(VisualTreeAsset template) : base(template) { }
+
+        protected override void GetElements() => _elements = ElementsFactory.MainMenu(Root);
+
+        private static void CheckSaveFile()
         {
-            
+            try
+            {
+                if (!SaveDataManager.SaveFileExists)
+                    UIRouter.Instance.OpenModal<SaveNoticeView>();
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogWarning($"MainMenuView: failed to check save file — {e.Message}");
+            }
+        }
+
+        private void SetMessageOfTheDay()
+        {
+            _elements.MessageLabel.text = UIResources.MessagesOfTheDay.Random();
         }
 
         private static void HandleSoloClicked()
@@ -56,23 +73,17 @@ namespace UI.Views
             UIRouter.Instance.NavigateTo<CreditsView>();
         }
 
-        protected override void GetElements() => _elements = ElementsFactory.MainMenu(Root);
-
-        protected override void Bind()
+        private void BindButtonClicks()
         {
-            if (!SaveDataManager.SaveFileExists)
-                UIRouter.Instance.OpenModal<SaveNoticeView>();
-
             _elements.SoloButton.clicked += HandleSoloClicked;
             _elements.CoOpButton.clicked += HandleCoOpClicked;
             _elements.MultiplayerButton.clicked += HandleMultiplayerClicked;
             _elements.ZombiesButton.clicked += HandleZombiesClicked;
             _elements.OptionsButton.clicked += HandleOptionsClicked;
             _elements.CreditsButton.clicked += HandleCreditsClicked;
-            _elements.MessageLabel.text = UIResources.MessagesOfTheDay.Random();
         }
 
-        protected override void UnBind()
+        private void UnBindButtonClicks()
         {
             _elements.SoloButton.clicked -= HandleSoloClicked;
             _elements.CoOpButton.clicked -= HandleCoOpClicked;
@@ -80,6 +91,18 @@ namespace UI.Views
             _elements.ZombiesButton.clicked -= HandleZombiesClicked;
             _elements.OptionsButton.clicked -= HandleOptionsClicked;
             _elements.CreditsButton.clicked -= HandleCreditsClicked;
+        }
+
+        protected override void Bind()
+        {
+            CheckSaveFile();
+            BindButtonClicks();
+            SetMessageOfTheDay();
+        }
+
+        protected override void UnBind()
+        {
+            UnBindButtonClicks();
         }
     }
 }

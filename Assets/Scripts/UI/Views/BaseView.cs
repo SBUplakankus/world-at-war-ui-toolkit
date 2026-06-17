@@ -23,8 +23,8 @@ namespace UI.Views
         public void Deactivate() => UnBind();
 
         protected abstract void GetElements();
-        protected abstract void Bind();
-        protected abstract void UnBind();
+        protected virtual void Bind() { }
+        protected virtual void UnBind() { }
 
         public void Dispose()
         {

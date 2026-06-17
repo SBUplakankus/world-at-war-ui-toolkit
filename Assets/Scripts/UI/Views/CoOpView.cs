@@ -16,8 +16,6 @@ namespace UI.Views
 
         public CoOpView(VisualTreeAsset template) : base(template) { }
 
-        protected override void GetElements() => _elements = ElementsFactory.CoOpScreen(Root);
-
         private static void HandleOnlineClicked()
         {
             UIRouter.Instance.OpenModal<NoConnectionModalView>();
@@ -33,18 +31,24 @@ namespace UI.Views
             UIRouter.Instance.OpenModal<NoConnectionModalView>();
         }
 
-        protected override void Bind()
+        private void BindButtonClicks()
         {
             _elements.OnlineButton.clicked += HandleOnlineClicked;
             _elements.SplitScreenButton.clicked += HandleSplitScreenClicked;
             _elements.LanButton.clicked += HandleLanClicked;
         }
 
-        protected override void UnBind()
+        private void UnBindButtonClicks()
         {
             _elements.OnlineButton.clicked -= HandleOnlineClicked;
             _elements.SplitScreenButton.clicked -= HandleSplitScreenClicked;
             _elements.LanButton.clicked -= HandleLanClicked;
         }
+
+        protected override void GetElements() => _elements = ElementsFactory.CoOpScreen(Root);
+
+        protected override void Bind() =>  BindButtonClicks();
+
+        protected override void UnBind() => UnBindButtonClicks();
     }
 }

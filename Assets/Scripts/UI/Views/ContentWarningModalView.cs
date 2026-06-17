@@ -25,14 +25,18 @@ namespace UI.Views
             UIRouter.Instance.OpenModal<DifficultyModalView>();
         }
 
+        private void BindButtonClicks() => _elements.Ok.clicked += HandleOkClicked;
+
+        private void UnBindButtonClicks() => _elements.Ok.clicked -= HandleOkClicked;
+
         protected override void Bind()
         {
-            _elements.Ok.clicked += HandleOkClicked;
+            BindButtonClicks();
         }
 
         protected override void UnBind()
         {
-            _elements.Ok.clicked -= HandleOkClicked;
+            UnBindButtonClicks();
         }
     }
 }

@@ -21,14 +21,24 @@ namespace UI.Views
 
         private static void HandleOkClicked() => UIRouter.Instance.CloseModal();
 
-        protected override void Bind()
+        private void BindButtonClicks()
         {
             _elements.Ok.clicked += HandleOkClicked;
         }
 
-        protected override void UnBind()
+        private void UnBindButtonClicks()
         {
             _elements.Ok.clicked -= HandleOkClicked;
+        }
+
+        protected override void Bind()
+        {
+            BindButtonClicks();
+        }
+
+        protected override void UnBind()
+        {
+            UnBindButtonClicks();
         }
     }
 }

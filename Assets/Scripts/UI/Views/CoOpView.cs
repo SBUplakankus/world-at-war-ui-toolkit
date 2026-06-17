@@ -1,4 +1,5 @@
 using UI.Constants;
+using UI.Core;
 using UI.Factories;
 using UI.Interfaces;
 using UI.Records;
@@ -7,27 +8,29 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class CoOpView : BaseView, IScreen
+    public sealed class CoOpView : BaseView, IScreen
     {
         private CoOpScreenElements _elements;
+
+        public string HeaderName => ScreenNames.CoOp;
 
         public CoOpView(VisualTreeAsset template) : base(template) { }
 
         protected override void GetElements() => _elements = ElementsFactory.CoOpScreen(Root);
 
-        private void HandleOnlineClicked()
+        private static void HandleOnlineClicked()
         {
-            Debug.Log("Online Co-Op clicked");
+            UIRouter.Instance.OpenModal<NoConnectionModalView>();
         }
 
-        private void HandleSplitScreenClicked()
+        private static void HandleSplitScreenClicked()
         {
-            Debug.Log("Split Screen Co-Op clicked");
+            UIRouter.Instance.OpenModal<NoConnectionModalView>();
         }
 
-        private void HandleLanClicked()
+        private static void HandleLanClicked()
         {
-            Debug.Log("LAN Co-Op clicked");
+            UIRouter.Instance.OpenModal<NoConnectionModalView>();
         }
 
         protected override void Bind()
@@ -43,7 +46,5 @@ namespace UI.Views
             _elements.SplitScreenButton.clicked -= HandleSplitScreenClicked;
             _elements.LanButton.clicked -= HandleLanClicked;
         }
-
-        public string HeaderName => ScreenNames.CoOp;
     }
 }

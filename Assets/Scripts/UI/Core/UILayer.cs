@@ -17,6 +17,8 @@ namespace UI.Core
         
         public bool IsEmpty => _history.Count == 0;
 
+        public BaseView Current => _current;
+
         public UILayer(VisualElement container)
         {
             _container = container;

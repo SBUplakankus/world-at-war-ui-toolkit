@@ -21,5 +21,6 @@
         public const string NewGame = "New Game";
         public const string ResumeGame = "Resume Game";
         public const string Difficulty = "Difficulty";
+        public const string ContentWarning = "CONTENT WARNING";
     }
 }

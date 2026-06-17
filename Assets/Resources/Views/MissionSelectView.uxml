@@ -38,7 +38,7 @@
                 <AttributeOverrides element-name="btn" text="BLACK CATS"/>
             </ui:Instance>
             <ui:Instance template="MenuButton" name="blowtorch-and-corkscrew-btn">
-                <AttributeOverrides element-name="btn" text="BLOWTORCH &amp; CORNSCREW"/>
+                <AttributeOverrides element-name="btn" text="BLOWTORCH &amp; CORKSCREW"/>
             </ui:Instance>
             <ui:Instance template="MenuButton" name="breaking-point-btn">
                 <AttributeOverrides element-name="btn" text="BREAKING POINT"/>

@@ -24,6 +24,8 @@ namespace Data
             return JsonUtility.FromJson<PlayerSaveData>(json);
         }
         
+        public static bool SaveFileExists => File.Exists(SavePath);
+
         public static void Delete()
         {
             if (File.Exists(SavePath))

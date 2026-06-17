@@ -81,10 +81,6 @@
     justify-content: space-around;
 }
 
-.difficulty-btn-ctr .menu-btn {
-    padding: 0;
-}
-
 .difficulty-info-ctr {
     flex-grow: 1;
     width: 55%;
@@ -130,8 +126,4 @@
 
 .modal-continue-btn-ctr--center {
     justify-content: center;
-}
-
-.modal-continue-btn-ctr .menu-btn {
-    padding: 0;
 }

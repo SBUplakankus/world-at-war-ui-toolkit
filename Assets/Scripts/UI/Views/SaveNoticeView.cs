@@ -1,4 +1,4 @@
-﻿using UI.Constants;
+using UI.Constants;
 using UI.Core;
 using UI.Factories;
 using UI.Interfaces;
@@ -7,20 +7,20 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public sealed class NoticeModalView : BaseView, IScreen
+    public sealed class SaveNoticeView : BaseView, IScreen
     {
         private NoticeModalElements _elements;
 
         public string HeaderName => ScreenNames.Notice;
 
-        public NoticeModalView(VisualTreeAsset template) : base(template)
+        public SaveNoticeView(VisualTreeAsset template) : base(template)
         {
         }
 
         protected override void GetElements() => _elements = ElementsFactory.NoticeModal(Root);
 
         private static void HandleOkClicked() => UIRouter.Instance.CloseModal();
-        
+
         protected override void Bind()
         {
             _elements.Ok.clicked += HandleOkClicked;

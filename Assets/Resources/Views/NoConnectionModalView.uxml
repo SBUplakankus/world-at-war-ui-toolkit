@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/modals.uss?fileID=7433441132597879392&amp;guid=13ed200b9245c324893cab4d56685f0b&amp;type=3#modals"/>
+    <ui:VisualElement name="notice-ctr" class="modal-root" style="flex-direction: row;">
+        <ui:VisualElement name="left-ctr" style="flex-grow: 1; width: 40%;">
+            <ui:VisualElement name="notice-text-ctr" class="notice-icon-row" style="width: auto;">
+                <ui:Label text="No internet connection detected. Check your network settings and try again." name="notice-lbl" class="text-shadow-dark modal-notice-lbl"/>
+                <ui:Image name="difficulty-icon" class="difficulty-icon"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="continue-btn-ctr" class="modal-continue-btn-ctr modal-continue-btn-ctr--center" style="width: 45%;">
+                <ui:Instance template="MenuButton" name="ok-btn">
+                    <AttributeOverrides element-name="btn" text="Ok"/>
+                </ui:Instance>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="right-ctr" style="flex-grow: 1; width: 60%; align-self: center; align-items: center; align-content: center; padding-right: 35%;">
+            <ui:Image name="icon" source="project://database/Assets/Resources/Icons/NoConnection.svg?fileID=7388822144124034973&amp;guid=8295965b89339164db16e0cf937fd191&amp;type=3#NoConnection" tint-color="rgb(226, 226, 226)" style="width: 250px; height: 250px;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class MainMenuView : BaseView
+    public sealed class MainMenuView : BaseView
     {
         private MainMenuElements _elements;
 
@@ -24,7 +24,6 @@ namespace UI.Views
         {
             Debug.Log("SOLO clicked");
             UIRouter.Instance.NavigateTo<SoloView>();
-            UIRouter.Instance.OpenModal<NoticeModalView>();
         }
 
         private static void HandleCoOpClicked()
@@ -57,22 +56,20 @@ namespace UI.Views
             UIRouter.Instance.NavigateTo<CreditsView>();
         }
 
-        private static string FetchMessageOfTheDay()
-        {
-            return MotdManager.RandomMessage.body;
-        }
-
         protected override void GetElements() => _elements = ElementsFactory.MainMenu(Root);
 
         protected override void Bind()
         {
+            if (!SaveDataManager.SaveFileExists)
+                UIRouter.Instance.OpenModal<SaveNoticeView>();
+
             _elements.SoloButton.clicked += HandleSoloClicked;
             _elements.CoOpButton.clicked += HandleCoOpClicked;
             _elements.MultiplayerButton.clicked += HandleMultiplayerClicked;
             _elements.ZombiesButton.clicked += HandleZombiesClicked;
             _elements.OptionsButton.clicked += HandleOptionsClicked;
             _elements.CreditsButton.clicked += HandleCreditsClicked;
-            _elements.MessageLabel.text = FetchMessageOfTheDay();
+            _elements.MessageLabel.text = UIResources.MessagesOfTheDay.Random();
         }
 
         protected override void UnBind()

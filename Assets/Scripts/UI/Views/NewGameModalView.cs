@@ -8,9 +8,11 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class NewGameModalView : BaseView, IScreen
+    public sealed class NewGameModalView : BaseView, IScreen
     {
         private NewGameModalElements _elements;
+
+        public string HeaderName => ScreenNames.NewGame;
 
         public NewGameModalView(VisualTreeAsset template) : base(template) { }
 
@@ -39,7 +41,5 @@ namespace UI.Views
             _elements.Yes.clicked -= HandleYesClicked;
             _elements.No.clicked -= HandleNoClicked;
         }
-
-        public string HeaderName => ScreenNames.NewGame;
     }
 }

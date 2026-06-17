@@ -442,6 +442,13 @@
     white-space: normal;
 }
 
+.notice-icon-row {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .options-row {
     width: 50%;
 }

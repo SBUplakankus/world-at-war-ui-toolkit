@@ -2,8 +2,8 @@
     <ui:Template name="MenuButton" src="project://database/Assets/UI%20Toolkit/Templates/MenuButton.uxml?fileID=9197481963319205126&amp;guid=de1c3954180d90644aae80ddbae80341&amp;type=3#MenuButton"/>
     <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
     <Style src="project://database/Assets/UI%20Toolkit/Styles/modals.uss?fileID=7433441132597879392&amp;guid=13ed200b9245c324893cab4d56685f0b&amp;type=3#modals"/>
-    <ui:VisualElement name="notice-ctr" class="difficulty-modal">
-        <ui:VisualElement name="difficulty-btn-ctr" class="difficulty-btn-ctr">
+    <ui:VisualElement name="modal-ctr" class="difficulty-modal">
+        <ui:VisualElement name="difficulty-btn-ctr" class="difficulty-btn-ctr" style="padding-top: 2%; padding-bottom: 2%; width: 25%; padding-left: 2%;">
             <ui:Instance template="MenuButton" name="recruit-btn">
                 <AttributeOverrides element-name="btn" text="Recruit"/>
             </ui:Instance>
@@ -17,9 +17,13 @@
                 <AttributeOverrides element-name="btn" text="Veteran"/>
             </ui:Instance>
         </ui:VisualElement>
-        <ui:VisualElement name="info-ctr" class="difficulty-info-ctr">
-            <ui:Image name="difficulty-icon" class="difficulty-icon" source="project://database/Resources/unity_builtin_extra?fileID=10906&amp;guid=0000000000000000f000000000000000&amp;type=0#Background"/>
-            <ui:Label text="Label" name="difficulty-description" class="font-archivo-regular username-label"/>
+        <ui:VisualElement name="info-ctr" class="difficulty-info-ctr" style="align-items: flex-start; justify-content: flex-end; padding-right: 25%; padding-top: 0%; width: 75%; align-self: center;">
+            <ui:VisualElement name="icon-ctr" style="flex-grow: 1; align-self: center; align-content: center; align-items: center; justify-content: center; width: auto; height: auto;">
+                <ui:Image name="difficulty-icon" source="project://database/Assets/Resources/Icons/Hardened.svg?fileID=7388822144124034973&amp;guid=ed75db864f302604b964d88c9bc112dc&amp;type=3#Hardened" tint-color="rgb(226, 226, 226)" class="difficulty-icon" style="width: 200px; height: 200px;"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="text-ctr" style="flex-grow: 1; justify-content: flex-start; align-self: center; width: 55%; height: 35%; align-items: center; min-height: 1px; max-height: 30%;">
+                <ui:Label text="Label" name="difficulty-description" class="username-label font-archivo-semibold" style="color: rgba(226, 226, 226, 0.843); font-size: 25px; -unity-text-align: upper-center;"/>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

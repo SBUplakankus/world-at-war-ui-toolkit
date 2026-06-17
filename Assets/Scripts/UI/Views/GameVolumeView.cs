@@ -8,10 +8,12 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class GameVolumeView : BaseView, IScreen
+    public sealed class GameVolumeView : BaseView, IScreen
     {
         private GameVolumeElements _elements;
         private PlayerSaveData _save;
+
+        public string HeaderName => ScreenNames.GameVolume;
 
         public GameVolumeView(VisualTreeAsset template) : base(template) { }
 
@@ -124,7 +126,5 @@ namespace UI.Views
             _elements.MasterButton.clicked -= HandleMasterClicked;
             _elements.VoipButton.clicked -= HandleVoipClicked;
         }
-
-        public string HeaderName => ScreenNames.GameVolume;
     }
 }

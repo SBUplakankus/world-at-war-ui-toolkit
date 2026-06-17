@@ -8,23 +8,25 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class ZombiesView : BaseView, IScreen
+    public sealed class ZombiesView : BaseView, IScreen
     {
         private ZombiesScreenElements _elements;
+
+        public string HeaderName => ScreenNames.Zombies;
 
         public ZombiesView(VisualTreeAsset template) : base(template) { }
 
         protected override void GetElements() => _elements = ElementsFactory.ZombiesScreen(Root);
 
-        private void HandleResumeClicked()
+        private static void HandleResumeClicked()
         {
-            Debug.Log("Zombies Resume Game clicked");
+            UIRouter.Instance.OpenModal<NoConnectionModalView>();
         }
 
-        private void HandleNewGameClicked()
+        private static void HandleNewGameClicked()
         {
             Debug.Log("Zombies New Game clicked");
-            UIRouter.Instance.OpenModal<NewGameModalView>();
+            UIRouter.Instance.OpenModal<NoConnectionModalView>();
         }
 
         protected override void Bind()
@@ -38,7 +40,5 @@ namespace UI.Views
             _elements.ResumeButton.clicked -= HandleResumeClicked;
             _elements.NewGameButton.clicked -= HandleNewGameClicked;
         }
-
-        public string HeaderName => ScreenNames.Zombies;
     }
 }

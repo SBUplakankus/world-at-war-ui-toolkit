@@ -96,10 +96,16 @@ namespace UI.Core
         {
             _screenLayer.Pop();
 
-            if (!_screenLayer.IsEmpty) return;
-            
-            ToggleBackButton(false);
-            SetHeaderTitle(_screenElements.Header, _mainMenu);
+            if (_screenLayer.IsEmpty)
+            {
+                ToggleBackButton(false);
+                SetHeaderTitle(_screenElements.Header, _mainMenu);
+            }
+            else
+            {
+                ToggleBackButton(true);
+                SetHeaderTitle(_screenElements.Header, _screenLayer.Current);
+            }
         }
 
         

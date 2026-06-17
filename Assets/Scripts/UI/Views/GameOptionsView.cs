@@ -9,10 +9,12 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class GameOptionsView : BaseView, IScreen
+    public sealed class GameOptionsView : BaseView, IScreen
     {
         private GameOptionsElements _elements;
         private PlayerSaveData _save;
+
+        public string HeaderName => ScreenNames.Options;
 
         public GameOptionsView(VisualTreeAsset template) : base(template) { }
 
@@ -39,27 +41,27 @@ namespace UI.Views
 
         private void HandleLookInversionClicked()
         {
-            CycleSetting(ref _save.settings.invertLook, new[] { "Off", "On" });
+            CycleSetting(ref _save.settings.invertLook, UIResources.OptionInversion);
         }
 
         private void HandleStickLayoutClicked()
         {
-            CycleSetting(ref _save.settings.stickLayout, new[] { "Default", "Southpaw", "Legacy", "Legacy Southpaw" });
+            CycleSetting(ref _save.settings.stickLayout, UIResources.OptionStickLayout);
         }
 
         private void HandleButtonLayoutClicked()
         {
-            CycleSetting(ref _save.settings.buttonLayout, new[] { "Default", "Southpaw", "Legacy", "Legacy Southpaw" });
+            CycleSetting(ref _save.settings.buttonLayout, UIResources.OptionButtonLayout);
         }
 
         private void HandleSensitivityClicked()
         {
-            CycleSetting(ref _save.settings.sensitivity, new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
+            CycleSetting(ref _save.settings.sensitivity, UIResources.OptionSensitivity);
         }
 
         private void HandleTargetAssistClicked()
         {
-            CycleSetting(ref _save.settings.targetAssist, new[] { "Off", "On" });
+            CycleSetting(ref _save.settings.targetAssist, UIResources.OptionTargetAssist);
         }
 
         private static void HandlePlayerNameClicked()
@@ -96,7 +98,5 @@ namespace UI.Views
             _elements.PlayerNameButton.clicked -= HandlePlayerNameClicked;
             _elements.GameVolumeButton.clicked -= HandleGameVolumeClicked;
         }
-
-        public string HeaderName => ScreenNames.Options;
     }
 }

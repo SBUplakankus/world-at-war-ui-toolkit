@@ -182,5 +182,14 @@ namespace UI.Factories
                 Description: root.Q<Label>(UIElements.DifficultyDescription)
             );
         }
+
+        public static NoConnectionModalElements NoConnectionModal(VisualElement root)
+        {
+            return new NoConnectionModalElements(
+                Notice: root.Q<Label>(UIElements.Notice),
+                Icon: root.Q<Image>(UIElements.DifficultyIcon),
+                Ok: root.Q<TemplateContainer>(UIElements.OkBtn).Q<Button>()
+            );
+        }
     }
 }

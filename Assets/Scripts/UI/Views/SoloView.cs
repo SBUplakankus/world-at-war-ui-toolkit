@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class SoloView : BaseView, IScreen
+    public sealed class SoloView : BaseView, IScreen
     {
         private SoloScreenElements _elements;
         
@@ -17,7 +17,7 @@ namespace UI.Views
         
         public SoloView(VisualTreeAsset template) : base(template) { }
 
-        private bool SaveExists()
+        private static bool SaveExists()
         {
             // TODO: Proper Save Check Logic
             return TestData.SaveExists;
@@ -39,18 +39,18 @@ namespace UI.Views
             }
         }
 
-        private void HandleNewGameClicked()
+        private static void HandleNewGameClicked()
         {
-            UIRouter.Instance.OpenModal<NewGameModalView>();
+            UIRouter.Instance.OpenModal<ContentWarningModalView>();
         }
 
-        private void HandleResumeGameClicked()
+        private static void HandleResumeGameClicked()
         {
             // TODO: Loading Last Save Scene Logic
-            Debug.Log("Resume Game Clicked");
+            UIRouter.Instance.OpenModal<ResumeGameModalView>();
         }
 
-        private void HandleMissionSelectClicked()
+        private static void HandleMissionSelectClicked()
         {
             UIRouter.Instance.NavigateTo<MissionSelectView>();
         }

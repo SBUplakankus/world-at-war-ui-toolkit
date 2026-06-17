@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
-    public class CreditsView : BaseView, IScreen
+    public sealed class CreditsView : BaseView, IScreen
     {
         private CreditsScreenElements _elements;
 

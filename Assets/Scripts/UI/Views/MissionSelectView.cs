@@ -27,6 +27,7 @@ namespace UI.Views
 
             _elements.Header.text = UIResources.MissionTitles[mission];
             _elements.Description.text = UIResources.MissionDescriptions[mission];
+            _elements.Thumbnail.image = UIResources.MissionThumbnails[mission];
         }
 
         private static void LoadMission(Missions mission)

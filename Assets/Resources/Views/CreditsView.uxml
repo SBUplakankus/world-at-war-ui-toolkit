@@ -2,9 +2,9 @@
     <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
     <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
     <ui:VisualElement name="credits-view" class="view-root">
-        <ui:VisualElement name="left-ctr" class="left-ctr">
+        <ui:VisualElement name="left-ctr" class="left-ctr" style="padding-top: 5%; max-width: 45%;">
             <ui:ScrollView name="credits-scroll" class="credits-scroll">
-                <ui:Label text="CREDITS&#10;&#10;Development&#10;John Developer&#10;Jane Designer&#10;&#10;Special Thanks&#10;To everyone who made this possible.&#10;&#10;Copyright 2025&#10;All Rights Reserved" name="credits-lbl" class="font-archivo-regular credits-label"/>
+                <ui:Label text="This Project is a Portfolio Piece developed by Seán Burke.&#10;&#10;The goal was to recreate one of my favourite menus in UI Toolkit to showcase how I would handle a large scale system with this tech-stack.&#10;&#10;There is a tutorial series created on my YouTube channel Massive Melt Media teaching the core idea and programming concepts.&#10;&#10;If you want to see more of my work you can visit my portfolio website www.seanburkedev.ie" name="credits-lbl" class="font-archivo-regular credits-label" style="font-size: 30px;"/>
             </ui:ScrollView>
         </ui:VisualElement>
         <ui:VisualElement name="right-ctr" class="right-ctr">

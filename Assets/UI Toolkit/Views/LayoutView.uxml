@@ -21,7 +21,7 @@
         <ui:VisualElement name="screen-view-ctr" class="font-dmsans-thin main-ctr screen-view-ctr"/>
         <ui:VisualElement name="ftr-ctr" class="footer-bar">
             <ui:VisualElement name="ftr-content" class="ftr-content">
-                <ui:Button text="Back" name="back-btn" class="ftr-btn font-archivo-semibold" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/Archivo/static/Archivo-SemiBold.ttf?fileID=12800000&amp;guid=71cfd6c208cff9a4986a5d7469330800&amp;type=3#Archivo-SemiBold&quot;);"/>
+                <ui:Button text="Back" name="back-btn" class="ftr-btn font-archivo-semibold audio--hover audio--click" style="-unity-font-definition: url(&quot;project://database/Assets/Fonts/Archivo/static/Archivo-SemiBold.ttf?fileID=12800000&amp;guid=71cfd6c208cff9a4986a5d7469330800&amp;type=3#Archivo-SemiBold&quot;);"/>
                 <ui:Label text="V1.0.8" name="version" class="version-label"/>
             </ui:VisualElement>
         </ui:VisualElement>

@@ -130,6 +130,31 @@ namespace Data
             }
         }
 
+        public static readonly Dictionary<Missions, Texture2D> MissionThumbnails = new()
+        {
+            [Missions.SemperFi] = Resources.Load<Texture2D>("Thumbnails/SemperFi"),
+            [Missions.LittleResistance] = Resources.Load<Texture2D>("Thumbnails/LittleResistance"),
+            [Missions.HardLanding] = Resources.Load<Texture2D>("Thumbnails/HardLanding"),
+            [Missions.Vendetta] = Resources.Load<Texture2D>("Thumbnails/Vendetta"),
+            [Missions.TheirLandTheirBlood] = Resources.Load<Texture2D>("Thumbnails/TLTB"),
+            [Missions.BurnEmOut] = Resources.Load<Texture2D>("Thumbnails/BurnEmOut"),
+            [Missions.Relentless] = Resources.Load<Texture2D>("Thumbnails/Relentless"),
+            [Missions.BloodAndIron] = Resources.Load<Texture2D>("Thumbnails/BloodAndIron"),
+            [Missions.RingOfSteel] = Resources.Load<Texture2D>("Thumbnails/RingOfSteel"),
+            [Missions.Eviction] = Resources.Load<Texture2D>("Thumbnails/Eviction"),
+            [Missions.BlackCats] = Resources.Load<Texture2D>("Thumbnails/BlackCats"),
+            [Missions.BlowtorchAndCorkscrew] = Resources.Load<Texture2D>("Thumbnails/BlowAndCork"),
+            [Missions.BreakingPoint] = Resources.Load<Texture2D>("Thumbnails/BreakingPoint"),
+            [Missions.HeartOfTheReich] = Resources.Load<Texture2D>("Thumbnails/HOTR"),
+            [Missions.Downfall] = Resources.Load<Texture2D>("Thumbnails/Downfall")
+        };
+
+        public static readonly Dictionary<UI.Enums.Audio, AudioClip> AudioClips = new()
+        {
+            [UI.Enums.Audio.Hover] = Resources.Load<AudioClip>("Audio/Hover"),
+            [UI.Enums.Audio.Click] = Resources.Load<AudioClip>("Audio/Click")
+        };
+
         public static string[] OptionTargetAssist
         {
             get

@@ -289,16 +289,20 @@
     border-radius: 8px;
     padding: 0 1%;
     color: var(--color-text-slider);
-    background-color: rgba(0, 0, 0, 0.11);
+    background-color: rgba(0, 0, 0, 0.18);
     width: 100%;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
     margin-left: 0;
-    border-left-color: rgba(204, 204, 204, 0.373);
-    border-right-color: rgba(204, 204, 204, 0.373);
-    border-top-color: rgba(204, 204, 204, 0.373);
-    border-bottom-color: rgba(204, 204, 204, 0.373);
+    border-left-color: rgba(175, 175, 175, 0.373);
+    border-right-color: rgba(175, 175, 175, 0.373);
+    border-top-color: rgba(175, 175, 175, 0.373);
+    border-bottom-color: rgba(175, 175, 175, 0.373);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
 }
 
 .settings-slider .unity-base-slider__tracker {
@@ -331,7 +335,7 @@
     border-radius: 25px;
     padding: 0;
     color: var(--color-text-slider);
-    background-color: rgba(74, 74, 74, 0.376);
+    background-color: rgba(175, 175, 175, 0.714);
     display: flex;
     width: 30px;
     min-width: 30px;
@@ -340,10 +344,10 @@
     margin: 0;
     margin-top: 3px;
     border-width: 0;
-    border-left-color: rgba(204, 204, 204, 0.373);
-    border-right-color: rgba(204, 204, 204, 0.373);
-    border-top-color: rgba(204, 204, 204, 0.373);
-    border-bottom-color: rgba(204, 204, 204, 0.373);
+    border-left-color: rgba(16, 16, 16, 0.373);
+    border-right-color: rgba(16, 16, 16, 0.373);
+    border-top-color: rgba(16, 16, 16, 0.373);
+    border-bottom-color: rgba(16, 16, 16, 0.373);
     align-self: auto;
     border-top-width: 2px;
     border-right-width: 2px;

@@ -16,14 +16,21 @@ namespace Data
             _loaded = true;
 
             var asset = Resources.Load<TextAsset>("Data/content");
-            if (asset != null)
+            if (!asset)
             {
-                _content = JsonUtility.FromJson<ContentData>(asset.text);
-                Resources.UnloadAsset(asset);
+                Debug.LogError("UIResources: missing Resources/Data/content.json");
+                return;
             }
+            _content = JsonUtility.FromJson<ContentData>(asset.text);
+            Resources.UnloadAsset(asset);
+
+            if (_content == null)
+                Debug.LogError("UIResources: Resources/Data/content.json failed to deserialize");
+
+            LogMissingResources();
         }
 
-        public static readonly Dictionary<Difficulty, VectorImage> DifficultyIcons = new()
+        public static readonly IReadOnlyDictionary<Difficulty, VectorImage> DifficultyIcons = new Dictionary<Difficulty, VectorImage>
         {
             [Difficulty.Recruit] = Resources.Load<VectorImage>("Icons/Recruit"),
             [Difficulty.Regular] = Resources.Load<VectorImage>("Icons/Regular"),
@@ -31,19 +38,36 @@ namespace Data
             [Difficulty.Veteran] = Resources.Load<VectorImage>("Icons/Veteran")
         };
 
+        private static void LogMissingResources()
+        {
+            foreach (var kv in DifficultyIcons)
+                if (kv.Value == null)
+                    Debug.LogWarning($"UIResources: missing icon for {kv.Key}");
+
+            foreach (var kv in MissionThumbnails)
+                if (kv.Value == null)
+                    Debug.LogWarning($"UIResources: missing thumbnail for {kv.Key}");
+
+            foreach (var kv in AudioClips)
+                if (kv.Value == null)
+                    Debug.LogWarning($"UIResources: missing audio clip for {kv.Key}");
+        }
+
         public static Dictionary<Missions, string> MissionTitles
         {
             get
             {
                 EnsureLoaded();
-                if (_titles == null)
-                {
-                    _titles = new Dictionary<Missions, string>();
-                    if (_content?.missions != null)
-                        foreach (var m in _content.missions)
-                            if (System.Enum.TryParse<Missions>(m.name, out var key))
-                                _titles[key] = m.title;
-                }
+                if (_titles != null) return _titles;
+                _titles = new Dictionary<Missions, string>();
+                
+                if (_content?.missions == null) return _titles;
+                foreach (var m in _content.missions)
+                    if (System.Enum.TryParse<Missions>(m.name, out var key))
+                        _titles[key] = m.title;
+                    else
+                        Debug.LogWarning($"UIResources: unknown mission name \"{m.name}\" in content.json");
+                
                 return _titles;
             }
         }
@@ -54,14 +78,16 @@ namespace Data
             get
             {
                 EnsureLoaded();
-                if (_descriptions == null)
-                {
-                    _descriptions = new Dictionary<Missions, string>();
-                    if (_content?.missions != null)
-                        foreach (var m in _content.missions)
-                            if (System.Enum.TryParse<Missions>(m.name, out var key))
-                                _descriptions[key] = m.description;
-                }
+                if (_descriptions != null) return _descriptions;
+                _descriptions = new Dictionary<Missions, string>();
+                
+                if (_content?.missions == null) return _descriptions;
+                foreach (var m in _content.missions)
+                    if (System.Enum.TryParse<Missions>(m.name, out var key))
+                        _descriptions[key] = m.description;
+                    else
+                        Debug.LogWarning($"UIResources: unknown mission name \"{m.name}\" in content.json");
+                
                 return _descriptions;
             }
         }
@@ -72,14 +98,16 @@ namespace Data
             get
             {
                 EnsureLoaded();
-                if (_difficultyDescriptions == null)
-                {
-                    _difficultyDescriptions = new Dictionary<Difficulty, string>();
-                    if (_content?.difficulties != null)
-                        foreach (var d in _content.difficulties)
-                            if (System.Enum.TryParse<Difficulty>(d.name, out var key))
-                                _difficultyDescriptions[key] = d.description;
-                }
+                if (_difficultyDescriptions != null) return _difficultyDescriptions;
+                _difficultyDescriptions = new Dictionary<Difficulty, string>();
+                
+                if (_content?.difficulties == null) return _difficultyDescriptions;
+                foreach (var d in _content.difficulties)
+                    if (System.Enum.TryParse<Difficulty>(d.name, out var key))
+                        _difficultyDescriptions[key] = d.description;
+                    else
+                        Debug.LogWarning($"UIResources: unknown difficulty name \"{d.name}\" in content.json");
+                
                 return _difficultyDescriptions;
             }
         }
@@ -130,7 +158,7 @@ namespace Data
             }
         }
 
-        public static readonly Dictionary<Missions, Texture2D> MissionThumbnails = new()
+        public static readonly IReadOnlyDictionary<Missions, Texture2D> MissionThumbnails = new Dictionary<Missions, Texture2D>
         {
             [Missions.SemperFi] = Resources.Load<Texture2D>("Thumbnails/SemperFi"),
             [Missions.LittleResistance] = Resources.Load<Texture2D>("Thumbnails/LittleResistance"),
@@ -149,10 +177,10 @@ namespace Data
             [Missions.Downfall] = Resources.Load<Texture2D>("Thumbnails/Downfall")
         };
 
-        public static readonly Dictionary<UI.Enums.Audio, AudioClip> AudioClips = new()
+        public static readonly IReadOnlyDictionary<Audio, AudioClip> AudioClips = new Dictionary<Audio, AudioClip>
         {
-            [UI.Enums.Audio.Hover] = Resources.Load<AudioClip>("Audio/Hover"),
-            [UI.Enums.Audio.Click] = Resources.Load<AudioClip>("Audio/Click")
+            [Audio.Hover] = Resources.Load<AudioClip>("Audio/Hover"),
+            [Audio.Click] = Resources.Load<AudioClip>("Audio/Click")
         };
 
         public static string[] OptionTargetAssist

@@ -21,7 +21,6 @@ namespace UI.Views
 
         private static void HandleOkClicked()
         {
-            UIRouter.Instance.CloseModal();
             UIRouter.Instance.OpenModal<DifficultyModalView>();
         }
 

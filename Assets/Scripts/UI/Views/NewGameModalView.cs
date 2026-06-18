@@ -21,8 +21,6 @@ namespace UI.Views
 
         private static void HandleYesClicked()
         {
-            SaveDataManager.Delete();
-            UIRouter.Instance.CloseModal();
             UIRouter.Instance.OpenModal<ContentWarningModalView>();
         }
 

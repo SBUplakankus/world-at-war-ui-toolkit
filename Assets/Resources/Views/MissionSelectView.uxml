@@ -51,7 +51,7 @@
             </ui:Instance>
         </ui:VisualElement>
         <ui:VisualElement name="mission-detail-ctr" class="mission-detail-ctr" style="justify-content: flex-start; padding-top: 5%; align-items: flex-start; padding-left: 20%; padding-right: 5%;">
-            <ui:Image name="mission-thumbnail" class="mission-thumbnail" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);"/>
+            <ui:Image name="mission-thumbnail" source="project://database/Assets/Resources/Thumbnails/SemperFi.png?fileID=21300000&amp;guid=81dd87122cfb34c47aeca6284d4c7f81&amp;type=3#SemperFi" scale-mode="ScaleAndCrop" class="mission-thumbnail" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);"/>
             <ui:Label text="Mission Name" name="mission-header" class="font-arsenal-bold mission-header" style="color: rgba(255, 182, 0, 0.784); padding-top: 2%; font-size: 35px;"/>
             <ui:Label text="Mission Description" name="mission-description" class="font-archivo-regular text-shadow-dark mission-description" style="font-size: 28px;"/>
         </ui:VisualElement>

@@ -1,5 +1,6 @@
 using UI.Factories;
 using UI.Views;
+using UnityEngine;
 
 namespace UI.Core
 {
@@ -20,6 +21,7 @@ namespace UI.Core
 
         public void NavigateTo<TView>() where TView : BaseView
         {
+            if (!EnsureReady("NavigateTo")) return;
             var view = ViewFactory.Create<TView>();
             if (view != null)
                 _layout.ShowScreen(view);
@@ -27,6 +29,7 @@ namespace UI.Core
 
         public void OpenModal<TModal>() where TModal : BaseView
         {
+            if (!EnsureReady("OpenModal")) return;
             var view = ViewFactory.Create<TModal>();
             if (view != null)
                 _layout.ShowModal(view);
@@ -34,12 +37,27 @@ namespace UI.Core
 
         public void Back()
         {
+            if (!EnsureReady("Back")) return;
             _layout.BackScreen();
         }
 
         public void CloseModal()
         {
+            if (!EnsureReady("CloseModal")) return;
             _layout.CloseModal();
+        }
+
+        public void ClearModals()
+        {
+            if (!EnsureReady("ClearModals")) return;
+            _layout.ClearModals();
+        }
+
+        private bool EnsureReady(string method)
+        {
+            if (_layout) return true;
+            Debug.LogError($"UIRouter.{method}: not registered — call Register() first");
+            return false;
         }
     }
 }

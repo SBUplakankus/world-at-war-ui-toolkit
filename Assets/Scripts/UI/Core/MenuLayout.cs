@@ -56,13 +56,15 @@ namespace UI.Core
         private void OnDestroy()
         {
             _header.UnbindBackButton(OnBackClicked);
+            _screenLayer?.Clear();
+            _modalLayer?.Clear();
         }
 
         private static void OnBackClicked() => UIRouter.Instance.Back();
 
         public void ShowScreen(BaseView view)
         {
-            if (!_ready) return;
+            if (!_ready) { Debug.LogWarning("MenuLayout.ShowScreen: not ready"); return; }
 
             _screenLayer.Push(view);
             _header.ShowBackButton();
@@ -71,7 +73,7 @@ namespace UI.Core
 
         public void BackScreen()
         {
-            if (!_ready) return;
+            if (!_ready) { Debug.LogWarning("MenuLayout.BackScreen: not ready"); return; }
 
             _screenLayer.Pop();
 
@@ -89,7 +91,7 @@ namespace UI.Core
 
         public void ShowModal(BaseView view)
         {
-            if (!_ready) return;
+            if (!_ready) { Debug.LogWarning("MenuLayout.ShowModal: not ready"); return; }
 
             _modalLayer.Push(view);
             _modal.Show();
@@ -98,9 +100,17 @@ namespace UI.Core
 
         public void CloseModal()
         {
-            if (!_ready) return;
+            if (!_ready) { Debug.LogWarning("MenuLayout.CloseModal: not ready"); return; }
 
             _modalLayer.Pop();
+            _modal.Hide();
+        }
+
+        public void ClearModals()
+        {
+            if (!_ready) { Debug.LogWarning("MenuLayout.ClearModals: not ready"); return; }
+
+            _modalLayer.Clear();
             _modal.Hide();
         }
     }

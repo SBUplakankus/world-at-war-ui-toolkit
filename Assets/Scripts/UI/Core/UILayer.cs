@@ -39,11 +39,7 @@ namespace UI.Core
 
         public void Pop()
         {
-            if (_history.Count == 0)
-            {
-                Debug.LogWarning("UILayer: nothing to pop.");
-                return;
-            }
+            if (_history.Count == 0) return;
 
             Current.Deactivate();
             Current = _history.Pop();

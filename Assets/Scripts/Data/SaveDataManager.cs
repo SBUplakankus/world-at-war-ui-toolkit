@@ -6,6 +6,10 @@ namespace Data
     public static class SaveDataManager
     {
         private static PlayerSaveData _cachedSave;
+        private static bool _dirty;
+        private static float _lastWriteTime;
+        private static bool _quitSubscribed;
+        private const float ThrottleMs = 500f;
 
         private static string SavePath => Application.persistentDataPath + "/playersavedata.json";
 
@@ -24,8 +28,39 @@ namespace Data
         public static void Save(PlayerSaveData data)
         {
             _cachedSave = data;
-            var json = JsonUtility.ToJson(data, prettyPrint: true);
-            File.WriteAllText(SavePath, json);
+            _dirty = true;
+
+            if (!_quitSubscribed)
+            {
+                _quitSubscribed = true;
+                Application.quitting += Flush;
+            }
+
+            if (Time.realtimeSinceStartup * 1000f - _lastWriteTime < ThrottleMs)
+                return;
+
+            _lastWriteTime = Time.realtimeSinceStartup * 1000f;
+            WriteToDisk(data);
+        }
+
+        public static void Flush()
+        {
+            if (!_dirty || _cachedSave == null) return;
+            _dirty = false;
+            WriteToDisk(_cachedSave);
+        }
+
+        private static void WriteToDisk(PlayerSaveData data)
+        {
+            try
+            {
+                var json = JsonUtility.ToJson(data, prettyPrint: true);
+                File.WriteAllText(SavePath, json);
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"SaveDataManager: failed to write save file — {ex.Message}");
+            }
         }
 
         public static PlayerSaveData Load()

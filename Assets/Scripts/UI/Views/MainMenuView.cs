@@ -19,19 +19,6 @@ namespace UI.Views
 
         protected override void GetElements() => _elements = ElementsFactory.MainMenu(Root);
 
-        private static void CheckSaveFile()
-        {
-            try
-            {
-                if (!SaveDataManager.SaveFileExists)
-                    UIRouter.Instance.OpenModal<SaveNoticeView>();
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogWarning($"MainMenuView: failed to check save file — {e.Message}");
-            }
-        }
-
         private void SetMessageOfTheDay()
         {
             _elements.MessageLabel.text = UIResources.MessagesOfTheDay.Random();
@@ -95,7 +82,6 @@ namespace UI.Views
 
         protected override void Bind()
         {
-            CheckSaveFile();
             BindButtonClicks();
             SetMessageOfTheDay();
         }

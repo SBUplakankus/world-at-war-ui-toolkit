@@ -7,6 +7,8 @@ namespace Data
     {
         private static PlayerSaveData _cachedSave;
 
+        private static string SavePath => Application.persistentDataPath + "/playersavedata.json";
+
         public static PlayerSaveData CurrentSave
         {
             get
@@ -18,8 +20,6 @@ namespace Data
                 return _cachedSave;
             }
         }
-
-        private static string SavePath => Application.persistentDataPath + "/playersavedata.json";
 
         public static void Save(PlayerSaveData data)
         {

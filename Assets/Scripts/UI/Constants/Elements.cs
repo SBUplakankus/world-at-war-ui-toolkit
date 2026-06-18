@@ -9,8 +9,6 @@ namespace UI.Constants
         public const string ScreenViewContainer = "screen-view-ctr";
         public const string ModalContainer = "modal-ctr";
         public const string ModalViewContainer = "modal-view-ctr";
-        public const string ViewCtr = "view-ctr";
-        public const string FtrCtr = "ftr-ctr";
 
         // Labels
         public const string MenuName = "hdr-title";
@@ -34,7 +32,6 @@ namespace UI.Constants
         public const string MissionSelectBtn = "mission-btn";
 
         // MOTD section
-        public const string MotdHdr = "motd-hdr";
         public const string MotdContent = "motd-content";
 
         // Co-Op screen

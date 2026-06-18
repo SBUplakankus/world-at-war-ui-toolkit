@@ -13,11 +13,10 @@ namespace UI.Core
     {
         private readonly VisualElement _container;
         private readonly Stack<BaseView> _history = new();
-        private BaseView _current;
-        
+
         public bool IsEmpty => _history.Count == 0;
 
-        public BaseView Current => _current;
+        public BaseView Current { get; private set; }
 
         public UILayer(VisualElement container)
         {
@@ -26,13 +25,13 @@ namespace UI.Core
 
         public void Push(BaseView view)
         {
-            if (_current != null)
+            if (Current != null)
             {
-                _current.Deactivate();
-                _history.Push(_current);
+                Current.Deactivate();
+                _history.Push(Current);
             }
 
-            _current = view;
+            Current = view;
             _container.Clear();
             _container.Add(view.Root);
             view.Activate();
@@ -46,19 +45,19 @@ namespace UI.Core
                 return;
             }
 
-            _current.Deactivate();
-            _current = _history.Pop();
+            Current.Deactivate();
+            Current = _history.Pop();
 
             _container.Clear();
-            _container.Add(_current.Root);
+            _container.Add(Current.Root);
             
-            _current.Activate();
+            Current.Activate();
         }
 
         public void Clear()
         {
-            _current?.Dispose();
-            _current = null;
+            Current?.Dispose();
+            Current = null;
             _history.Clear();
             _container.Clear();
         }

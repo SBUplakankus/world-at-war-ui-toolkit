@@ -19,6 +19,8 @@ namespace UI.Core
 
         private void Awake()
         {
+            SaveDataManager.Delete();
+
             var root = GetComponent<UIDocument>().rootVisualElement;
 
             var screenElements = ElementsFactory.ScreenLayout(root);
@@ -30,8 +32,6 @@ namespace UI.Core
             _modal = new ModalController(modalElements);
 
             _mainMenu = ViewFactory.Create<MainMenuView>();
-            if (_mainMenu != null)
-                _screenLayer.Push(_mainMenu);
 
             _header.HideBackButton();
             _header.SetTitle(_mainMenu);
@@ -41,8 +41,16 @@ namespace UI.Core
 
             _header.BindBackButton(OnBackClicked);
             UIRouter.Instance.Register(this);
-
             _ready = true;
+
+            if (_mainMenu != null)
+                _screenLayer.Push(_mainMenu);
+        }
+
+        private void Start()
+        {
+            if (!SaveDataManager.SaveFileExists)
+                UIRouter.Instance.OpenModal<SaveNoticeView>();
         }
 
         private void OnDestroy()

@@ -3,7 +3,6 @@ using UI.Core;
 using UI.Factories;
 using UI.Interfaces;
 using UI.Records;
-using UI.Views;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -19,14 +18,14 @@ namespace UI.Views
         
         protected override void GetElements() => _elements = ElementsFactory.SoloScreen(Root);
 
-        private static bool SaveExists()
+        private static bool CampaignStarted()
         {
-            return Data.SaveDataManager.SaveFileExists;
+            return Data.SaveDataManager.CurrentSave.campaignStarted;
         }
 
         private static void HandleNewGameClicked()
         {
-            UIRouter.Instance.OpenModal<ContentWarningModalView>();
+            UIRouter.Instance.OpenModal<NewGameModalView>();
         }
 
         private static void HandleResumeGameClicked()
@@ -42,7 +41,7 @@ namespace UI.Views
 
         private void DisplayButtonOptions()
         {
-            if (!SaveExists())
+            if (!CampaignStarted())
             {
                 _elements.NewGameButton.visible = true;
                 _elements.ResumeButton.visible = false;

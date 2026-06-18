@@ -4,7 +4,7 @@
     <Style src="project://database/Assets/UI%20Toolkit/Styles/modals.uss?fileID=7433441132597879392&amp;guid=13ed200b9245c324893cab4d56685f0b&amp;type=3#modals"/>
     <ui:VisualElement name="notice-ctr" class="modal-root">
         <ui:VisualElement name="notice-text-ctr" class="modal-notice-text-ctr">
-            <ui:Label text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" name="notice-lbl" class="text-shadow-dark modal-notice-lbl"/>
+             <ui:Label text="Creating a new game will delete your existing save data.&#x0a;Are you sure you want to proceed?" name="notice-lbl" class="text-shadow-dark modal-notice-lbl"/>
         </ui:VisualElement>
         <ui:VisualElement name="continue-btn-ctr" class="modal-continue-btn-ctr">
             <ui:Instance template="MenuButton" name="yes-btn">

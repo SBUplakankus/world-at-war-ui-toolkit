@@ -1,3 +1,4 @@
+using Data;
 using UI.Constants;
 using UI.Core;
 using UI.Factories;
@@ -20,8 +21,9 @@ namespace UI.Views
 
         private static void HandleYesClicked()
         {
-            Debug.Log("New Game confirmed");
+            SaveDataManager.Delete();
             UIRouter.Instance.CloseModal();
+            UIRouter.Instance.OpenModal<ContentWarningModalView>();
         }
 
         private static void HandleNoClicked()

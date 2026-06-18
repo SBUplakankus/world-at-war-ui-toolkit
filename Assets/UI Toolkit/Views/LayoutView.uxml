@@ -2,7 +2,8 @@
     <Style src="project://database/Assets/UI%20Toolkit/Styles/core.uss?fileID=7433441132597879392&amp;guid=7ddee200e3647634fad40c422ee9bf29&amp;type=3#core"/>
     <Style src="project://database/Assets/UI%20Toolkit/Styles/screens.uss?fileID=7433441132597879392&amp;guid=1f8ac92c17485ff4fa150022e05ca083&amp;type=3#screens"/>
     <Style src="project://database/Assets/UI%20Toolkit/Styles/modals.uss?fileID=7433441132597879392&amp;guid=13ed200b9245c324893cab4d56685f0b&amp;type=3#modals"/>
-    <ui:VisualElement name="video-bg" class="fill-absolute video-bg">
+    <ui:VisualElement name="video-bg" class="fill-absolute" style="background-image: url(&quot;project://database/Assets/Art/Render%20Textures/Menu_BG.renderTexture?fileID=8400000&amp;guid=1665eca1802e1bd48b47572cb948498c&amp;type=2#Menu_BG&quot;); background-color: rgba(90, 115, 106, 0); -unity-background-image-tint-color: rgb(107, 127, 120);">
+        <ui:VisualElement name="video-bg" style="flex-grow: 1;"/>
         <ui:VisualElement name="left-vig" class="vignette-side vignette-side--left"/>
         <ui:VisualElement name="right-vig" class="vignette-side vignette-side--right"/>
     </ui:VisualElement>

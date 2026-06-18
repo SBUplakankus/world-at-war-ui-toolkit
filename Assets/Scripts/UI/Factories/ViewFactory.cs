@@ -15,7 +15,7 @@ namespace UI.Factories
             var name = typeof(TView).Name;
             var template = Resources.Load<VisualTreeAsset>($"Views/{name}");
 
-            if (template == null)
+            if (!template)
             {
                 Debug.LogError($"ViewFactory: missing Resources/Views/{name}.uxml");
                 return null;

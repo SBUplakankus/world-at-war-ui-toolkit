@@ -6,7 +6,7 @@
 ![C](https://shieldcn.dev/badge/C%23-9.0-239120.png?variant=outline&logo=csharp)
 ![MIT License](https://shieldcn.dev/badge/License-MIT-blue.png?variant=outline)
 
-Developed to showcase how I would handle a large scale UI System in Unity 6. I have spent the past 7 months doing R&D with UI Toolkit and UI Programming both at work and at home and this system is the culmination of that.
+Developed to showcase how I would handle a large scale UI System in Unity 6.
 
 <br/>
 
@@ -19,6 +19,8 @@ Developed to showcase how I would handle a large scale UI System in Unity 6. I h
 ---
 
 ## About
+
+I have spent the past 7 months doing R&D with UI Toolkit and UI Programming both at work and at home and this system is the culmination of that.
 
 UI Toolkit resources and examples are scarce, so I based the system on both my work on .NET tools in Avalonia, and how Epic Games handle UI through their Lyra Sample Project.
 

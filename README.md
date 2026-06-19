@@ -22,7 +22,7 @@ Developed to showcase how I would handle a large scale UI System in Unity 6. I h
 
 UI Toolkit resources and examples are scarce, so I based the system on both my work on .NET tools in Avalonia, and how Epic Games handle UI through their Lyra Sample Project.
 
-UI Toolkit is receiving some great updates and improvements in every iteration of Unity 6, but there's no code generation for compile-time safe bindings. Without source generators like CommunityToolkit.Mvvm, implementing full MVVM requires manual wiring that cancels out the pattern's benefits.
+UWhile it is receiving some great updates and improvements in every iteration of Unity 6, there's no code generation for compile-time safe bindings. Without source generators like CommunityToolkit.Mvvm, implementing full MVVM requires manual wiring that cancels out the pattern's benefits.
 
 The closest design pattern comparison is the HTML, CSS and Vanilla JS pattern from the 2000s. The toolkit is very similar to Web Development from that era with some unique game engine integrations and fantastic performance.
 
@@ -87,11 +87,11 @@ sequenceDiagram
     participant NewView
 
     User->>ActiveView: button click
-    ActiveView->>UIRouter: NavigateTo&lt;T&gt;()
-    UIRouter->>ViewFactory: Create&lt;T&gt;()
+    ActiveView->>UIRouter: "NavigateTo<T>()"
+    UIRouter->>ViewFactory: "Create<T>()"
     ViewFactory->>Resources: Resources.Load (uxml)
     Resources-->>ViewFactory: VisualTreeAsset
-    Note over ViewFactory: Activator.CreateInstance(template)<br/>→ CloneTree() into Root
+    Note over ViewFactory: "Activator.CreateInstance(template)<br/>→ CloneTree() into Root"
     ViewFactory-->>UIRouter: returns view
     UIRouter->>UILayer: ShowScreen → Push(view)
     UILayer->>ActiveView: Deactivate() → UnBind()
@@ -99,49 +99,6 @@ sequenceDiagram
     UILayer->>NewView: Activate()
     Note over NewView: GetElements()<br/>Bind()
     Note over ActiveView,NewView: Chrome (header/footer) stays visible throughout
-```
-
-</details>
-
-<details>
-<summary>Elements records pattern</summary>
-
-```mermaid
-flowchart LR
-    subgraph UXML["UXML document"]
-        U1["Button name='solo-btn'"]
-        U2["Button name='coop-btn'"]
-        U3["Label name='motd-content'"]
-    end
-
-    subgraph Constants["Elements.cs"]
-        C1["const SoloBtn = 'solo-btn'"]
-        C2["const CoopBtn = 'coop-btn'"]
-        C3["const MotdContent = 'motd-content'"]
-    end
-
-    subgraph Factory["ElementsFactory"]
-        F1["MainMenu(root)"]
-        F2["root.Q&lt;Button&gt;(SoloBtn)"]
-        F3["root.Q&lt;Button&gt;(CoopBtn)"]
-        F4["root.Q&lt;Label&gt;(MotdContent)"]
-    end
-
-    subgraph Record["sealed record MainMenuElements"]
-        R1["Button SoloButton"]
-        R2["Button CoOpButton"]
-        R3["Label MessageLabel"]
-    end
-
-    subgraph Bind["View.Bind()"]
-        B1["SoloButton.clicked += HandleSolo"]
-        B2["MessageLabel.text = FetchMOTD()"]
-    end
-
-    UXML -->|"name attrs reference constants"| Constants
-    Constants -->|"queries by name"| Factory
-    Factory -->|"returns"| Record
-    Record -->|"consumed by"| Bind
 ```
 
 </details>
@@ -156,9 +113,9 @@ stateDiagram-v2
     GetElements --> Bind : one tree walk done
     Bind --> Active : events subscribed
 
-    Active --> UnBind : Deactivate()\nanother view pushed
+    Active --> UnBind : Deactivate() - Another view pushed
     UnBind --> Dormant : ready for reuse
-    Dormant --> GetElements : Activate() again\nPop from history
+    Dormant --> GetElements : Activate() again - Pop from history
     Dormant --> Disposed : Dispose()
     Active --> Disposed : Clear()
 
@@ -203,6 +160,8 @@ stateDiagram-v2
 
 **Modal Overlay System:** `ModalController` manages a dedicated `VisualElement` container positioned absolute over the screen area. When no modal is active, the overlay is invisible and input passes through to the screen below. When a modal pushes, opacity goes to 1 and `pickingMode` activates, blocking interaction with the view underneath.
 
+#
+
 ### UI Layer Architecture
 
 **Typed Elements Records Pattern:** Every view's `GetElements()` is a single call to `ElementsFactory`, which returns a `sealed record` of strongly-typed `VisualElement` references. 16 records decouple UXML structure from C# logic. Element names live in `Constants/Elements.cs`, not scattered as magic strings across views. C# 9 positional records give immutability, value equality, and zero boilerplate per record.
@@ -222,6 +181,8 @@ stateDiagram-v2
 
 The split between element querying (expensive but one-shot) and event binding (cheap but must be undone) prevents stale handlers and ensures clean teardown.
 
+#
+
 ### Styling & Data
 
 **USS Custom Property Theming:** `core.uss` defines a `:root` block of CSS custom properties for all colours, fonts, border radii, and motion values. `screens.uss` and `modals.uss` inherit these tokens. Changing a single variable in `core.uss` propagates to every panel. Theme-wide changes require edits to one file, not per-panel hunting.
@@ -229,6 +190,8 @@ The split between element querying (expensive but one-shot) and event binding (c
 **C# 9 Records on .NET Standard 2.1:** `IsExternalInit.cs` polyfill enables sealed positional records in Unity's .NET Standard 2.1 runtime. The entire Elements Records pattern depends on this. Without it, every record would require explicit constructor and property boilerplate.
 
 **USS-Class-Driven Audio:** `UIAudioHandler` listens for `PointerEnterEvent` and `ClickEvent` at the root level. It checks the target element for `audio--hover` or `audio--click` USS classes. Audio assignment happens in UXML/USS. No C# event wiring per button.
+
+#
 
 ### Content & Interactions
 
@@ -263,6 +226,8 @@ I value Safety, Scanability, Readability and Separation of Concerns above all el
 It is incredibly easy to get carried away trying to replicate common UI Architecture and Dependency Injection in a large UI Toolkit based system. I think the reality is just that the library isn't developed enough to handle this well, there's no built-in navigation, DI, or view locator. So attempting full MVVM/DI patterns from Web, WPF or Avalonia leads to more overhead than it is worth. You'll end up with a verbose code base where trying to add new views becomes a nightmare of touching 8-9 classes.
 
 The system navigation running off of a UI Router singleton is a necessary evil. It is not modelled off of the cliche nightmare fat controller of old Unity Systems that has been phased out for more Scriptable Object based architecture. Instead, it is based off of the Unreal Engine 5 Subsystems which exist for these exact cases. On a fully developed game I would just fold this into a Service Locator that contains other static classes and singletons.
+
+---
 
 ## Testing
 
@@ -356,7 +321,7 @@ Assets/
 
 ## Demo
 
-*Full walkthrough video coming soon.*
+https://github.com/user-attachments/assets/460aafd6-12ea-424b-9edf-4004942891b1
 
 ---
 

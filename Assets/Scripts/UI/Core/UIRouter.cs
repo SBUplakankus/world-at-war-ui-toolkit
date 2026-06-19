@@ -12,11 +12,11 @@ namespace UI.Core
         private static UIRouter _instance;
         public static UIRouter Instance => _instance ??= new();
 
-        private MenuLayout _layout;
+        private MenuRoot _root;
 
-        public void Register(MenuLayout layout)
+        public void Register(MenuRoot root)
         {
-            _layout = layout;
+            _root = root;
         }
 
         public void NavigateTo<TView>() where TView : BaseView
@@ -24,7 +24,7 @@ namespace UI.Core
             if (!EnsureReady("NavigateTo")) return;
             var view = ViewFactory.Create<TView>();
             if (view != null)
-                _layout.ShowScreen(view);
+                _root.ShowScreen(view);
         }
 
         public void OpenModal<TModal>() where TModal : BaseView
@@ -32,30 +32,30 @@ namespace UI.Core
             if (!EnsureReady("OpenModal")) return;
             var view = ViewFactory.Create<TModal>();
             if (view != null)
-                _layout.ShowModal(view);
+                _root.ShowModal(view);
         }
 
         public void Back()
         {
             if (!EnsureReady("Back")) return;
-            _layout.BackScreen();
+            _root.BackScreen();
         }
 
         public void CloseModal()
         {
             if (!EnsureReady("CloseModal")) return;
-            _layout.CloseModal();
+            _root.CloseModal();
         }
 
         public void ClearModals()
         {
             if (!EnsureReady("ClearModals")) return;
-            _layout.ClearModals();
+            _root.ClearModals();
         }
 
         private bool EnsureReady(string method)
         {
-            if (_layout) return true;
+            if (_root) return true;
             Debug.LogError($"UIRouter.{method}: not registered — call Register() first");
             return false;
         }

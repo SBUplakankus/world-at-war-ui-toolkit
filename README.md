@@ -331,11 +331,10 @@ https://github.com/user-attachments/assets/460aafd6-12ea-424b-9edf-4004942891b1
 ## Tech Stack
 
 - **Unity** 6000.4.8f1
-- **UI Toolkit** (runtime UI Documents in world space)
-- **C# 9.0** (sealed records, `IsExternalInit` polyfill for .NET Standard 2.1)
-- **USS** (custom properties, `:root` design tokens, font faces)
-- **NUnit + Unity Test Framework** (3 test suites, 39 tests)
-- **JSON** (save data serialization, content data)
+- **UI Toolkit**
+- **C# 9.0**
+- **NUnit + Unity Test Framework** 
+- **JSON** 
 
 ---
 
@@ -363,17 +362,17 @@ I also use AI to help me out with these markdown docs to flesh things out like t
 
 ## Related
 
-- [Architecture Diagrams](./Docs/DIAGRAMS.md) -- class diagrams, navigation sequences, layer states, data flow
-- [UI Toolkit Mini Series](https://github.com/SBUplakankus/ui-toolkit-mini-series) -- companion tutorial repo
+- [Architecture Diagrams](./Docs/DIAGRAMS.md) - class diagrams, navigation sequences, layer states, data flow
+- [UI Toolkit Mini Series](https://github.com/SBUplakankus/ui-toolkit-mini-series) - companion tutorial repo
 
 ---
 
-> Data layer (`SaveDataManager`, `UIResources`) exists to populate the UI and validate the navigation pipeline. Not a production persistence solution -- no encryption, no schema versioning, no error recovery beyond `defaults.json` fallback.
+> Data layerexists to populate the UI and validate the navigation pipeline. Not a production persistence solution.
 >
-> Audio (`UIAudioHandler`) is a basic USS-class-driven add-on for hover and click feedback. No spatial audio, no mixer groups, no dynamic mixing.
+> Audio is a basic USS-class-driven add-on for hover and click feedback. No spatial audio, no mixer groups, no dynamic mixing.
 >
-> Design: This is a programming portfolio piece, so I kept the visual scope tight. The background gradients are custom SVGs applied via USS background-image, and the film grain and vignette are handled through Unity's post-processing stack on the UI camera. No external design tools or assets were used.
+>This is a programming portfolio piece, so I kept the visual scope tight. The background gradients are custom SVGs applied via USS background-image, and the film grain and vignette are handled through Unity's post-processing stack on the UI camera. 
 >
-> Future: Screen creation was halted once it became repetitive and I had enough views to demonstrate the system. I may expand it in the future and extend the architecture to a full HUD demo.
+> Screen creation was halted once it became repetitive and I had enough views to demonstrate the system. I may expand it in the future and extend the architecture to a full HUD demo.
 >
-> Refs: The `Refs/` directory contains 34 reference screenshots from the original Call of Duty: World at War used as visual targets during development, covering every menu screen, HUD state, pause variant, and modal across console, PC, and split-screen.
+> The `Refs/` directory contains 34 reference screenshots from the original Call of Duty: World at War used as visual targets during development, covering every menu screen, HUD state, pause variant, and modal across console, PC, and split-screen.

@@ -91,20 +91,20 @@ namespace UI.Views
         {
             var completed = CompletedMissions;
             _elements.SemperFi.SetEnabled(true);
-            _elements.LittleResistance.SetEnabled(1 < completed);
-            _elements.HardLanding.SetEnabled(2 < completed);
-            _elements.Vendetta.SetEnabled(3 < completed);
-            _elements.TheirLandTheirBlood.SetEnabled(4 < completed);
-            _elements.BurnEmOut.SetEnabled(5 < completed);
-            _elements.Relentless.SetEnabled(6 < completed);
-            _elements.BloodAndIron.SetEnabled(7 < completed);
-            _elements.RingOfSteel.SetEnabled(8 < completed);
-            _elements.Eviction.SetEnabled(9 < completed);
-            _elements.BlackCats.SetEnabled(10 < completed);
-            _elements.BlowtorchAndCorkscrew.SetEnabled(11 < completed);
-            _elements.BreakingPoint.SetEnabled(12 < completed);
-            _elements.HeartOfTheReich.SetEnabled(13 < completed);
-            _elements.Downfall.SetEnabled(14 < completed);
+            _elements.LittleResistance.SetEnabled(1 <= completed);
+            _elements.HardLanding.SetEnabled(2 <= completed);
+            _elements.Vendetta.SetEnabled(3 <= completed);
+            _elements.TheirLandTheirBlood.SetEnabled(4 <= completed);
+            _elements.BurnEmOut.SetEnabled(5 <= completed);
+            _elements.Relentless.SetEnabled(6 <= completed);
+            _elements.BloodAndIron.SetEnabled(7 <= completed);
+            _elements.RingOfSteel.SetEnabled(8 <= completed);
+            _elements.Eviction.SetEnabled(9 <= completed);
+            _elements.BlackCats.SetEnabled(10 <= completed);
+            _elements.BlowtorchAndCorkscrew.SetEnabled(11 <= completed);
+            _elements.BreakingPoint.SetEnabled(12 <= completed);
+            _elements.HeartOfTheReich.SetEnabled(13 <= completed);
+            _elements.Downfall.SetEnabled(14 <= completed);
         }
 
         private void BindButtonHovers()

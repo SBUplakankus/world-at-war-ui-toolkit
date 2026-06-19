@@ -1,9 +1,13 @@
 using Data;
+using UI.Constants;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace UI.Core
 {
+    /// <summary>
+    /// Plays hover and click audio for UI elements with the matching USS classes.
+    /// </summary>
     [RequireComponent(typeof(UIDocument), typeof(AudioSource))]
     public class UIAudioHandler : MonoBehaviour
     {
@@ -31,16 +35,16 @@ namespace UI.Core
 
         private void OnPointerEnter(PointerEnterEvent evt)
         {
-            if (evt.target is not VisualElement el) return;
-            if (!el.ClassListContains("audio--hover")) return;
+            if (evt.target is not VisualElement element) return;
+            if (!element.ClassListContains(StyleClasses.AudioHover)) return;
             if (UIResources.AudioClips.TryGetValue(UI.Enums.Audio.Hover, out var clip))
                 _source.PlayOneShot(clip);
         }
 
         private void OnClick(ClickEvent evt)
         {
-            if (evt.target is not VisualElement el) return;
-            if (!el.ClassListContains("audio--click")) return;
+            if (evt.target is not VisualElement element) return;
+            if (!element.ClassListContains(StyleClasses.AudioClick)) return;
             if (UIResources.AudioClips.TryGetValue(UI.Enums.Audio.Click, out var clip))
                 _source.PlayOneShot(clip);
         }

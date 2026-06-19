@@ -5,7 +5,11 @@ using UnityEngine;
 
 namespace Utilities
 {
-    public class DebugTool : MonoBehaviour
+    /// <summary>
+    /// Debug Tool for modifying the Save Data in game by pressing F3
+    /// </summary>
+    
+	public class DebugTool : MonoBehaviour
     {
         private PlayerSaveData _edit;
         private bool _visible;
@@ -19,9 +23,9 @@ namespace Utilities
             else Show();
         }
 
-        public static void Attach(MenuLayout layout)
+        public static void Attach(MenuRoot root)
         {
-            layout.gameObject.AddComponent<DebugTool>();
+            root.gameObject.AddComponent<DebugTool>();
         }
 
         private void Show()

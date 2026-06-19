@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 
 namespace UI.Core
 {
+    /// <summary>
+    /// Light controller class for toggling the Modal and setting the title.
+    /// </summary>
     public class ModalController
     {
         private readonly ModalLayoutElements _elements;

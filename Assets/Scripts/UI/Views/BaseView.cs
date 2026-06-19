@@ -3,6 +3,10 @@ using UnityEngine.UIElements;
 
 namespace UI.Views
 {
+    /// <summary>
+    /// Base class for all views that implements IDisposable.
+    /// Calls GetElements and Bind on Activation and Unbind on Deactivation.
+    /// </summary>
     public abstract class BaseView : IDisposable
     {
         public VisualElement Root { get; private set; }

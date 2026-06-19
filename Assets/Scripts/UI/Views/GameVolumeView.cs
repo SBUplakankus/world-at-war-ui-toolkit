@@ -63,7 +63,7 @@ namespace UI.Views
 
         private static void HandleVoipClicked()
         {
-            Debug.Log("VoIP clicked");
+            Debug.Log("Voip clicked");
         }
 
         private void LoadSliderValues()

@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Data
 {
+    /// <summary>
+    /// Manages the Mock JSON Save Data. Partly vibe coded but does it's job for this prototype.
+    /// </summary>
     public static class SaveDataManager
     {
         private static PlayerSaveData _cachedSave;

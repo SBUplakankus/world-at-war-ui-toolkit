@@ -7,12 +7,15 @@ using UnityEngine.UIElements;
 
 namespace UI.Core
 {
+    /// <summary>
+    /// Core MonoBehaviour Root Class for the Main Menu. Stores the UI Layers, Chrome & Modal Controllers.
+    /// </summary>
     [RequireComponent(typeof(UIDocument))]
-    public class MenuLayout : MonoBehaviour
+    public class MenuRoot : MonoBehaviour
     {
         private UILayer _screenLayer;
         private UILayer _modalLayer;
-        private HeaderController _header;
+        private ChromeController _chrome;
         private ModalController _modal;
         private BaseView _mainMenu;
         private bool _ready;
@@ -28,18 +31,18 @@ namespace UI.Core
 
             _screenLayer = new UILayer(screenElements.ScreenViewContainer);
             _modalLayer = new UILayer(modalElements.ModalViewContainer);
-            _header = new HeaderController(screenElements);
+            _chrome = new ChromeController(screenElements);
             _modal = new ModalController(modalElements);
 
             _mainMenu = ViewFactory.Create<MainMenuView>();
 
-            _header.HideBackButton();
-            _header.SetTitle(_mainMenu);
-            _header.SetUsername(SaveDataManager.CurrentSave.username);
-            _header.SetVersion(Application.version);
+            _chrome.HideBackButton();
+            _chrome.SetTitle(_mainMenu);
+            _chrome.SetUsername(SaveDataManager.CurrentSave.username);
+            _chrome.SetVersion(Application.version);
             _modal.Hide();
 
-            _header.BindBackButton(OnBackClicked);
+            _chrome.BindBackButton(OnBackClicked);
             UIRouter.Instance.Register(this);
             _ready = true;
 
@@ -55,7 +58,7 @@ namespace UI.Core
 
         private void OnDestroy()
         {
-            _header.UnbindBackButton(OnBackClicked);
+            _chrome.UnbindBackButton(OnBackClicked);
             _screenLayer?.Clear();
             _modalLayer?.Clear();
         }
@@ -64,34 +67,46 @@ namespace UI.Core
 
         public void ShowScreen(BaseView view)
         {
-            if (!_ready) { Debug.LogWarning("MenuLayout.ShowScreen: not ready"); return; }
+            if (!_ready)
+            {
+                Debug.LogWarning("MenuRoot.ShowScreen: not ready");
+                return;
+            }
 
             _screenLayer.Push(view);
-            _header.ShowBackButton();
-            _header.SetTitle(view);
+            _chrome.ShowBackButton();
+            _chrome.SetTitle(view);
         }
 
         public void BackScreen()
         {
-            if (!_ready) { Debug.LogWarning("MenuLayout.BackScreen: not ready"); return; }
+            if (!_ready)
+            {
+                Debug.LogWarning("MenuRoot.BackScreen: not ready");
+                return;
+            }
 
             _screenLayer.Pop();
 
             if (_screenLayer.IsEmpty)
             {
-                _header.HideBackButton();
-                _header.SetTitle(_mainMenu);
+                _chrome.HideBackButton();
+                _chrome.SetTitle(_mainMenu);
             }
             else
             {
-                _header.ShowBackButton();
-                _header.SetTitle(_screenLayer.Current);
+                _chrome.ShowBackButton();
+                _chrome.SetTitle(_screenLayer.Current);
             }
         }
 
         public void ShowModal(BaseView view)
         {
-            if (!_ready) { Debug.LogWarning("MenuLayout.ShowModal: not ready"); return; }
+            if (!_ready)
+            {
+                Debug.LogWarning("MenuRoot.ShowModal: not ready");
+                return;
+            }
 
             _modalLayer.Push(view);
             _modal.Show();
@@ -100,7 +115,11 @@ namespace UI.Core
 
         public void CloseModal()
         {
-            if (!_ready) { Debug.LogWarning("MenuLayout.CloseModal: not ready"); return; }
+            if (!_ready)
+            {
+                Debug.LogWarning("MenuRoot.CloseModal: not ready");
+                return;
+            }
 
             _modalLayer.Pop();
             _modal.Hide();
@@ -108,7 +127,11 @@ namespace UI.Core
 
         public void ClearModals()
         {
-            if (!_ready) { Debug.LogWarning("MenuLayout.ClearModals: not ready"); return; }
+            if (!_ready)
+            {
+                Debug.LogWarning("MenuRoot.ClearModals: not ready");
+                return;
+            }
 
             _modalLayer.Clear();
             _modal.Hide();

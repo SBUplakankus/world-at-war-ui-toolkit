@@ -25,7 +25,7 @@ Modelled after how Epic Games handled the UI in their sample game Lyra, I have s
 
 UI Toolkit resources and examples are scarce, so I based the system on both my work on .NET tools in Avalonia, and how Epic Games handle UI through their Lyra Sample Project.
 
-UWhile it is receiving some great updates and improvements in every iteration of Unity 6, there's no code generation for compile-time safe bindings. Without source generators like CommunityToolkit.Mvvm, implementing full MVVM requires manual wiring that cancels out the pattern's benefits.
+While it is receiving some great updates and improvements in every iteration of Unity 6, there's no code generation for compile-time safe bindings. Without source generators like CommunityToolkit.Mvvm, implementing full MVVM requires manual wiring that cancels out the pattern's benefits.
 
 The closest design pattern comparison is the HTML, CSS and Vanilla JS pattern from the 2000s. The toolkit is very similar to Web Development from that era with some unique game engine integrations and fantastic performance.
 

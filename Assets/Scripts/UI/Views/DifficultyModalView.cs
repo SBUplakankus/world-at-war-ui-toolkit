@@ -29,6 +29,7 @@ namespace UI.Views
             SaveDataManager.Save(save);
             Debug.Log("Difficulty set to: " + difficulty);
             UIRouter.Instance.ClearModals();
+            UIRouter.Instance.Back();
         }
 
         private void SetPreview(Difficulty difficulty)

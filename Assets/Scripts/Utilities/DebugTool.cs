@@ -14,11 +14,9 @@ namespace Utilities
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F3))
-            {
-                if (_visible) Hide();
-                else Show();
-            }
+            if (!Input.GetKeyDown(KeyCode.F3)) return;
+            if (_visible) Hide();
+            else Show();
         }
 
         public static void Attach(MenuLayout layout)
@@ -121,8 +119,7 @@ namespace Utilities
             _status = "New player — save notice shown";
 
             var router = UIRouter.Instance;
-            if (router != null)
-                router.OpenModal<UI.Views.SaveNoticeView>();
+            router?.OpenModal<UI.Views.SaveNoticeView>();
         }
     }
 }

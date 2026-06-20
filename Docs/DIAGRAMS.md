@@ -555,4 +555,4 @@ flowchart LR
 
 ---
 
-> All diagrams use Mermaid syntax. Render in any Mermaid-compatible viewer — GitHub, GitLab, Notion, Obsidian, or the [Mermaid Live Editor](https://mermaid.live).
+> All diagrams use Mermaid syntax. Render in any Mermaid-compatible viewer: GitHub, GitLab, Notion, Obsidian, or the [Mermaid Live Editor](https://mermaid.live).

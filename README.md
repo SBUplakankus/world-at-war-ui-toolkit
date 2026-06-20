@@ -24,6 +24,8 @@ The core architecture is designed to showcase UI Programming fundamentals and tr
 
 UI Toolkit resources and examples are scarce, and existing samples are either too small to demonstrate real navigation patterns or too complex with heavy MVVM abstractions. I based this system on my work in Avalonia and Epic's Lyra sample to fill that gap.
 
+I spent over half a year doing R&D with UI Toolkit and wanted to put something together to showcase how I would handle a large scale UI system before moving on to other projects.
+
 A driving goal was to push UI Toolkit's visual boundaries by recreating a gritty, stylised game menu instead of the clean website-like UIs it is often associated with. World at War's menu was the perfect target to stress-test what the toolkit can do visually without needing to rely on custom shaders and textures.
 
 The architecture is straightforward routing backed by convention, not configuration. Every screen follows the same lifecycle: a UXML template, a typed elements record, and a C# code-behind class wired through `NavigateTo<T>()`. The result is a system simple enough that cheap AI agents can add new screens once the first few are in place.

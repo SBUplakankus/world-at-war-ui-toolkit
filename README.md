@@ -8,7 +8,7 @@
 
 A structured reference for building multi-screen UIs in Unity 6 with UI Toolkit.  
 It is a pure code system. No ScriptableObjects, No Inspector references, and No custom frameworks.  
-The core architecture is designed to showcase UI Programming fundamentals and translate to any other UI framework.
+The core architecture is designed to showcase UI Programming fundamentals that can translate to any other UI framework.
 
 <br/>
 

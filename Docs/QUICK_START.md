@@ -193,7 +193,7 @@ That is it. The back button automatically pops the current screen back to the pr
 
 ---
 
-## Step 7: Add tests
+## Step 7: Add tests (Optional but important if Designers will be editing the UXML in UI Builder)
 
 Two test files cover every screen. Add your new view to both.
 
@@ -240,4 +240,4 @@ This validates every named element in the UXML resolves through the factory meth
 | `Tests/ViewFactory/ViewFactoryTests.cs` | One `yield return typeof({Name})` |
 | `Tests/ElementsFactory/ElementsFactoryTests.cs` | One `{Name}_AllElementsResolve` test |
 
-Seven steps, seven files.
+Five steps across Five files with Two Extra if you want to add Tests.

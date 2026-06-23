@@ -8,7 +8,7 @@
 
 A structured reference for building multi-screen UIs in Unity 6 with UI Toolkit.  
 It is a pure code system. No ScriptableObjects, No Inspector references, and No custom frameworks.  
-The core architecture is designed to showcase UI Programming fundamentals that can translate to any other UI framework.
+The core architecture is designed to translate across different engine UI frameworks.
 
 <br/>
 
@@ -26,7 +26,7 @@ UI Toolkit resources and examples are scarce, and existing samples are either to
 
 I spent over half a year doing R&D with UI Toolkit and wanted to put something together to showcase how I would handle a large scale UI system before moving on to other projects.
 
-A driving goal was to push UI Toolkit's visual boundaries by recreating a gritty, stylised game menu instead of the clean website-like UIs it is often associated with. World at War's menu was the perfect target to stress-test what the toolkit can do visually without needing to rely on custom shaders and textures.
+A driving goal was to push the USS & UXML by recreating a gritty, stylised game menu instead of the clean website-like UIs it is often associated with. World at War's menu was the perfect target to stress-test what the toolkit can do visually without needing to rely on custom shaders.
 
 The architecture is straightforward routing backed by convention, not configuration. Every screen follows the same lifecycle: a UXML template, a typed elements record, and a C# code-behind class wired through `NavigateTo<T>()`. The result is a system simple enough that cheap AI agents can add new screens once the first few are in place.
 
